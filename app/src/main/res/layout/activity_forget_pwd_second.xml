@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:id="@+id/rl_parent"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="#fff">
+
+    <ImageView
+        android:id="@+id/parent"
+        android:clickable="true"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:src="@drawable/normal_bg"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1">
+
+            <LinearLayout
+                android:layout_width="550dp"
+                android:layout_height="350dp"
+                android:layout_centerInParent="true"
+                android:focusable="true"
+                android:focusableInTouchMode="true"
+                android:orientation="vertical">
+
+
+                <TextView
+                    android:textSize="28dp"
+                    android:text="重置密码"
+                    android:textColor="@color/index_brown"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+
+
+                <LinearLayout
+                    android:layout_marginTop="40dp"
+                    android:focusable="true"
+                    android:focusableInTouchMode="true"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                    <EditText
+                        android:id="@+id/et_pwd"
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/edit_bg"
+                        android:hint="请输入新密码"
+                        android:inputType="textPassword"
+                        android:padding="15dp"
+                        android:maxLength="16"
+                        android:layout_marginRight="15dp"
+                        android:textColor="@color/index_brown"
+                        android:textColorHint="@color/text_color_tip"
+                        android:textSize="22sp"/>
+                    <ImageView
+                        android:id="@+id/iv_tip_pwd"
+                        android:layout_width="25dp"
+                        android:layout_height="25dp"/>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_marginTop="50dp"
+                    android:focusable="true"
+                    android:focusableInTouchMode="true"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                    <EditText
+                        android:id="@+id/et_re_pwd"
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/edit_bg"
+                        android:hint="请再次输入新密码"
+                        android:inputType="textPassword"
+                        android:padding="15dp"
+                        android:maxLength="16"
+                        android:layout_marginRight="15dp"
+                        android:textColor="@color/index_brown"
+                        android:textColorHint="@color/text_color_tip"
+                        android:textSize="22sp"/>
+                    <ImageView
+                        android:id="@+id/iv_tip_re_pwd"
+                        android:layout_width="25dp"
+                        android:layout_height="25dp"/>
+                </LinearLayout>
+
+                <TextView
+                    android:id="@+id/tv_ok"
+                    android:gravity="center"
+                    android:layout_width="160dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="60dp"
+                    android:background="@drawable/brown_s_shape"
+                    android:padding="10dp"
+                    android:text="确定"
+                    android:textColor="#ffffff"
+                    android:textSize="22sp"/>
+            </LinearLayout>
+        </RelativeLayout>
+
+        <include layout="@layout/include_bottom"/>
+    </LinearLayout>
+
+    <FrameLayout
+        android:id="@+id/fl_search_content"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="25dp"
+        android:layout_marginLeft="30dp"
+        android:visibility="gone">
+
+        <ImageView
+            android:layout_width="240dp"
+            android:layout_height="70dp"
+            android:src="@drawable/main_search"/>
+
+        <LinearLayout
+            android:focusable="true"
+            android:focusableInTouchMode="true"
+            android:layout_width="match_parent"
+            android:layout_height="47dp"
+            android:orientation="horizontal">
+
+            <EditText
+                android:id="@+id/base_et_search"
+                android:layout_width="0dp"
+                android:paddingLeft="4dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="#fff"
+                android:hint=" 菜谱/食材"
+                android:textColor="#b28750"
+                android:textCursorDrawable="@null"
+                android:textSize="22sp"/>
+
+            <TextView
+                android:id="@+id/base_tv_go"
+                android:layout_width="40dp"
+                android:layout_height="match_parent"
+                android:background="#b28750"
+                android:gravity="center"
+                android:text="GO"
+                android:textColor="#fff"
+                android:textSize="22sp"/>
+        </LinearLayout>
+    </FrameLayout>
+</RelativeLayout>

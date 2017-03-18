@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:orientation="vertical"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent">
+
+    <FrameLayout
+        android:id="@+id/content"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/gray_line"/>
+
+    <LinearLayout
+        android:background="#fff"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:gravity="center"
+            android:textSize="22sp"
+            android:textColor="@color/bg_color_black"
+            android:text="已选择："
+            android:layout_width="120dp"
+            android:layout_height="70dp"/>
+
+
+        <View
+            android:layout_width="1dp"
+            android:layout_height="match_parent"
+            android:background="@color/gray_line"/>
+
+        <GridView
+            android:id="@+id/gv_selective"
+            android:numColumns="8"
+            android:horizontalSpacing="10dp"
+            android:verticalSpacing="3dp"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:scrollbars="none"
+            android:divider="@null"
+            android:layout_height="70dp" />
+
+        <TextView
+            android:id="@+id/tv_ok"
+            android:gravity="center"
+            android:textSize="22sp"
+            android:textColor="#fff"
+            android:text="确定"
+            android:background="@drawable/text_color_a_2_b"
+            android:layout_width="120dp"
+            android:layout_height="70dp"/>
+        <View
+            android:layout_width="1dp"
+            android:layout_height="70dp"
+            android:background="@color/gray_line"/>
+        <TextView
+            android:id="@+id/tv_cancel"
+            android:gravity="center"
+            android:textSize="22sp"
+            android:textColor="#fff"
+            android:text="取消"
+            android:background="@drawable/text_color_a_2_b"
+            android:layout_width="120dp"
+            android:layout_height="70dp"/>
+    </LinearLayout>
+
+</LinearLayout>

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.kgv.cookbook.ui.DragFrameLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/parent"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_gravity="center_vertical">
+
+    <WebView
+        android:id="@+id/webView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
+    <TextView
+        android:id="@+id/dragImg"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:layout_margin="30dp"
+        android:background="@drawable/blue_circle_bg_s"
+        android:paddingBottom="20dp"
+        android:paddingLeft="14dp"
+        android:paddingRight="14dp"
+        android:paddingTop="20dp"
+        android:text="返回"
+        android:textColor="@color/text_color_white_s"
+        android:textSize="19sp"/>
+</com.kgv.cookbook.ui.DragFrameLayout>

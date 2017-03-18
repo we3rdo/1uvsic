@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#3F51B5</color>
+    <color name="colorPrimaryDark">#303F9F</color>
+    <color name="colorAccent">#FF4081</color>
+
+
+    <color name="blue">#e5366ce9</color>
+    <color name="blue_translate">#86366ce9</color>
+    <color name="l">#b28850</color>
+    <color name="white">#fff</color>
+
+    <color name="gray">#5A5A5A</color>
+    <color name="gray_translate">#615a5a5a</color>
+    <color name="white_translate">#8dffffff</color>
+    <color name="text_color_tip">#727171</color>
+    <color name="text_color_brown">#81511c</color>
+    <color name="text_color_brown_translate">#8d81511c</color>
+    <color name="text_color_green">#4e7d03</color>
+    <color name="text_color_green_translate">#8d4e7d03</color>
+
+    <!---->
+    <color name="index_brown">#A17948</color>
+    <color name="index_brown_trans">#a9a17948</color>
+    <color name="index_black">#323232</color>
+    <color name="index_black_trans">#b3323232</color>
+    <!---->
+    <color name="item_single">#F5F7F6</color>
+    <color name="item_double">#E5E5E5</color>
+    <!---->
+    <color name="coffee">#BCA281</color>
+    <color name="red">#dbff0d00</color>
+    <color name="bg_color_white">#F5F7F6</color>
+    <color name="bg_color_black">#313332</color>
+    <color name="black_trans">#aa313332</color>
+    <color name="a">#A07A4B</color>
+    <color name="b">#875E32</color>
+    <color name="c">#BCA183</color>
+    <color name="gray_line">#B5B5B5</color>
+</resources>

@@ -1,0 +1,215 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="#fff"
+                android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1">
+
+            <ImageView
+                android:id="@+id/background"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:src="@drawable/main_bg_recipe_0"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="120dp"
+                android:layout_marginRight="120dp"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="120dp"
+                    android:layout_marginTop="100dp"
+                    android:orientation="horizontal">
+
+                    <FrameLayout
+                        android:id="@+id/fl_recipe"
+                        android:layout_width="160dp"
+                        android:layout_height="match_parent"/>
+
+                    <FrameLayout
+                        android:id="@+id/fl_manager"
+                        android:layout_marginLeft="20dp"
+                        android:layout_width="200dp"
+                        android:layout_height="match_parent"/>
+
+                    <FrameLayout
+                        android:id="@+id/fl_application"
+                        android:layout_width="160dp"
+                        android:layout_marginLeft="290dp"
+                        android:layout_height="match_parent"/>
+
+                    <FrameLayout
+                        android:id="@+id/fl_setup"
+                        android:layout_marginLeft="50dp"
+                        android:layout_width="160dp"
+                        android:layout_height="match_parent"/>
+                </LinearLayout>
+
+
+                <FrameLayout
+                    android:layout_marginTop="120dp"
+                    android:layout_marginBottom="110dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1">
+
+                    <LinearLayout
+                        android:id="@+id/ll_recipe"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="horizontal">
+
+                        <FrameLayout
+                            android:id="@+id/fl_all_mate"
+                            android:layout_width="230dp"
+                            android:layout_height="match_parent"/>
+
+                        <FrameLayout
+                            android:id="@+id/fl_food_world"
+                            android:layout_width="230dp"
+                            android:layout_marginRight="40dp"
+                            android:layout_height="match_parent"/>
+
+                        <FrameLayout
+                            android:id="@+id/fl_week"
+                            android:layout_width="230dp"
+                            android:layout_marginRight="40dp"
+                            android:layout_height="match_parent"/>
+
+                        <FrameLayout
+                            android:id="@+id/fl_set_meal"
+                            android:layout_width="230dp"
+                            android:layout_height="match_parent"/>
+                    </LinearLayout>
+
+
+                    <LinearLayout
+                        android:id="@+id/ll_application"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="horizontal"
+                        android:visibility="gone">
+
+                        <FrameLayout
+                            android:id="@+id/fl_video"
+                            android:layout_width="230dp"
+                            android:layout_marginLeft="135dp"
+                            android:layout_marginRight="40dp"
+                            android:layout_height="match_parent"/>
+
+                        <FrameLayout
+                            android:id="@+id/fl_music"
+                            android:layout_width="230dp"
+                            android:layout_marginRight="40dp"
+                            android:layout_height="match_parent"/>
+
+                        <FrameLayout
+                            android:id="@+id/fl_app"
+                            android:layout_width="230dp"
+                            android:layout_height="match_parent"/>
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/ll_set_up"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="horizontal"
+                        android:visibility="gone">
+
+                        <FrameLayout
+                            android:id="@+id/fl_system"
+                            android:layout_width="192dp"
+                            android:layout_marginRight="20dp"
+                            android:layout_height="match_parent"/>
+
+                        <FrameLayout
+                            android:id="@+id/fl_family"
+                            android:layout_width="192dp"
+                            android:layout_marginRight="20dp"
+                            android:layout_height="match_parent"/>
+
+                        <FrameLayout
+                            android:id="@+id/fl_voice"
+                            android:layout_width="192dp"
+                            android:layout_marginRight="20dp"
+                            android:layout_height="match_parent"/>
+
+                        <FrameLayout
+                            android:id="@+id/fl_interest"
+                            android:layout_marginRight="20dp"
+                            android:layout_width="192dp"
+                            android:layout_height="match_parent"/>
+
+                        <FrameLayout
+                            android:id="@+id/fl_password"
+                            android:layout_marginRight="20dp"
+                            android:layout_width="192dp"
+                            android:layout_height="match_parent"/>
+                    </LinearLayout>
+
+                </FrameLayout>
+            </LinearLayout>
+        </RelativeLayout>
+
+        <include layout="@layout/include_bottom"/>
+    </LinearLayout>
+
+    <FrameLayout
+        android:id="@+id/fl_search_content"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="25dp"
+        android:layout_marginLeft="30dp"
+        android:visibility="gone">
+
+        <ImageView
+            android:layout_width="240dp"
+            android:layout_height="70dp"
+            android:src="@drawable/main_search"/>
+
+        <LinearLayout
+            android:focusable="true"
+            android:focusableInTouchMode="true"
+            android:layout_width="match_parent"
+            android:layout_height="47dp"
+            android:orientation="horizontal">
+
+            <EditText
+                android:id="@+id/base_et_search"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="#fff"
+                android:hint=" 菜谱/食材"
+                android:paddingLeft="4dp"
+                android:textColor="#b28750"
+                android:textCursorDrawable="@null"
+                android:textSize="22sp"/>
+
+            <TextView
+                android:id="@+id/base_tv_go"
+                android:layout_width="40dp"
+                android:layout_height="match_parent"
+                android:background="#b28750"
+                android:gravity="center"
+                android:text="GO"
+                android:textColor="#fff"
+                android:textSize="22sp"/>
+        </LinearLayout>
+    </FrameLayout>
+
+</RelativeLayout>

@@ -1,0 +1,277 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:orientation="vertical"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent">
+
+    <include layout="@layout/include_nut_title" />
+
+    <ScrollView
+        android:background="#fff"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <!--早餐-->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <LinearLayout
+                    android:layout_width="150dp"
+                    android:layout_height="match_parent"
+                    android:background="#F5F7F6"
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="0dp"
+                        android:layout_weight="1"
+                        android:gravity="center">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="早餐"
+                            android:textColor="@color/bg_color_black"
+                            android:textSize="20sp"/>
+
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="5dp"
+                            android:src="@drawable/breakfast_black"/>
+                    </LinearLayout>
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:layout_marginLeft="30dp"
+                        android:layout_marginRight="30dp"
+                        android:background="@color/gray_line"/>
+
+                    <LinearLayout
+                        android:id="@+id/ll_more_breakfast"
+                        android:layout_width="match_parent"
+                        android:layout_height="0dp"
+                        android:layout_weight="1"
+                        android:gravity="center">
+
+                        <TextView
+                            android:id="@+id/tv_more_breakfast"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="更多"
+                            android:textColor="@color/text_color_black_s"
+                            android:textSize="20sp"/>
+
+                        <ImageView
+                            android:id="@+id/iv_more_breakfast"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="5dp"
+                            android:src="@drawable/all_m_closed"/>
+                    </LinearLayout>
+                </LinearLayout>
+
+                <View
+                    android:layout_width="1dp"
+                    android:layout_height="match_parent"
+                    android:background="@color/gray_line"/>
+
+                <com.kgv.cookbook.ui.ListView4ScrollView
+                    android:id="@+id/lv_breakfast"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:divider="@color/gray_line"
+                    android:dividerHeight="1dp"
+                    android:listSelector="@android:color/transparent"
+                    android:scrollbars="none"/>
+            </LinearLayout>
+            <!--早餐结束-->
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/gray_line"/>
+
+            <!--午餐-->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <LinearLayout
+                    android:layout_width="150dp"
+                    android:layout_height="match_parent"
+                    android:background="#F5F7F6"
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="0dp"
+                        android:layout_weight="1"
+                        android:gravity="center">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="午餐"
+                            android:textColor="@color/bg_color_black"
+                            android:textSize="20sp"/>
+
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="5dp"
+                            android:src="@drawable/breakfast_black"/>
+                    </LinearLayout>
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:layout_marginLeft="30dp"
+                        android:layout_marginRight="30dp"
+                        android:background="@color/gray_line"/>
+
+                    <LinearLayout
+                        android:id="@+id/ll_more_lunch"
+                        android:layout_width="match_parent"
+                        android:layout_height="0dp"
+                        android:layout_weight="1"
+                        android:gravity="center">
+
+                        <TextView
+                            android:id="@+id/tv_more_lunch"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="更多"
+                            android:textColor="@color/text_color_black_s"
+                            android:textSize="20sp"/>
+
+                        <ImageView
+                            android:id="@+id/iv_more_lunch"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="5dp"
+                            android:src="@drawable/all_m_closed"/>
+                    </LinearLayout>
+                </LinearLayout>
+
+                <View
+                    android:layout_width="1dp"
+                    android:layout_height="match_parent"
+                    android:background="@color/gray_line"/>
+
+                <com.kgv.cookbook.ui.ListView4ScrollView
+                    android:id="@+id/lv_lunch"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:divider="@color/gray_line"
+                    android:dividerHeight="1dp"
+                    android:listSelector="@android:color/transparent"
+                    android:scrollbars="none"/>
+            </LinearLayout>
+            <!--午餐结束-->
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/gray_line"/>
+            <!--晚餐-->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <LinearLayout
+                    android:layout_width="150dp"
+                    android:layout_height="match_parent"
+                    android:background="#F5F7F6"
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="0dp"
+                        android:layout_weight="1"
+                        android:gravity="center">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="晚餐"
+                            android:textColor="@color/bg_color_black"
+                            android:textSize="20sp"/>
+
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="5dp"
+                            android:src="@drawable/breakfast_black"/>
+                    </LinearLayout>
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:layout_marginLeft="30dp"
+                        android:layout_marginRight="30dp"
+                        android:background="@color/gray_line"/>
+
+                    <LinearLayout
+                        android:id="@+id/ll_more_dinner"
+                        android:layout_width="match_parent"
+                        android:layout_height="0dp"
+                        android:layout_weight="1"
+                        android:gravity="center">
+
+                        <TextView
+                            android:id="@+id/tv_more_dinner"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="更多"
+                            android:textColor="@color/text_color_black_s"
+                            android:textSize="20sp"/>
+
+                        <ImageView
+                            android:id="@+id/iv_more_dinner"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="5dp"
+                            android:src="@drawable/all_m_closed"/>
+                    </LinearLayout>
+                </LinearLayout>
+
+                <View
+                    android:layout_width="1dp"
+                    android:layout_height="match_parent"
+                    android:background="@color/gray_line"/>
+
+                <com.kgv.cookbook.ui.ListView4ScrollView
+                    android:id="@+id/lv_dinner"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:divider="@color/gray_line"
+                    android:dividerHeight="1dp"
+                    android:listSelector="@android:color/transparent"
+                    android:scrollbars="none"/>
+            </LinearLayout>
+            <!--晚餐结束-->
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/gray_line"/>
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>

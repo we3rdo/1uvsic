@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:background="#fff"
+                android:id="@+id/rl_parent"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+    <ImageView
+        android:id="@+id/parent"
+        android:clickable="true"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:src="@drawable/normal_bg"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1">
+
+            <LinearLayout
+                android:layout_centerInParent="true"
+                android:layout_width="550dp"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:text="忘记密码"
+                    android:textSize="28dp"
+                    android:textColor="@color/index_brown"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+
+                <LinearLayout
+                    android:layout_marginTop="30dp"
+                    android:focusable="true"
+                    android:focusableInTouchMode="true"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                    <EditText
+                        android:id="@+id/et_phone"
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/edit_bg"
+                        android:hint="请输入手机号"
+                        android:inputType="phone"
+                        android:padding="15dp"
+                        android:maxLength="11"
+                        android:layout_marginRight="15dp"
+                        android:textColor="@color/index_brown"
+                        android:textColorHint="@color/text_color_tip"
+                        android:textSize="22sp"/>
+                    <ImageView
+                        android:id="@+id/iv_tip_phone"
+                        android:layout_width="25dp"
+                        android:layout_height="25dp"/>
+                </LinearLayout>
+
+                <TextView
+                    android:id="@+id/tv_getCode"
+                    android:gravity="center"
+                    android:layout_width="150dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="30dp"
+                    android:background="@drawable/brown_s_shape"
+                    android:paddingTop="5dp"
+                    android:paddingBottom="5dp"
+                    android:text="获取验证码"
+                    android:textColor="#fff"
+                    android:textSize="22sp"/>
+                <LinearLayout
+                    android:layout_marginTop="30dp"
+                    android:focusable="true"
+                    android:focusableInTouchMode="true"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                    <EditText
+                        android:id="@+id/et_code"
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/edit_bg"
+                        android:hint="请输入验证码"
+                        android:maxLength="6"
+                        android:padding="15dp"
+                        android:layout_marginRight="15dp"
+                        android:inputType="textPassword"
+                        android:textColor="@color/index_brown"
+                        android:textColorHint="@color/text_color_tip"
+                        android:textSize="22sp"/>
+                    <ImageView
+                        android:id="@+id/iv_tip_code"
+                        android:layout_width="25dp"
+                        android:layout_height="25dp"/>
+                </LinearLayout>
+
+
+                <TextView
+                    android:id="@+id/tv_next"
+                    android:gravity="center"
+                    android:layout_width="150dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="30dp"
+                    android:background="@drawable/brown_s_shape"
+                    android:paddingTop="5dp"
+                    android:paddingBottom="5dp"
+                    android:text="下一步"
+                    android:textColor="#fff"
+                    android:textSize="22sp"/>
+
+            </LinearLayout>
+        </RelativeLayout>
+        <include layout="@layout/include_bottom"/>
+    </LinearLayout>
+
+    <FrameLayout
+        android:id="@+id/fl_search_content"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="25dp"
+        android:layout_marginLeft="30dp"
+        android:visibility="gone">
+
+        <ImageView
+            android:layout_width="240dp"
+            android:layout_height="70dp"
+            android:src="@drawable/main_search"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="47dp"
+            android:focusable="true"
+            android:focusableInTouchMode="true"
+            android:orientation="horizontal">
+
+            <EditText
+                android:id="@+id/base_et_search"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="#fff"
+                android:hint=" 菜谱/食材"
+                android:paddingLeft="4dp"
+                android:textColor="#b28750"
+                android:textCursorDrawable="@null"
+                android:textSize="22sp"/>
+
+            <TextView
+                android:id="@+id/base_tv_go"
+                android:layout_width="40dp"
+                android:layout_height="match_parent"
+                android:background="#b28750"
+                android:gravity="center"
+                android:text="GO"
+                android:textColor="#fff"
+                android:textSize="22sp"/>
+        </LinearLayout>
+    </FrameLayout>
+
+
+</RelativeLayout>

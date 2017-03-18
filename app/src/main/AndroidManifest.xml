@@ -1,0 +1,233 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+          package="com.kgv.cookbook">
+
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.WAKE_LOCK"/>
+    <uses-permission android:name="android.permission.RECORD_AUDIO"/>
+    <uses-permission android:name="android.permission.READ_PHONE_STATE"/>
+    <uses-permission android:name="android.permission.MODIFY_AUDIO_SETTINGS"/>
+    <uses-permission android:name="android.permission.BROADCAST_STICKY"/>
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
+    <uses-permission android:name="android.permission.BLUETOOTH"/>
+    <uses-permission android:name="android.permission.WRITE_SETTINGS"/>
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED"/>
+
+    <application
+        android:name=".CookbookApplication"
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:supportsRtl="true"
+        android:theme="@style/TranslateActivity">
+
+        <meta-data
+            android:name="com.kgv.cookbook.util.GlideModuleConfig"
+            android:value="GlideModule"/>
+
+        <!--用户登录页面-->
+        <activity
+            android:name=".activity.LoginActivity"
+            android:configChanges="keyboard|screenSize|orientation"
+            android:launchMode="singleTop"
+            android:screenOrientation="landscape"
+            android:theme="@style/TranslateActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+
+                <category android:name="android.intent.category.HOME"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+        </activity>
+        <!--自定义锁屏(广告)页面-->
+        <activity
+            android:name=".activity.LockActivity"
+            android:configChanges="keyboard|screenSize|orientation"
+            android:launchMode="singleTop"
+            android:screenOrientation="landscape"
+            android:theme="@style/TranslateActivity"/>
+        <!--广告详情页面-->
+        <activity
+            android:name=".activity.AdActivity"
+            android:configChanges="keyboard|screenSize|orientation"
+            android:launchMode="singleTop"
+            android:screenOrientation="landscape"
+            android:theme="@style/TranslateActivity"/>
+        <!--闪屏(广告)页面-->  <!--暂未使用-->
+        <activity
+            android:name=".activity.SplashActivity"
+            android:configChanges="keyboard|screenSize|orientation"
+            android:launchMode="singleTop"
+            android:screenOrientation="landscape"
+            android:theme="@style/TranslateActivity"/>
+        <!--忘记密码1页面-->
+        <activity
+            android:name=".activity.ForgetPwdFirstActivity"
+            android:configChanges="keyboard|screenSize|orientation"
+            android:launchMode="singleTop"
+            android:screenOrientation="landscape"
+            android:theme="@style/TranslateActivity"/>
+        <!--忘记密码2页面-->
+        <activity
+            android:name=".activity.ForgetPwdSecondActivity"
+            android:configChanges="keyboard|screenSize|orientation"
+            android:launchMode="singleTop"
+            android:screenOrientation="landscape"
+            android:theme="@style/TranslateActivity"/>
+        <!--用户注册页面-->
+        <activity
+            android:name=".activity.RegisterActivity"
+            android:configChanges="keyboard|screenSize|orientation"
+            android:launchMode="singleTop"
+            android:screenOrientation="landscape"
+            android:theme="@style/TranslateActivity"/>
+        <!--用户协议页面-->  <!--暂未使用-->
+        <activity
+            android:name=".activity.ProtocolActivity"
+            android:configChanges="keyboard|screenSize|orientation"
+            android:launchMode="singleTop"
+            android:screenOrientation="landscape"
+            android:theme="@style/TranslateActivity"/>
+        <!--食谱机主页面-->
+        <activity
+            android:name=".activity.MainActivity"
+            android:configChanges="keyboard|screenSize|orientation"
+            android:launchMode="singleInstance"
+            android:screenOrientation="landscape"
+            android:theme="@style/TranslateActivity"/>
+        <!--食材大全页面-->
+        <activity
+            android:name=".activity.AllMaterialActivity"
+            android:configChanges="keyboard|screenSize|orientation"
+            android:launchMode="singleTop"
+            android:screenOrientation="landscape"
+            android:theme="@style/TranslateActivity"/>
+        <!--美食天下页面-->
+        <activity
+            android:name=".activity.FoodWorldActivity"
+            android:configChanges="keyboard|screenSize|orientation"
+            android:launchMode="singleTop"
+            android:screenOrientation="landscape"
+            android:theme="@style/TranslateActivity"/>
+        <!--一周食谱页面-->
+        <activity
+            android:name=".activity.AWeekActivity"
+            android:configChanges="keyboard|screenSize|orientation"
+            android:launchMode="singleTop"
+            android:screenOrientation="landscape"
+            android:theme="@style/TranslateActivity"/>
+        <!--一周食谱-添加食材页面-->
+        <activity
+            android:name=".activity.AWeekBranchActivity"
+            android:configChanges="keyboard|screenSize|orientation"
+            android:launchMode="singleTop"
+            android:screenOrientation="landscape"
+            android:theme="@style/TranslateActivity"/>
+        <!--美味套餐页面-->
+        <activity
+            android:name=".activity.SetMealActivity"
+            android:configChanges="keyboard|screenSize|orientation"
+            android:launchMode="singleTop"
+            android:screenOrientation="landscape"
+            android:theme="@style/TranslateActivity"/>
+        <!--健康管理页面-->
+        <activity
+            android:name=".activity.HealthActivity"
+            android:configChanges="keyboard|screenSize|orientation"
+            android:launchMode="singleTop"
+            android:screenOrientation="landscape"
+            android:theme="@style/TranslateActivity"/>
+        <activity
+            android:name=".activity.HealthManagerActivity"
+            android:configChanges="keyboard|screenSize|orientation"
+            android:launchMode="singleTop"
+            android:screenOrientation="landscape"
+            android:theme="@style/TranslateActivity"/>
+        <!--健康管理-营养建议表页面-->
+        <activity
+            android:name=".activity.SuggestActivity"
+            android:configChanges="keyboard|screenSize|orientation"
+            android:launchMode="singleTop"
+            android:screenOrientation="landscape"
+            android:theme="@style/TranslateActivity"/>
+        <!--音乐页面-->
+        <activity
+            android:name=".activity.MusicActivity"
+            android:configChanges="keyboard|screenSize|orientation"
+            android:launchMode="singleTop"
+            android:screenOrientation="landscape"
+            android:theme="@style/TranslateActivity"/>
+        <!--视频页面-->
+        <activity
+            android:name=".activity.MovieActivity"
+            android:configChanges="keyboard|screenSize|orientation"
+            android:launchMode="singleTop"
+            android:screenOrientation="landscape"
+            android:theme="@style/TranslateActivity"/>
+        <!--家庭设置页面-->
+        <activity
+            android:name=".activity.FamilySettingActivity"
+            android:configChanges="keyboard|screenSize|orientation"
+            android:launchMode="singleTop"
+            android:screenOrientation="landscape"
+            android:theme="@style/TranslateActivity"/>
+        <!--语音设置页面-->
+        <activity
+            android:name=".activity.VoiceSettingActivity"
+            android:configChanges="keyboard|screenSize|orientation"
+            android:launchMode="singleTop"
+            android:screenOrientation="landscape"
+            android:theme="@style/TranslateActivity"/>
+        <!--喜好设置页面-->
+        <activity
+            android:name=".activity.InterestSettingActivity"
+            android:configChanges="keyboard|screenSize|orientation"
+            android:launchMode="singleTop"
+            android:screenOrientation="landscape"
+            android:theme="@style/TranslateActivity"/>
+        <!--修改密码页面-->
+        <activity
+            android:name=".activity.ChangePwdActivity"
+            android:configChanges="keyboard|screenSize|orientation"
+            android:launchMode="singleTop"
+            android:screenOrientation="landscape"
+            android:theme="@style/TranslateActivity"/>
+        <!--食谱详情页面-->
+        <activity
+            android:name=".activity.RecipeActivity"
+            android:configChanges="keyboard|screenSize|orientation"
+            android:launchMode="singleTop"
+            android:screenOrientation="landscape"
+            android:theme="@style/TranslateActivity"/>
+        <!--食谱详情-大图浏览页面-->
+        <activity
+            android:name=".activity.ImageActivity"
+            android:configChanges="keyboard|screenSize|orientation"
+            android:launchMode="singleTop"
+            android:screenOrientation="landscape"
+            android:theme="@style/TranslateActivity"/>
+        <!--搜索主页面-->
+        <activity
+            android:name=".activity.SearchActivity"
+            android:configChanges="keyboard|screenSize|orientation"
+            android:launchMode="singleTop"
+            android:screenOrientation="landscape"
+            android:theme="@style/TranslateActivity"/>
+
+        <!--监听开机广播--><!--暂未使用-->
+        <receiver android:name=".receiver.StartBroadcastReceiver">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED"/>
+            </intent-filter>
+        </receiver>
+
+        <!--图片下载服务-->
+        <service android:name=".service.DownLoadService"/>
+        <!--监听锁屏服务-->
+        <service android:name=".service.LockService"/>
+    </application>
+
+</manifest>

@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:id="@+id/calendar"
+              android:orientation="vertical"
+                android:background="@drawable/gray_stroke_bg"
+                android:layout_width="365dp"
+                android:layout_height="wrap_content">
+    <com.kgv.cookbook.ui.compactcalendarview.CompactCalendarView
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/compactCalendarView"
+        android:layout_width="365dp"
+        android:background="@color/white"
+        android:layout_height="350dp"
+        android:paddingBottom="8dp"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
+        android:paddingTop="30dp"
+        app:compactCalendarCurrentDayBackgroundColor="#be7038"
+        app:compactCalendarCurrentSelectedDayBackgroundColor="#a8ce793d"
+        app:compactCalendarTargetHeight="350dp"
+        app:compactCalendarTextColor="@color/text_color_brown"
+        app:compactCalendarTextSize="22sp"
+        android:layout_marginTop="10dp"
+        />
+
+    <LinearLayout
+        android:gravity="end"
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="-70dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/tv_month"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="10dp"
+            android:text="12月"
+            android:textColor="#a8ce793d"
+            android:textSize="60sp"/>
+
+        <TextView
+            android:id="@+id/tv_year"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="2016"
+            android:textColor="#a8ce793d"
+            android:textSize="40sp"/>
+    </LinearLayout>
+</LinearLayout>

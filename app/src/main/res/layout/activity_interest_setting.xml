@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:orientation="horizontal">
+
+            <LinearLayout
+                android:background="#fff"
+                android:paddingLeft="20dp"
+                android:paddingRight="20dp"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="55dp"
+                    android:text="不喜欢/不吃"
+                    android:layout_marginLeft="20dp"
+                    android:gravity="center_vertical"
+                    android:textColor="@color/bg_color_black"
+                    android:textSize="22sp"/>
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@color/gray_line"/>
+                <TextView
+                    android:id="@+id/tv_r"
+                    android:layout_marginLeft="20dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="55dp"
+                    android:text="菜式"
+                    android:gravity="center_vertical"
+                    android:textColor="@color/text_color_black_2_brown_s"
+                    android:textSize="22sp"/>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@color/gray_line"/>
+
+                <TextView
+                    android:id="@+id/tv_m"
+                    android:layout_marginLeft="20dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="55dp"
+                    android:gravity="center_vertical"
+                    android:text="食材"
+                    android:textColor="@color/text_color_black_2_brown_s"
+                    android:textSize="22sp"/>
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@color/gray_line"/>
+            </LinearLayout>
+
+            <View
+                android:layout_width="1dp"
+                android:layout_height="match_parent"
+                android:background="@color/gray_line"/>
+
+            <LinearLayout
+                android:background="#F5F7F6"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="4"
+                android:orientation="vertical">
+
+                <FrameLayout
+                    android:id="@+id/interestContent"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"/>
+            </LinearLayout>
+        </LinearLayout>
+        <include layout="@layout/include_bottom"/>
+    </LinearLayout>
+
+    <FrameLayout
+        android:id="@+id/fl_search_content"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="25dp"
+        android:layout_marginLeft="30dp"
+        android:visibility="gone">
+
+        <ImageView
+            android:layout_width="240dp"
+            android:layout_height="70dp"
+            android:src="@drawable/main_search"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="47dp"
+            android:focusable="true"
+            android:focusableInTouchMode="true"
+            android:orientation="horizontal">
+
+            <EditText
+                android:id="@+id/base_et_search"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="#fff"
+                android:hint=" 菜谱/食材"
+                android:paddingLeft="4dp"
+                android:textColor="#b28750"
+                android:textCursorDrawable="@null"
+                android:textSize="22sp"/>
+
+            <TextView
+                android:id="@+id/base_tv_go"
+                android:layout_width="40dp"
+                android:layout_height="match_parent"
+                android:background="#b28750"
+                android:gravity="center"
+                android:text="GO"
+                android:textColor="#fff"
+                android:textSize="22sp"/>
+        </LinearLayout>
+    </FrameLayout>
+</RelativeLayout>

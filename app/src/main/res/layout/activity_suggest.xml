@@ -1,0 +1,536 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:background="#F5F7F6"
+            android:orientation="vertical">
+
+            <!--实际做菜-->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="45dp"
+                    android:background="#BCA281"
+                    android:gravity="center"
+                    android:text="实际做菜摄入量"
+                    android:textColor="#fff"
+                    android:textSize="23sp"/>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:orientation="horizontal">
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1">
+
+                        <View
+                            android:layout_width="1dp"
+                            android:layout_height="match_parent"
+                            android:background="@color/gray_line"/>
+
+                        <TextView
+                            android:layout_width="90dp"
+                            android:layout_height="match_parent"
+                            android:background="#E5E5E5"
+                            android:gravity="center"
+                            android:text="早餐"
+                            android:textColor="@color/bg_color_black"
+                            android:textSize="18sp"/>
+
+                        <View
+                            android:layout_width="1dp"
+                            android:layout_height="match_parent"
+                            android:background="@color/gray_line"/>
+
+                        <ListView
+                            android:id="@+id/lv_real_breakfast"
+                            android:listSelector="@android:color/transparent"
+                            android:scrollbars="none"
+                            android:divider="@color/gray_line"
+                            android:dividerHeight="1dp"
+                            android:layout_margin="10dp"
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1"/>
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1">
+
+                        <View
+                            android:layout_width="1dp"
+                            android:layout_height="match_parent"
+                            android:background="@color/gray_line"/>
+
+                        <TextView
+                            android:layout_width="90dp"
+                            android:layout_height="match_parent"
+                            android:background="#E5E5E5"
+                            android:gravity="center"
+                            android:text="午餐"
+                            android:textColor="@color/bg_color_black"
+                            android:textSize="18sp"/>
+
+                        <View
+                            android:layout_width="1dp"
+                            android:layout_height="match_parent"
+                            android:background="@color/gray_line"/>
+
+                        <ListView
+                            android:id="@+id/lv_real_lunch"
+                            android:listSelector="@android:color/transparent"
+                            android:scrollbars="none"
+                            android:divider="@color/gray_line"
+                            android:dividerHeight="1dp"
+                            android:layout_margin="10dp"
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1"/>
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1">
+
+                        <View
+                            android:layout_width="1dp"
+                            android:layout_height="match_parent"
+                            android:background="@color/gray_line"/>
+
+                        <TextView
+                            android:layout_width="90dp"
+                            android:layout_height="match_parent"
+                            android:background="#E5E5E5"
+                            android:gravity="center"
+                            android:text="晚餐"
+                            android:textColor="@color/bg_color_black"
+                            android:textSize="18sp"/>
+
+                        <View
+                            android:layout_width="1dp"
+                            android:layout_height="match_parent"
+                            android:background="@color/gray_line"/>
+
+                        <ListView
+                            android:id="@+id/lv_real_dinner"
+                            android:listSelector="@android:color/transparent"
+                            android:scrollbars="none"
+                            android:divider="@color/gray_line"
+                            android:dividerHeight="1dp"
+                            android:layout_margin="10dp"
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1"/>
+
+                        <View
+                            android:layout_width="1dp"
+                            android:layout_height="match_parent"
+                            android:background="@color/gray_line"/>
+                    </LinearLayout>
+                </LinearLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@color/gray_line"/>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="45dp"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <LinearLayout
+                        android:gravity="center_vertical"
+                        android:paddingLeft="15dp"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:gravity="center_vertical"
+                            android:text="实际摄入量："
+                            android:textColor="@color/bg_color_black"
+                            android:textSize="18sp"/>
+
+                        <TextView
+                            android:id="@+id/tv_real_sum"
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:gravity="center_vertical"
+                            android:text="12381293(大卡)"
+                            android:textColor="@color/text_color_brown"
+                            android:textSize="18sp"/>
+
+                        <ImageView
+                            android:id="@+id/iv_status_real"
+                            android:layout_marginLeft="3dp"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"/>
+                    </LinearLayout>
+
+                    <View
+                        android:layout_width="1dp"
+                        android:layout_height="match_parent"
+                        android:background="@color/gray_line"/>
+
+                    <TextView
+                        android:id="@+id/tv_real_standard_sum"
+                        android:paddingLeft="15dp"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:gravity="center_vertical"
+                        android:text="标准摄入量：12736781~12381721(大卡)"
+                        android:textColor="@color/bg_color_black"
+                        android:textSize="18sp"/>
+
+                    <View
+                        android:layout_width="1dp"
+                        android:layout_height="match_parent"
+                        android:background="@color/gray_line"/>
+
+                    <TextView
+                        android:id="@+id/tv_real_result"
+                        android:paddingLeft="15dp"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:gravity="center_vertical"
+                        android:text="结果：超标"
+                        android:textColor="@color/bg_color_black"
+                        android:textSize="18sp"/>
+
+                    <View
+                        android:layout_width="1dp"
+                        android:layout_height="match_parent"
+                        android:background="@color/gray_line"/>
+                </LinearLayout>
+            </LinearLayout>
+            <!--实际结束-->
+            <!--建议开始-->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="45dp"
+                    android:background="#BCA281"
+                    android:gravity="center"
+                    android:text="系统推荐一周菜谱摄入量"
+                    android:textColor="#fff"
+                    android:textSize="23sp"/>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:orientation="horizontal">
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1">
+
+                        <View
+                            android:layout_width="1dp"
+                            android:layout_height="match_parent"
+                            android:background="@color/gray_line"/>
+
+                        <TextView
+                            android:layout_width="90dp"
+                            android:layout_height="match_parent"
+                            android:background="#E5E5E5"
+                            android:gravity="center"
+                            android:text="早餐"
+                            android:textColor="@color/bg_color_black"
+                            android:textSize="18sp"/>
+
+                        <View
+                            android:layout_width="1dp"
+                            android:layout_height="match_parent"
+                            android:background="@color/gray_line"/>
+
+                        <ListView
+                            android:id="@+id/lv_suggest_breakfast"
+                            android:listSelector="@android:color/transparent"
+                            android:scrollbars="none"
+                            android:divider="@color/gray_line"
+                            android:dividerHeight="1dp"
+                            android:layout_margin="10dp"
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1"/>
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1">
+
+                        <View
+                            android:layout_width="1dp"
+                            android:layout_height="match_parent"
+                            android:background="@color/gray_line"/>
+
+                        <TextView
+                            android:layout_width="90dp"
+                            android:layout_height="match_parent"
+                            android:background="#E5E5E5"
+                            android:gravity="center"
+                            android:text="午餐"
+                            android:textColor="@color/bg_color_black"
+                            android:textSize="18sp"/>
+
+                        <View
+                            android:layout_width="1dp"
+                            android:layout_height="match_parent"
+                            android:background="@color/gray_line"/>
+
+                        <ListView
+                            android:id="@+id/lv_suggest_lunch"
+                            android:listSelector="@android:color/transparent"
+                            android:scrollbars="none"
+                            android:divider="@color/gray_line"
+                            android:dividerHeight="1dp"
+                            android:layout_margin="10dp"
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1"/>
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1">
+
+                        <View
+                            android:layout_width="1dp"
+                            android:layout_height="match_parent"
+                            android:background="@color/gray_line"/>
+
+                        <TextView
+                            android:layout_width="90dp"
+                            android:layout_height="match_parent"
+                            android:background="#E5E5E5"
+                            android:gravity="center"
+                            android:text="晚餐"
+                            android:textColor="@color/bg_color_black"
+                            android:textSize="18sp"/>
+
+                        <View
+                            android:layout_width="1dp"
+                            android:layout_height="match_parent"
+                            android:background="@color/gray_line"/>
+
+                        <ListView
+                            android:id="@+id/lv_suggest_dinner"
+                            android:listSelector="@android:color/transparent"
+                            android:scrollbars="none"
+                            android:divider="@color/gray_line"
+                            android:dividerHeight="1dp"
+                            android:layout_margin="10dp"
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1"/>
+
+                        <View
+                            android:layout_width="1dp"
+                            android:layout_height="match_parent"
+                            android:background="@color/gray_line"/>
+                    </LinearLayout>
+                </LinearLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@color/gray_line"/>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="45dp"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <LinearLayout
+                        android:gravity="center_vertical"
+                        android:paddingLeft="15dp"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:gravity="center_vertical"
+                            android:text="实际摄入量："
+                            android:textColor="@color/bg_color_black"
+                            android:textSize="18sp"/>
+
+                        <TextView
+                            android:id="@+id/tv_suggest_sum"
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:gravity="center_vertical"
+                            android:text="12381293(大卡)"
+                            android:textColor="@color/text_color_brown"
+                            android:textSize="18sp"/>
+
+                        <ImageView
+                            android:id="@+id/iv_status_suggest"
+                            android:layout_marginLeft="3dp"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"/>
+                    </LinearLayout>
+
+                    <View
+                        android:layout_width="1dp"
+                        android:layout_height="match_parent"
+                        android:background="@color/gray_line"/>
+
+                    <TextView
+                        android:id="@+id/tv_suggest_standard_sum"
+                        android:paddingLeft="15dp"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:gravity="center_vertical"
+                        android:text="标准摄入量：12736781~12381721(大卡)"
+                        android:textColor="@color/bg_color_black"
+                        android:textSize="18sp"/>
+
+                    <View
+                        android:layout_width="1dp"
+                        android:layout_height="match_parent"
+                        android:background="@color/gray_line"/>
+
+                    <TextView
+                        android:id="@+id/tv_suggest_result"
+                        android:paddingLeft="15dp"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:gravity="center_vertical"
+                        android:text="结果：超标"
+                        android:textColor="@color/bg_color_black"
+                        android:textSize="18sp"/>
+
+                    <View
+                        android:layout_width="1dp"
+                        android:layout_height="match_parent"
+                        android:background="@color/gray_line"/>
+                </LinearLayout>
+            </LinearLayout>
+            <!--建议结束-->
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/gray_line"/>
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="55dp">
+
+                <TextView
+                    android:background="#E5E5E5"
+                    android:gravity="center"
+                    android:textSize="20sp"
+                    android:textColor="@color/bg_color_black"
+                    android:text="建议"
+                    android:layout_width="90dp"
+                    android:layout_height="match_parent"/>
+                <View
+                    android:layout_width="1dp"
+                    android:layout_height="match_parent"
+                    android:background="@color/gray_line"/>
+                <TextView
+                    android:id="@+id/tv_result"
+                    android:textSize="20sp"
+                    android:textColor="@color/bg_color_black"
+                    android:gravity="center_vertical"
+                    android:layout_marginLeft="10dp"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="match_parent"/>
+            </LinearLayout>
+        </LinearLayout>
+
+
+        <include layout="@layout/include_bottom"/>
+    </LinearLayout>
+
+    <FrameLayout
+        android:id="@+id/fl_search_content"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="25dp"
+        android:layout_marginLeft="30dp"
+        android:visibility="gone">
+
+        <ImageView
+            android:layout_width="240dp"
+            android:layout_height="70dp"
+            android:src="@drawable/main_search"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="47dp"
+            android:focusable="true"
+            android:focusableInTouchMode="true"
+            android:orientation="horizontal">
+
+            <EditText
+                android:id="@+id/base_et_search"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="#fff"
+                android:hint=" 菜谱/食材"
+                android:paddingLeft="4dp"
+                android:textColor="#b28750"
+                android:textCursorDrawable="@null"
+                android:textSize="22sp"/>
+
+            <TextView
+                android:id="@+id/base_tv_go"
+                android:layout_width="40dp"
+                android:layout_height="match_parent"
+                android:background="#b28750"
+                android:gravity="center"
+                android:text="GO"
+                android:textColor="#fff"
+                android:textSize="22sp"/>
+        </LinearLayout>
+    </FrameLayout>
+</RelativeLayout>

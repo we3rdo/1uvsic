@@ -1,0 +1,222 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="#F5F7F6">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <LinearLayout
+                android:id="@+id/ll_recipe_cate"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="15dp"
+                android:orientation="horizontal"
+                android:visibility="gone">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/tv_function"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="20dp"
+                        android:gravity="center"
+                        android:text="功能调理"
+                        android:textColor="@color/text_color_black_2_brown_s"
+                        android:textSize="22sp"/>
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:background="@drawable/black2brown"/>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="20dp"
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/tv_sickness"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="20dp"
+                        android:gravity="center"
+                        android:text="疾病调理"
+                        android:textColor="@color/text_color_black_2_brown_s"
+                        android:textSize="22sp"/>
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:background="@drawable/black2brown"/>
+                </LinearLayout>
+
+                <TextView
+                    android:id="@+id/tvTip"
+                    android:layout_marginLeft="30dp"
+                    android:layout_gravity="center_vertical"
+                    android:textColor="@color/bg_color_black"
+                    android:textSize="20sp"
+                    android:gravity="center"
+                    android:visibility="invisible"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/ll_taboo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="15dp"
+                android:orientation="vertical"
+                android:visibility="gone">
+
+                <TextView
+                    android:id="@+id/tv_taboo_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="15dp"
+                    android:text="请注意："
+                    android:textColor="@color/red"
+                    android:textSize="20sp"
+                    android:visibility="gone"/>
+
+                <ListView
+                    android:id="@+id/lv_taboo"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:divider="@color/gray_line"
+                    android:dividerHeight="1dp"
+                    android:listSelector="@android:color/transparent"
+                    android:scrollbars="none"/>
+
+            </LinearLayout>
+
+        </RelativeLayout>
+
+        <LinearLayout
+            android:layout_marginLeft="15dp"
+            android:layout_marginTop="20dp"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:id="@+id/iv_reset"
+                android:src="@drawable/delete"
+                android:layout_width="38dp"
+                android:layout_height="38dp"
+                android:visibility="gone"/>
+
+            <TextView
+                android:id="@+id/tv_tip"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/bg_color_black"
+                android:textSize="18sp"
+                android:visibility="gone"/>
+        </LinearLayout>
+
+        <GridView
+            android:id="@+id/gv_content"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:listSelector="@android:color/transparent"
+            android:numColumns="3"
+            android:scrollbarSize="4dp"
+            android:scrollbarStyle="insideInset"
+            android:scrollbars="vertical"/>
+
+        <LinearLayout
+            android:id="@+id/ll_loadMore"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="5dp"
+            android:layout_marginTop="5dp"
+            android:gravity="center"
+            android:orientation="horizontal"
+            android:visibility="gone">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="正在加载…"
+                android:textColor="@color/coffee"
+                android:textSize="18sp"/>
+
+            <ProgressBar
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:layout_marginLeft="5dp"/>
+
+        </LinearLayout>
+    </LinearLayout>
+
+    <RelativeLayout
+        android:id="@+id/fl_function"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_marginBottom="25dp"
+        android:layout_marginLeft="15dp"
+        android:layout_marginTop="45dp"
+        android:visibility="gone">
+
+        <ImageView
+            android:layout_width="700dp"
+            android:layout_height="match_parent"
+            android:scaleType="fitXY"
+            android:src="@drawable/recommend"/>
+
+        <GridView
+            android:id="@+id/gv_function"
+            android:layout_width="700dp"
+            android:layout_height="598dp"
+            android:layout_centerInParent="true"
+            android:listSelector="@android:color/transparent"
+            android:numColumns="4"
+            android:scrollbars="none"/>
+    </RelativeLayout>
+
+
+    <RelativeLayout
+        android:id="@+id/fl_sickness"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_marginBottom="25dp"
+        android:layout_marginLeft="173dp"
+        android:layout_marginTop="45dp"
+        android:visibility="gone">
+
+        <ImageView
+            android:layout_width="700dp"
+            android:layout_height="match_parent"
+            android:scaleType="fitXY"
+            android:src="@drawable/recommend"/>
+
+        <GridView
+            android:id="@+id/gv_sickness"
+            android:layout_width="700dp"
+            android:layout_height="598dp"
+            android:layout_centerInParent="true"
+            android:listSelector="@android:color/transparent"
+            android:numColumns="4"
+            android:scrollbars="none"/>
+    </RelativeLayout>
+</RelativeLayout>

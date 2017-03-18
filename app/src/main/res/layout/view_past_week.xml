@@ -1,0 +1,217 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:orientation="vertical"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent">
+
+    <!--标题-->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:background="#707070"
+        android:orientation="horizontal">
+
+
+        <TextView
+            android:layout_width="365dp"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:text="过去7天营养信息"
+            android:textColor="#fff"
+            android:textSize="20sp"/>
+
+        <View
+            android:layout_width="1dp"
+            android:layout_height="match_parent"
+            android:background="@color/gray_line"/>
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="热量\n(大卡)"
+            android:textColor="#fff"
+            android:textSize="19sp"/>
+
+        <View
+            android:layout_width="1dp"
+            android:layout_height="match_parent"
+            android:background="@color/gray_line"/>
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1.4"
+            android:gravity="center"
+            android:text="碳水化合物\n(克)"
+            android:textColor="#fff"
+            android:textSize="19sp"/>
+
+        <View
+            android:layout_width="1dp"
+            android:layout_height="match_parent"
+            android:background="@color/gray_line"/>
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="脂肪\n(克)"
+            android:textColor="#fff"
+            android:textSize="19sp"/>
+
+        <View
+            android:layout_width="1dp"
+            android:layout_height="match_parent"
+            android:background="@color/gray_line"/>
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="蛋白质\n(克)"
+            android:textColor="#fff"
+            android:textSize="19sp"/>
+
+        <View
+            android:layout_width="1dp"
+            android:layout_height="match_parent"
+            android:background="@color/gray_line"/>
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="胆固醇\n(毫克)"
+            android:textColor="#fff"
+            android:textSize="19sp"/>
+
+        <View
+            android:layout_width="1dp"
+            android:layout_height="match_parent"
+            android:background="@color/gray_line"/>
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="镁\n(毫克)"
+            android:textColor="#fff"
+            android:textSize="19sp"/>
+
+        <View
+            android:layout_width="1dp"
+            android:layout_height="match_parent"
+            android:background="@color/gray_line"/>
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="钙\n(毫克)"
+            android:textColor="#fff"
+            android:textSize="19sp"/>
+
+        <View
+            android:layout_width="1dp"
+            android:layout_height="match_parent"
+            android:background="@color/gray_line"/>
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="铁\n(毫克)"
+            android:textColor="#fff"
+            android:textSize="19sp"/>
+
+        <View
+            android:layout_width="1dp"
+            android:layout_height="match_parent"
+            android:background="@color/gray_line"/>
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="锌\n(毫克)"
+            android:textColor="#fff"
+            android:textSize="19sp"/>
+
+        <View
+            android:layout_width="1dp"
+            android:layout_height="match_parent"
+            android:background="@color/gray_line"/>
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="硒\n(毫克)"
+            android:textColor="#fff"
+            android:textSize="19sp"/>
+    </LinearLayout>
+    <!--标题结束-->
+
+
+    <ScrollView
+        android:scrollbars="none"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:orientation="vertical"
+            android:layout_height="wrap_content">
+            <ViewStub
+                android:id="@+id/vs_item0"
+                android:layout="@layout/stub_past_week_item"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+
+            <ViewStub
+                android:id="@+id/vs_item1"
+                android:layout="@layout/stub_past_week_item"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+
+            <ViewStub
+                android:id="@+id/vs_item2"
+                android:layout="@layout/stub_past_week_item"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+
+            <ViewStub
+                android:id="@+id/vs_item3"
+                android:layout="@layout/stub_past_week_item"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+
+            <ViewStub
+                android:id="@+id/vs_item4"
+                android:layout="@layout/stub_past_week_item"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+
+            <ViewStub
+                android:id="@+id/vs_item5"
+                android:layout="@layout/stub_past_week_item"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+
+            <ViewStub
+                android:id="@+id/vs_item6"
+                android:layout="@layout/stub_past_week_item"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>

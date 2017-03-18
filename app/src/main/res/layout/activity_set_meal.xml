@@ -1,0 +1,441 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:orientation="horizontal">
+
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="#fff"
+                android:orientation="vertical"
+                android:padding="20dp">
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:focusable="true"
+                        android:focusableInTouchMode="true">
+
+                        <EditText
+                            android:id="@+id/et_search"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/circle_edit_bg"
+                            android:maxLength="14"
+                            android:paddingBottom="8dp"
+                            android:paddingLeft="10dp"
+                            android:paddingTop="8dp"
+                            android:textColor="@color/bg_color_black"
+                            android:textColorHint="@color/bg_color_black"
+                            android:textCursorDrawable="@null"
+                            android:textSize="20sp"/>
+
+                        <ImageView
+                            android:id="@+id/iv_search"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentRight="true"
+                            android:layout_centerVertical="true"
+                            android:layout_marginRight="10dp"
+                            android:src="@drawable/search_big"/>
+                    </RelativeLayout>
+
+
+                    <TextView
+                        android:id="@+id/tv_0"
+                        android:layout_width="match_parent"
+                        android:layout_height="55dp"
+                        android:gravity="center_vertical"
+                        android:paddingLeft="10dp"
+                        android:text="中华菜系"
+                        android:textColor="@color/text_color_black_2_brown_s"
+                        android:textSize="20sp"/>
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:background="@color/gray_line"/>
+                    <TextView
+                        android:id="@+id/tv_1"
+                        android:layout_width="match_parent"
+                        android:layout_height="55dp"
+                        android:gravity="center_vertical"
+                        android:paddingLeft="10dp"
+                        android:text="外国系"
+                        android:textColor="@color/text_color_black_2_brown_s"
+                        android:textSize="20sp"/>
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:background="@color/gray_line"/>
+                    <TextView
+                        android:id="@+id/tv_2"
+                        android:layout_width="match_parent"
+                        android:layout_height="55dp"
+                        android:gravity="center_vertical"
+                        android:paddingLeft="10dp"
+                        android:text="节日"
+                        android:textColor="@color/text_color_black_2_brown_s"
+                        android:textSize="20sp"/>
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:background="@color/gray_line"/>
+                    <TextView
+                        android:id="@+id/tv_3"
+                        android:layout_width="match_parent"
+                        android:layout_height="55dp"
+                        android:gravity="center_vertical"
+                        android:paddingLeft="10dp"
+                        android:text="场景"
+                        android:textColor="@color/text_color_black_2_brown_s"
+                        android:textSize="20sp"/>
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:background="@color/gray_line"/>
+                </LinearLayout>
+
+                <View
+                    android:background="@color/gray_line"
+                    android:layout_width="match_parent"
+                    android:layout_marginLeft="40dp"
+                    android:layout_marginRight="40dp"
+                    android:layout_height="1dp"/>
+
+                <TextView
+                    android:id="@+id/tvReset"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginBottom="8dp"
+                    android:gravity="center"
+                    android:text="恢复默认"
+                    android:textColor="@color/text_color_black_s"
+                    android:textSize="22sp"/>
+                <View
+                    android:background="@color/gray_line"
+                    android:layout_width="match_parent"
+                    android:layout_marginLeft="40dp"
+                    android:layout_marginRight="40dp"
+                    android:layout_height="1dp"/>
+            </LinearLayout>
+
+
+            <View
+                android:layout_width="1dp"
+                android:layout_height="match_parent"
+                android:background="@color/gray_line"/>
+
+
+            <RelativeLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="3">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="#F5F7F6"
+                    android:orientation="vertical"
+                    android:paddingLeft="20dp"
+                    android:paddingRight="20dp"
+                    android:paddingTop="20dp">
+
+                    <GridView
+                        android:id="@+id/gv_title"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:listSelector="@android:color/transparent"
+                        android:numColumns="7"
+                        android:scrollbars="none"/>
+
+                    <FrameLayout
+                        android:id="@+id/content"
+                        android:layout_width="match_parent"
+                        android:layout_height="0dp"
+                        android:layout_weight="1"/>
+                </LinearLayout>
+
+                <!--菜单内容-->
+                <LinearLayout
+                    android:id="@+id/ll_menu_content"
+                    android:layout_width="305dp"
+                    android:layout_height="match_parent"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:orientation="horizontal"
+                    android:visibility="gone">
+
+                    <View
+                        android:layout_width="1dp"
+                        android:layout_height="match_parent"
+                        android:background="#B5B5B5"/>
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:background="#F5F7F6"
+                        android:orientation="vertical">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="0dp"
+                            android:layout_weight="1"
+                            android:orientation="vertical">
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="0dp"
+                                android:layout_weight="1"
+                                android:orientation="vertical">
+
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="45dp"
+                                    android:background="#BCA281"
+                                    android:gravity="center_vertical"
+                                    android:orientation="horizontal">
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginLeft="15dp"
+                                        android:gravity="center"
+                                        android:text="早餐"
+                                        android:textColor="#fff"
+                                        android:textSize="20sp"/>
+                                    <ImageView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginLeft="5dp"
+                                        android:src="@drawable/breakfast_white"/>
+                                </LinearLayout>
+
+
+                                <ListView
+                                    android:id="@+id/lv_breakfast"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_margin="10dp"
+                                    android:divider="@android:color/transparent"
+                                    android:dividerHeight="3dp"
+                                    android:listSelector="@android:color/transparent"
+                                    android:scrollbars="none"/>
+                            </LinearLayout>
+
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="0dp"
+                                android:layout_weight="1"
+                                android:orientation="vertical">
+
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="45dp"
+                                    android:background="#BCA281"
+                                    android:gravity="center_vertical"
+                                    android:orientation="horizontal">
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginLeft="15dp"
+                                        android:gravity="center"
+                                        android:text="午餐"
+                                        android:textColor="#fff"
+                                        android:textSize="20sp"/>
+                                    <ImageView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginLeft="5dp"
+                                        android:src="@drawable/lunch_white"/>
+                                </LinearLayout>
+
+
+                                <ListView
+                                    android:id="@+id/lv_lunch"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_margin="10dp"
+                                    android:divider="@android:color/transparent"
+                                    android:dividerHeight="3dp"
+                                    android:listSelector="@android:color/transparent"
+                                    android:scrollbars="none"/>
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="0dp"
+                                android:layout_weight="1"
+                                android:orientation="vertical">
+
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="45dp"
+                                    android:background="#BCA281"
+                                    android:gravity="center_vertical"
+                                    android:orientation="horizontal">
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginLeft="15dp"
+                                        android:gravity="center"
+                                        android:text="晚餐"
+                                        android:textColor="#fff"
+                                        android:textSize="20sp"/>
+                                    <ImageView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginLeft="5dp"
+                                        android:src="@drawable/dinner_white"/>
+                                </LinearLayout>
+
+
+                                <ListView
+                                    android:id="@+id/lv_dinner"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_margin="10dp"
+                                    android:divider="@android:color/transparent"
+                                    android:dividerHeight="3dp"
+                                    android:listSelector="@android:color/transparent"
+                                    android:scrollbars="none"/>
+                            </LinearLayout>
+                        </LinearLayout>
+
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="1dp"
+                            android:background="#B5B5B5"/>
+
+                        <TextView
+                            android:id="@+id/tv_go_cooking"
+                            android:layout_width="match_parent"
+                            android:layout_height="55dp"
+                            android:gravity="center"
+                            android:text="去制作"
+                            android:textColor="@color/bg_color_black"
+                            android:textSize="22sp"/>
+                    </LinearLayout>
+                    <View
+                        android:layout_width="1dp"
+                        android:layout_height="match_parent"
+                        android:background="#B5B5B5"/>
+                </LinearLayout>
+                <!--菜单内容结束-->
+            </RelativeLayout>
+
+
+            <!--右侧菜单-->
+            <RelativeLayout
+                android:layout_width="45dp"
+                android:layout_height="match_parent"
+                android:background="@color/bg_color_white">
+
+                <LinearLayout
+                    android:id="@+id/ll_menu"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:background="@color/c"
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="10dp"
+                        android:layout_marginTop="10dp"
+                        android:background="@color/a"
+                        android:gravity="center"
+                        android:orientation="vertical"
+                        android:paddingBottom="20dp"
+                        android:paddingTop="20dp">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:gravity="center"
+                            android:text="菜\n单"
+                            android:textColor="#fff"
+                            android:textSize="20sp"/>
+
+                        <ImageView
+                            android:id="@+id/iv_menu_switch"
+                            android:layout_width="12dp"
+                            android:layout_height="22dp"
+                            android:layout_marginTop="10dp"
+                            android:src="@drawable/menu_closed"/>
+                    </LinearLayout>
+                </LinearLayout>
+            </RelativeLayout>
+
+        </LinearLayout>
+        <include layout="@layout/include_bottom"/>
+    </LinearLayout>
+
+    <FrameLayout
+        android:id="@+id/fl_search_content"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="25dp"
+        android:layout_marginLeft="30dp"
+        android:visibility="gone">
+
+        <ImageView
+            android:layout_width="240dp"
+            android:layout_height="70dp"
+            android:src="@drawable/main_search"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="47dp"
+            android:focusable="true"
+            android:focusableInTouchMode="true"
+            android:orientation="horizontal">
+
+            <EditText
+                android:id="@+id/base_et_search"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="#fff"
+                android:hint=" 菜谱/食材"
+                android:paddingLeft="4dp"
+                android:textColor="#b28750"
+                android:textCursorDrawable="@null"
+                android:textSize="22sp"/>
+
+            <TextView
+                android:id="@+id/base_tv_go"
+                android:layout_width="40dp"
+                android:layout_height="match_parent"
+                android:background="#b28750"
+                android:gravity="center"
+                android:text="GO"
+                android:textColor="#fff"
+                android:textSize="22sp"/>
+        </LinearLayout>
+    </FrameLayout>
+
+</RelativeLayout>

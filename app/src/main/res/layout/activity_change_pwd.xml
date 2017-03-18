@@ -1,0 +1,201 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:orientation="vertical"
+              android:gravity="center"
+              android:id="@+id/rl_parent"
+              android:background="#fff"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent">
+
+
+    <ImageView
+        android:id="@+id/parent"
+        android:clickable="true"
+        android:src="@drawable/normal_bg"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:orientation="vertical"
+        android:layout_height="match_parent">
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1">
+
+            <LinearLayout
+                android:layout_centerHorizontal="true"
+                android:paddingLeft="20dp"
+                android:layout_marginTop="180dp"
+                android:orientation="vertical"
+                android:layout_width="530dp"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:text="修改密码"
+                    android:textColor="@color/index_brown"
+                    android:textSize="24sp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+
+                <LinearLayout
+                    android:gravity="center_vertical"
+                    android:layout_marginTop="30dp"
+                    android:focusable="true"
+                    android:focusableInTouchMode="true"
+                    android:layout_width="match_parent"
+                    android:orientation="horizontal"
+                    android:layout_height="wrap_content">
+                    <EditText
+                        android:id="@+id/et_old_pwd"
+                        android:hint="请输入原密码"
+                        android:textColor="@color/index_brown"
+                        android:textSize="20sp"
+                        android:maxLength="16"
+                        android:singleLine="true"
+                        android:paddingTop="10dp"
+                        android:paddingLeft="20dp"
+                        android:paddingBottom="10dp"
+                        android:background="@drawable/edit_bg"
+                        android:inputType="textPassword"
+                        android:textColorHint="@color/text_color_tip"
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
+                        android:layout_marginRight="15dp"
+                        android:layout_height="wrap_content"/>
+                    <ImageView
+                        android:id="@+id/iv_old_pwd"
+                        android:layout_width="25dp"
+                        android:layout_height="25dp"/>
+
+                </LinearLayout>
+
+
+                <LinearLayout
+                    android:gravity="center_vertical"
+                    android:layout_marginTop="20dp"
+                    android:focusable="true"
+                    android:focusableInTouchMode="true"
+                    android:layout_width="match_parent"
+                    android:orientation="horizontal"
+                    android:layout_height="wrap_content">
+                    <EditText
+                        android:id="@+id/et_password"
+                        android:hint="请输入新密码"
+                        android:textColor="@color/index_brown"
+                        android:textSize="20sp"
+                        android:maxLength="16"
+                        android:singleLine="true"
+                        android:inputType="textPassword"
+                        android:paddingTop="10dp"
+                        android:paddingLeft="20dp"
+                        android:paddingBottom="10dp"
+                        android:layout_marginRight="15dp"
+                        android:background="@drawable/edit_bg"
+                        android:textColorHint="@color/text_color_tip"
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
+                        android:layout_height="wrap_content"/>
+                    <ImageView
+                        android:id="@+id/iv_new_pwd"
+                        android:layout_width="25dp"
+                        android:layout_height="25dp"/>
+
+                </LinearLayout>
+                <LinearLayout
+                    android:gravity="center_vertical"
+                    android:layout_marginTop="20dp"
+                    android:focusable="true"
+                    android:focusableInTouchMode="true"
+                    android:layout_width="match_parent"
+                    android:orientation="horizontal"
+                    android:layout_height="wrap_content">
+                    <EditText
+                        android:id="@+id/et_new_pwd_r"
+                        android:hint="请再次输入新密码"
+                        android:textColor="@color/index_brown"
+                        android:textSize="20sp"
+                        android:maxLength="16"
+                        android:singleLine="true"
+                        android:inputType="textPassword"
+                        android:paddingTop="10dp"
+                        android:paddingLeft="20dp"
+                        android:paddingBottom="10dp"
+                        android:layout_marginRight="15dp"
+                        android:background="@drawable/edit_bg"
+                        android:textColorHint="@color/text_color_tip"
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
+                        android:layout_height="wrap_content"/>
+                    <ImageView
+                        android:id="@+id/iv_new_pwd_r"
+                        android:layout_width="25dp"
+                        android:layout_height="25dp"/>
+
+                </LinearLayout>
+
+                <TextView
+                    android:id="@+id/tv_ok"
+                    android:layout_marginTop="30dp"
+                    android:textSize="22sp"
+                    android:text="确定"
+                    android:textColor="#fff"
+                    android:background="@drawable/brown_s_shape"
+                    android:paddingRight="20dp"
+                    android:paddingLeft="20dp"
+                    android:paddingTop="5dp"
+                    android:paddingBottom="5dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+
+            </LinearLayout>
+        </RelativeLayout>
+        <include layout="@layout/include_bottom"/>
+    </LinearLayout>
+
+    <FrameLayout
+        android:id="@+id/fl_search_content"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="25dp"
+        android:layout_marginLeft="30dp"
+        android:visibility="gone">
+
+        <ImageView
+            android:layout_width="240dp"
+            android:layout_height="70dp"
+            android:src="@drawable/main_search"/>
+
+        <LinearLayout
+            android:focusable="true"
+            android:focusableInTouchMode="true"
+            android:layout_width="match_parent"
+            android:layout_height="47dp"
+            android:orientation="horizontal">
+
+            <EditText
+                android:id="@+id/base_et_search"
+                android:layout_width="0dp"
+                android:paddingLeft="4dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="#fff"
+                android:hint=" 菜谱/食材"
+                android:textColor="#b28750"
+                android:textCursorDrawable="@null"
+                android:textSize="22sp"/>
+
+            <TextView
+                android:id="@+id/base_tv_go"
+                android:layout_width="40dp"
+                android:layout_height="match_parent"
+                android:background="#b28750"
+                android:gravity="center"
+                android:text="GO"
+                android:textColor="#fff"
+                android:textSize="22sp"/>
+        </LinearLayout>
+    </FrameLayout>
+</RelativeLayout>
