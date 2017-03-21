@@ -327,7 +327,6 @@ public class RecommendFragment extends BaseFragment implements View.OnClickListe
         });
     }
 
-
     public void refreshData4GroupMaterial (List<ShiPu> recipes, String url) {
         normalLoadMore = false;//取消加载推荐数据
         mateGroupPage = 1;

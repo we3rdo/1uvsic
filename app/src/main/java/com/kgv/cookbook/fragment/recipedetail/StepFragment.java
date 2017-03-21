@@ -67,19 +67,17 @@ public class StepFragment extends BaseFragment implements View.OnClickListener {
 
     @Override
     public void onClick(View v) {
-        int out = (Integer.MAX_VALUE / 2) % (activity.imageUrls.size());
-        int position = Integer.MAX_VALUE / 2 - out;
         Intent intent = new Intent(activity, ImageActivity.class);
         intent.putExtra(IntentKeys.IMAGES,activity.imageUrls);
         intent.putExtra(IntentKeys.DESCRIPTIONS,activity.descriptions);
         switch (v.getId()){
             case R.id.iv_left:
                 //position = position + Integer.parseInt(leftNum);
-                intent.putExtra(IntentKeys.IMAGE_POSITION,position + Integer.parseInt(leftNum));
+                intent.putExtra(IntentKeys.IMAGE_POSITION,Integer.parseInt(leftNum));
                 break;
             case R.id.iv_right:
                 //position = position + Integer.parseInt(rightNum);
-                intent.putExtra(IntentKeys.IMAGE_POSITION,position + Integer.parseInt(rightNum));
+                intent.putExtra(IntentKeys.IMAGE_POSITION,Integer.parseInt(rightNum));
                 break;
         }
         activity.startActivity(intent);

@@ -42,7 +42,8 @@ public class ImageActivity extends BaseActivity implements View.OnClickListener 
         ImagePagerAdapter adapter = new ImagePagerAdapter(this,urls,descriptions,this);
         viewPager.setAdapter(adapter);
         int out = (Integer.MAX_VALUE / 2) % (urls.size());
-        viewPager.setCurrentItem((Integer.MAX_VALUE / 2 - out) + position);
+        int realPosition = (Integer.MAX_VALUE / 2 - out) + position;
+        viewPager.setCurrentItem(realPosition);
     }
 
 

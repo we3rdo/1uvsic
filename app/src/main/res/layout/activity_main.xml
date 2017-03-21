@@ -164,8 +164,10 @@
             </LinearLayout>
         </RelativeLayout>
 
-        <include layout="@layout/include_bottom"/>
+
     </LinearLayout>
+
+    <include layout="@layout/include_bottom"/>
 
     <FrameLayout
         android:id="@+id/fl_search_content"

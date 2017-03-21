@@ -13,7 +13,6 @@ import com.kgv.cookbook.activity.ImageActivity;
 import com.kgv.cookbook.activity.RecipeActivity;
 import com.kgv.cookbook.base.BaseFragment;
 import com.kgv.cookbook.bean.ShiPuDetail;
-import com.kgv.cookbook.config.AppUtils;
 import com.kgv.cookbook.config.IntentKeys;
 import com.kgv.cookbook.config.Urls;
 
@@ -139,10 +138,11 @@ public class FirstFragment extends BaseFragment implements View.OnClickListener 
             line_taboo.setVisibility(View.GONE);
         }
         //小贴士
-        if (!AppUtils.isNullString(bean.getTips())){
+        if (!TextUtils.isEmpty(bean.getTips())){
             String tips = bean.getTips().replace("<br>", "");
             tv_tip.setText("小贴士：\n" + tips);
         }
+
 
     }
 

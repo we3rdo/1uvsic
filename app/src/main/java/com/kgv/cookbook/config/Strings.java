@@ -75,4 +75,31 @@ public class Strings {
         peoples.add(new NameAndId("7","10人以上"));
         return peoples;
     }
+
+    public static String getStringUnit(String unit){
+        if ("re_liang".equals(unit)){
+            unit = "热量（大卡）";
+        }else if("tan_shui".equals(unit)){
+            unit = "碳水化合物（克）";
+        }else if("zhi_fang".equals(unit)){
+            unit = "脂肪（克）";
+        }else if("dan_bai".equals(unit)){
+            unit = "蛋白质（克）";
+        }else if("dan_gu".equals(unit)){
+            unit = "胆固醇（毫克）";
+        }else if("mei".equals(unit)){
+            unit = "镁（毫克）";
+        }else if("gai".equals(unit)){
+            unit = "钙（毫克）";
+        }else if("tie".equals(unit)){
+            unit = "铁（毫克）";
+        }else if("xin".equals(unit)){
+            unit = "锌（毫克）";
+        }else if("xi".equals(unit)){
+            unit = "硒（毫克）";
+        }else {
+            unit = "";
+        }
+        return unit;
+    }
 }

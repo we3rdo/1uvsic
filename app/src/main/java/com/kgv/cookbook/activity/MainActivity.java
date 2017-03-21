@@ -1,5 +1,6 @@
 package com.kgv.cookbook.activity;
 
+import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.os.Bundle;
@@ -11,6 +12,7 @@ import android.widget.LinearLayout;
 
 import com.kgv.cookbook.R;
 import com.kgv.cookbook.base.BaseActivity;
+import com.kgv.cookbook.util.LogUtils;
 
 import java.util.List;
 
@@ -50,6 +52,22 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
 //                mHelper.start4DiaLog();
 //            }
 //        });
+    }
+
+
+
+    private int getStatusHeight(Context context) {
+        int statusHeight = -1;
+        try {
+            Class clazz = Class.forName("com.android.internal.R$dimen");
+            Object object = clazz.newInstance();
+            int height = Integer.parseInt(clazz.getField("status_bar_height")
+                    .get(object).toString());
+            statusHeight = context.getResources().getDimensionPixelSize(height);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return statusHeight;
     }
 
     private void initReceiver () {
@@ -275,7 +293,12 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
 
     @Override
     protected void home() {
-
+        int tHeight = getStatusHeight(this);
+        int bHeight = findViewById(R.id.bottom).getMeasuredHeight();
+        int bHeight2 = findViewById(R.id.bottom).getHeight();
+        LogUtils.v("height","顶部 = " + tHeight);
+        LogUtils.v("height","底部 = " + bHeight);
+        LogUtils.v("height","底部2= " + bHeight2);
     }
 
     @Override

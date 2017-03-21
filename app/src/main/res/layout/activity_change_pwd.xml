@@ -11,7 +11,7 @@
     <ImageView
         android:id="@+id/parent"
         android:clickable="true"
-        android:src="@drawable/normal_bg"
+        android:src="@drawable/abcdefg"
         android:layout_width="match_parent"
         android:layout_height="match_parent"/>
 
@@ -151,9 +151,10 @@
 
             </LinearLayout>
         </RelativeLayout>
-        <include layout="@layout/include_bottom"/>
+
     </LinearLayout>
 
+    <include layout="@layout/include_bottom"/>
     <FrameLayout
         android:id="@+id/fl_search_content"
         android:layout_width="wrap_content"

@@ -15,6 +15,7 @@ import com.kgv.cookbook.adapter.SuggestAdapter;
 import com.kgv.cookbook.base.BaseActivity;
 import com.kgv.cookbook.bean.SuggestNutrition;
 import com.kgv.cookbook.config.IntentKeys;
+import com.kgv.cookbook.config.Strings;
 import com.kgv.cookbook.config.Urls;
 import com.kgv.cookbook.util.HttpResponse;
 import com.kgv.cookbook.util.LogUtils;
@@ -36,7 +37,7 @@ public class SuggestActivity extends BaseActivity implements AdapterView.OnItemC
     private ListView lv_suggest_breakfast;
     private ListView lv_suggest_lunch;
     private ListView lv_suggest_dinner;
-    private TextView tv_suggest_sum, tv_suggest_standard_sum, tv_suggest_result;
+    private TextView tv_suggest_sum, tv_suggest_standard_sum, tv_suggest_result;//推荐摄入量、标准摄入量、结果
     private ImageView iv_status_real, iv_status_suggest;
     private SuggestAdapter realBAdapter;
     private SuggestAdapter realLAdapter;
@@ -45,6 +46,7 @@ public class SuggestActivity extends BaseActivity implements AdapterView.OnItemC
     private SuggestAdapter suggestLAdapter;
     private SuggestAdapter suggestDAdapter;
     private TextView tv_result;
+    private TextView tv_unit;
 
     @Override
     protected boolean hasBottomMenu() {
@@ -82,6 +84,7 @@ public class SuggestActivity extends BaseActivity implements AdapterView.OnItemC
         tv_suggest_result = (TextView) findViewById(R.id.tv_suggest_result);
         iv_status_real = (ImageView) findViewById(R.id.iv_status_real);
         iv_status_suggest = (ImageView) findViewById(R.id.iv_status_suggest);
+        tv_unit = (TextView) findViewById(R.id.tv_unit);
     }
 
     private void initListener() {
@@ -117,6 +120,7 @@ public class SuggestActivity extends BaseActivity implements AdapterView.OnItemC
 
     private void bindingData() {
         String unit = data.getUint();
+        tv_unit.setText(Strings.getStringUnit(u));
         if (data.getBlog_breakfast() != null) {
             realBAdapter = new SuggestAdapter(data.getBlog_breakfast(), unit);
             lv_real_breakfast.setAdapter(realBAdapter);
@@ -130,7 +134,8 @@ public class SuggestActivity extends BaseActivity implements AdapterView.OnItemC
             lv_real_dinner.setAdapter(realDAdapter);
         }
         if (data.getBlog_cookbook() != 0) {
-            tv_real_sum.setText(Double.toString(data.getBlog_cookbook()) + "(" + unit + ")");
+            tv_real_sum.setText(data.getBlog_cookbook() + "(食谱) + " + data.getMilk_sum() + "(牛奶) + \n"
+                + data.getGu_wu_sum() + "(谷物) = " + data.getBlog_sum() + unit);
         }
         if (!TextUtils.isEmpty(data.getBlog_status())) {
             iv_status_real.setImageResource(getStatusImg(data.getBlog_status()));
@@ -143,7 +148,8 @@ public class SuggestActivity extends BaseActivity implements AdapterView.OnItemC
         lv_suggest_breakfast.setAdapter(suggestBAdapter);
         lv_suggest_lunch.setAdapter(suggestLAdapter);
         lv_suggest_dinner.setAdapter(suggestDAdapter);
-        tv_suggest_sum.setText(Double.toString(data.getHealth_cookbook()) + "(" + unit + ")");
+        tv_suggest_sum.setText(data.getHealth_cookbook() + "(食谱) + " + data.getMilk_sum() + "(牛奶) + \n"
+                + data.getGu_wu_sum() + "(谷物) = " + data.getHealth_sum() + unit);
         iv_status_suggest.setImageResource(getStatusImg(data.getHealth_status()));
         tv_suggest_standard_sum.setText("标准摄入量：" + data.getSuggest_l() + "~" + data.getSuggest_h() + "(" + unit + ")");
         tv_suggest_result.setText("结果：" + getStatusStr(data.getHealth_status()));
