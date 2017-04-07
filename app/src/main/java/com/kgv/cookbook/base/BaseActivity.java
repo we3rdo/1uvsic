@@ -138,14 +138,14 @@ public abstract class BaseActivity extends FragmentActivity {
         overridePendingTransition(R.anim.activity_in_right_2_left, R.anim.activity_out_right_2_left);
     }
 
-    private void volumeReduce() {
+    protected void volumeReduce() {
         mAudioManager.adjustStreamVolume(
                 AudioManager.STREAM_MUSIC,
                 AudioManager.ADJUST_LOWER,
                 AudioManager.FLAG_PLAY_SOUND | AudioManager.FLAG_SHOW_UI);
     }
 
-    private void volumeAdd() {
+    protected void volumeAdd() {
         mAudioManager.adjustStreamVolume(
                 AudioManager.STREAM_MUSIC,
                 AudioManager.ADJUST_RAISE,

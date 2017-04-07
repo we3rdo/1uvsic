@@ -59,7 +59,6 @@ public class MaterialsFragment extends BaseFragment implements View.OnClickListe
         tv4.setOnClickListener(this);
         tv5 = (TextView) contentView.findViewById(R.id.tv5);
         tv5.setOnClickListener(this);
-
     }
 
     @Override

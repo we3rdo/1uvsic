@@ -22,7 +22,7 @@ public class WeekAdapter extends FinalBaseAdapter<WeekBean.RecipeEntity> {
     public WeekAdapter(List<WeekBean.RecipeEntity> datas) {
         super(datas);
         opening = false;
-        if (datas.size() > 0){
+        if (datas != null && datas.size() > 0){
             hasMore = datas.size() > 5;
         }
     }
@@ -55,11 +55,14 @@ public class WeekAdapter extends FinalBaseAdapter<WeekBean.RecipeEntity> {
 
     @Override
     public int getCount() {
-        int realSize = mDatas.size();
-        if (hasMore){
-            return opening ? realSize : 5;
-        }else{
-            return realSize;
+        if (mDatas != null){
+            int realSize = mDatas.size();
+            if (hasMore){
+                return opening ? realSize : 5;
+            }else{
+                return realSize;
+            }
         }
+        return 0;
     }
 }

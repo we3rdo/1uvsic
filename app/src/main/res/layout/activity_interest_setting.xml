@@ -16,6 +16,7 @@
 
             <LinearLayout
                 android:background="#fff"
+                android:paddingTop="15dp"
                 android:paddingLeft="20dp"
                 android:paddingRight="20dp"
                 android:layout_width="0dp"
@@ -27,14 +28,11 @@
                     android:layout_width="match_parent"
                     android:layout_height="55dp"
                     android:text="不喜欢/不吃"
-                    android:layout_marginLeft="20dp"
-                    android:gravity="center_vertical"
-                    android:textColor="@color/bg_color_black"
+                    android:gravity="center"
+                    android:textColor="@color/white"
+                    android:background="@color/a"
                     android:textSize="22sp"/>
-                <View
-                    android:layout_width="match_parent"
-                    android:layout_height="1dp"
-                    android:background="@color/gray_line"/>
+
                 <TextView
                     android:id="@+id/tv_r"
                     android:layout_marginLeft="20dp"

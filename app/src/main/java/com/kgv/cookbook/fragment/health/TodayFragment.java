@@ -170,7 +170,9 @@ public class TodayFragment extends BaseFragment implements View.OnClickListener,
     }
 
     private void getBlogMorningData() {
-        httpUtils.doGet(Urls.BLOG_MORNING_LIST + "username/" + mUser.getUsername() + "/password/" + mUser.getPassword() + "/db_name/morning_blog/create_time/", new HttpResponse<String>(String.class) {
+        String url = Urls.BLOG_MORNING_LIST + "username/" + mUser.getUsername() + "/password/" + mUser.getPassword() + "/db_name/morning_blog/create_time/";
+        LogUtils.v("url","早url = " + url);
+        httpUtils.doGet(url, new HttpResponse<String>(String.class) {
             @Override
             public void onSuccess(String str) {
                 handler.obtainMessage(0, str).sendToTarget();
@@ -307,11 +309,23 @@ public class TodayFragment extends BaseFragment implements View.OnClickListener,
         }
     }
 
+    @Override
+    protected void handleMsg4(Message msg) {
+        LogUtils.v("handleMsg4");
+    }
+
     private void getTodayCount() {
-        httpUtils.doGet(Urls.DAY_NUTRITION_COUNT + "username/" + mUser.getUsername() + "/password/" + mUser.getPassword() + "/create_time/" + DateUtils.getToday(), new HttpResponse<NutritionCount>(NutritionCount.class) {
+        httpUtils.doGet(Urls.DAY_NUTRITION_COUNT + "username/" + mUser.getUsername() + "/password/" + mUser.getPassword() + "/create_time/" + DateUtils.getToday(),
+                new HttpResponse<String>(String.class) {
             @Override
-            public void onSuccess(NutritionCount bean) {
-                handler.obtainMessage(3, bean).sendToTarget();
+            public void onSuccess(String str) {
+                try{
+                    NutritionCount bean = gson.fromJson(str,NutritionCount.class);
+                    handler.obtainMessage(3, bean).sendToTarget();
+                }catch (Exception e){
+                    e.printStackTrace();
+                    handler.obtainMessage(4).sendToTarget();
+                }
             }
 
             @Override

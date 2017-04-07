@@ -77,7 +77,9 @@ public class StepFragment extends BaseFragment implements View.OnClickListener {
                 break;
             case R.id.iv_right:
                 //position = position + Integer.parseInt(rightNum);
-                intent.putExtra(IntentKeys.IMAGE_POSITION,Integer.parseInt(rightNum));
+                if(!TextUtils.isEmpty(rightNum)){
+                    intent.putExtra(IntentKeys.IMAGE_POSITION,Integer.parseInt(rightNum));
+                }
                 break;
         }
         activity.startActivity(intent);

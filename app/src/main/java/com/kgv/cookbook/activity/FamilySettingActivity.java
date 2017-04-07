@@ -12,8 +12,6 @@ import android.widget.GridView;
 import android.widget.ListView;
 import android.widget.TextView;
 
-import com.daimajia.androidanimations.library.Techniques;
-import com.daimajia.androidanimations.library.YoYo;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 import com.kgv.cookbook.R;
@@ -21,6 +19,7 @@ import com.kgv.cookbook.adapter.FamilyAgeAdapter;
 import com.kgv.cookbook.adapter.FamilyContentAdapter;
 import com.kgv.cookbook.adapter.FamilyHealthAdapter;
 import com.kgv.cookbook.base.BaseActivity;
+import com.kgv.cookbook.base.BaseOnTouchListener;
 import com.kgv.cookbook.bean.FamilyContent;
 import com.kgv.cookbook.bean.RecipeCategory;
 import com.kgv.cookbook.config.IntentKeys;
@@ -59,27 +58,27 @@ public class FamilySettingActivity extends BaseActivity implements AdapterView.O
     private boolean changed;
 
     @Override
-    protected boolean hasBottomMenu () {
+    protected boolean hasBottomMenu() {
         return true;
     }
 
     @Override
-    protected int getContentViewId () {
+    protected int getContentViewId() {
         return R.layout.activity_family_setting;
     }
 
     @Override
-    protected void initialization (Bundle savedInstanceState) {
+    protected void initialization(Bundle savedInstanceState) {
         initUI();
         initListener();
         getFunctionFromNet();
-        isJump = getIntent().getBooleanExtra(IntentKeys.JUMP_SET_FAMILY,false);
+        isJump = getIntent().getBooleanExtra(IntentKeys.JUMP_SET_FAMILY, false);
         if (mUser.isExist()) {
             getFamilyContent(true);
         }
     }
 
-    private void initUI () {
+    private void initUI() {
         frame_people = findViewById(R.id.frame_people);
         frame_health = findViewById(R.id.frame_health);
         tv_tip = (TextView) findViewById(R.id.tv_tip);
@@ -87,36 +86,49 @@ public class FamilySettingActivity extends BaseActivity implements AdapterView.O
         lv_people = (ListView) findViewById(R.id.lv_people);
         gv_health = (GridView) findViewById(R.id.gv_health);
         lv_content = (ListView) findViewById(R.id.lv_content);
-
         ageAdapter = new FamilyAgeAdapter(Strings.getAge());
         lv_age.setAdapter(ageAdapter);
         peopleAdapter = new FamilyAgeAdapter(Strings.getPeople());
         lv_people.setAdapter(peopleAdapter);
     }
 
-    private void initListener () {
+    private void initListener() {
         lv_age.setOnItemClickListener(this);
         lv_people.setOnItemClickListener(this);
         gv_health.setOnItemClickListener(this);
+        findViewById(R.id.rlAgeMore).setOnTouchListener(new BaseOnTouchListener() {
+            @Override
+            protected void onViewTouch(View v) {
+                //lv_age.scrollListBy(300);
+            }
+        });
+        findViewById(R.id.rlHealthMore).setOnTouchListener(new BaseOnTouchListener() {
+            @Override
+            protected void onViewTouch(View v) {
+                //gv_health.scrollListBy(300);
+            }
+        });
+
     }
 
     @Override
-    public void onHealthItemDelete (String id) {
+    public void onItemDelete(String id) {
         mHttpUtils.doGet(Urls.FAMILY_DELETE + "username/" + mUser.getUsername() + "/password/" + mUser.getPassword()
                 + "/id/" + id + "/act/del", null);
         changed = true;
-        tv_tip.setVisibility(View.GONE);
-        if (frame_health.getVisibility() == View.VISIBLE){
+        //tv_tip.setVisibility(View.GONE);
+        tv_tip.setText("请点击年龄栏添加家庭成员");
+        if (frame_health.getVisibility() == View.VISIBLE) {
             frame_health.setVisibility(View.GONE);
             currentHealthId = "";
         }
-        if (frame_people.getVisibility() == View.VISIBLE){
+        if (frame_people.getVisibility() == View.VISIBLE) {
             frame_people.setVisibility(View.GONE);
             currentPeopleId = "";
         }
     }
 
-    private void sendChangeBroadcast(){
+    private void sendChangeBroadcast() {
         LocalBroadcastManager localBroadcastManager = LocalBroadcastManager.getInstance(this);
         Intent intent = new Intent("com.kgv.cookbook.FAMILY_CHANGE");
         localBroadcastManager.sendBroadcast(intent);
@@ -124,12 +136,12 @@ public class FamilySettingActivity extends BaseActivity implements AdapterView.O
 
     //设置人群
     @Override
-    public void onPeopleClick (String id, int position) {
+    public void onPeopleClick(String id, int position) {
         if (frame_health.getVisibility() == View.VISIBLE) {
             hideAlpha(frame_health);
             contentAdapter.hideHealth();
         }
-        if (inGuidance != -1){
+        if (inGuidance != -1) {
             contentAdapter.clearNewIdByPeople();
             contentAdapter.clearNewIdByHealth();
             inGuidance = -1;
@@ -137,22 +149,26 @@ public class FamilySettingActivity extends BaseActivity implements AdapterView.O
         frame_people.setVisibility(View.VISIBLE);
         startAlpha(frame_people);
         currentPeopleId = id;
+        currentHealthId = id;
         contentAdapter.showPeople(position);
         tv_tip.setText("请点击设置该人群人数");
-        tv_tip.setVisibility(View.VISIBLE);
-        YoYo.with(Techniques.ZoomIn)
-                .duration(700)
-                .playOn(tv_tip);
+//        tv_tip.setVisibility(View.VISIBLE);
+//        YoYo.with(Techniques.ZoomIn)
+//                .duration(700)
+//                .playOn(tv_tip);
     }
 
     //设置健康状况
     @Override
-    public void onHealthClick (String id, int position) {
+    public void onHealthClick(String id, int position) {
+
+        replaceHealthData(contentAdapter.getAgeIdByPosition(position));
+
         if (frame_people.getVisibility() == View.VISIBLE) {
             hideAlpha(frame_people);
             contentAdapter.hidePeople();
         }
-        if (inGuidance != -1){
+        if (inGuidance != -1) {
             contentAdapter.clearNewIdByPeople();
             contentAdapter.clearNewIdByHealth();
             inGuidance = -1;
@@ -160,42 +176,85 @@ public class FamilySettingActivity extends BaseActivity implements AdapterView.O
         frame_health.setVisibility(View.VISIBLE);
         startAlpha(frame_health);
         currentHealthId = id;
+        currentPeopleId = id;
         contentAdapter.showHealth(position);
         tv_tip.setText("请点击设置该人群健康状况");
-        tv_tip.setVisibility(View.VISIBLE);
-        YoYo.with(Techniques.ZoomIn)
-                .duration(700)
-                .playOn(tv_tip);
+//        tv_tip.setVisibility(View.VISIBLE);
+//        YoYo.with(Techniques.ZoomIn)
+//                .duration(700)
+//                .playOn(tv_tip);
     }
 
-    private void startAlpha (View view) {
+    @Override
+    public void onPeopleDeleteClick(String id) {
+        contentAdapter.hidePeople();
+        if (frame_people.getVisibility() == View.VISIBLE) {
+            hideAlpha(frame_people);
+        }
+        mHttpUtils.doGet(Urls.FAMILY_EDIT_PEOPLE
+                + "username/" + mUser.getUsername() + "/password/" + mUser.getPassword()
+                + "/id/" + id + "/field/num/val/0/act/save", new HttpResponse<String>(String.class) {
+            @Override
+            public void onSuccess(String o) {
+                changed = true;
+            }
+
+            @Override
+            public void onError(String msg) {
+
+            }
+        });
+    }
+
+    @Override
+    public void onHealthDeleteClick(String id) {
+        contentAdapter.hideHealth();
+        if (frame_health.getVisibility() == View.VISIBLE) {
+            hideAlpha(frame_health);
+        }
+        mHttpUtils.doGet(Urls.FAMILY_EDIT_HEALTH
+                + "username/" + mUser.getUsername() + "/password/" + mUser.getPassword()
+                + "/id/" + id + "/field/health/val/0/act/save", new HttpResponse<String>(String.class) {
+            @Override
+            public void onSuccess(String o) {
+                changed = true;
+            }
+
+            @Override
+            public void onError(String msg) {
+
+            }
+        });
+    }
+
+    private void startAlpha(View view) {
         ObjectAnimator animator = ObjectAnimator.ofFloat(view, "alpha", 0f, 1f);
         animator.setDuration(1500);
         animator.start();
     }
 
-    private void hideAlpha (final View view) {
+    private void hideAlpha(final View view) {
         ObjectAnimator animator = ObjectAnimator.ofFloat(view, "alpha", 1f, 0f);
         animator.setDuration(1000);
         animator.addListener(new android.animation.Animator.AnimatorListener() {
             @Override
-            public void onAnimationStart (android.animation.Animator animation) {
+            public void onAnimationStart(android.animation.Animator animation) {
 
             }
 
             @Override
-            public void onAnimationEnd (android.animation.Animator animation) {
+            public void onAnimationEnd(android.animation.Animator animation) {
                 view.clearAnimation();
                 view.setVisibility(View.GONE);
             }
 
             @Override
-            public void onAnimationCancel (android.animation.Animator animation) {
+            public void onAnimationCancel(android.animation.Animator animation) {
 
             }
 
             @Override
-            public void onAnimationRepeat (android.animation.Animator animation) {
+            public void onAnimationRepeat(android.animation.Animator animation) {
 
             }
         });
@@ -203,10 +262,15 @@ public class FamilySettingActivity extends BaseActivity implements AdapterView.O
     }
 
     @Override
-    public void onItemClick (AdapterView<?> parent, View view, int position, long id) {
+    public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
         switch (parent.getId()) {
             case R.id.lv_age:
+                replaceHealthData(position);
                 inGuidance = 0;//开始引导
+                if (frame_health.getVisibility() == View.VISIBLE) {
+                    hideAlpha(frame_health);
+                    contentAdapter.hideHealth();
+                }
                 addToFamily(position);
                 break;
             case R.id.lv_people:
@@ -218,25 +282,32 @@ public class FamilySettingActivity extends BaseActivity implements AdapterView.O
         }
     }
 
+    private void replaceHealthData(int position) {
+        healthAdapter.replaceData(Strings.getHealthByAge(
+                Integer.valueOf(ageAdapter.getItemIdByPosition(position))));
+    }
+
     //添加家庭成员
-    private void addToFamily (int position) {
+    private void addToFamily(int position) {
         String ageId = ageAdapter.getItemIdByPosition(position);
-        mHttpUtils.doGet(Urls.FAMILY_ADD + "username/" + mUser.getUsername() + "/password/" + mUser.getPassword()
-                + "/member/" + ageId + "/act/add", new HttpResponse<String>(String.class) {
+        String url = Urls.FAMILY_ADD + "username/" + mUser.getUsername() + "/password/" + mUser.getPassword()
+                + "/member/" + ageId + "/act/add";
+        LogUtils.v("aaaa", "添加新成员 = " + url);
+        mHttpUtils.doGet(url, new HttpResponse<String>(String.class) {
             @Override
-            public void onSuccess (String str) {
+            public void onSuccess(String str) {
                 getFamilyContent(false);
             }
 
             @Override
-            public void onError (String msg) {
+            public void onError(String msg) {
 
             }
         });
     }
 
     //编辑指定人群人数
-    private void editPeople (int position) {
+    private void editPeople(int position) {
         if (TextUtils.isEmpty(currentPeopleId)) {
             return;
         }
@@ -246,72 +317,91 @@ public class FamilySettingActivity extends BaseActivity implements AdapterView.O
         if (frame_people.getVisibility() == View.VISIBLE) {
             hideAlpha(frame_people);
         }
-        if (inGuidance != 0){
-            YoYo.with(Techniques.ZoomOut)
-                    .duration(700)
-                    .withListener(new SetGoneWithAnimation(tv_tip))
-                    .playOn(tv_tip);
-        }
+//        if (inGuidance != 0){
+//            YoYo.with(Techniques.ZoomOut)
+//                    .duration(700)
+//                    .withListener(new SetGoneWithAnimation(tv_tip))
+//                    .playOn(tv_tip);
+//        }
         String peopleId = peopleAdapter.getItemIdByPosition(position);
         mHttpUtils.doGet(Urls.FAMILY_EDIT_PEOPLE
                 + "username/" + mUser.getUsername() + "/password/" + mUser.getPassword()
                 + "/id/" + currentPeopleId + "/field/num/val/" + peopleId + "/act/save", new HttpResponse<String>(String.class) {
             @Override
-            public void onSuccess (String str) {
-                if (inGuidance == 0){
+            public void onSuccess(String str) {
+                if (inGuidance == 0) {
                     inGuidance = 1;//设置人数完成
                 }
                 getFamilyContent(false);
             }
 
             @Override
-            public void onError (String msg) {
+            public void onError(String msg) {
 
             }
         });
     }
 
     //编辑指定人群健康状况
-    private void editHealth (int position) {
+    private void editHealth(int position) {
         if (frame_health.getVisibility() == View.VISIBLE) {
             hideAlpha(frame_health);
         }
         if (frame_people.getVisibility() == View.VISIBLE) {
             hideAlpha(frame_people);
         }
-        YoYo.with(Techniques.ZoomOut)
-                .duration(700)
-                .withListener(new SetGoneWithAnimation(tv_tip))
-                .playOn(tv_tip);
+//        YoYo.with(Techniques.ZoomOut)
+//                .duration(700)
+//                .withListener(new SetGoneWithAnimation(tv_tip))
+//                .playOn(tv_tip);
+        String healthId = healthAdapter.getItemIdByPosition(position);
+        LogUtils.v("abc", "health ID = " + healthId);
+        if (inGuidance == 0) {
+            String url = Urls.FAMILY_EDIT_HEALTH
+                    + "username/" + mUser.getUsername() + "/password/" + mUser.getPassword()
+                    + "/id/" + currentPeopleId + "/field/health/val/" + healthId + "/act/save";
+            mHttpUtils.doGet(url, new HttpResponse<String>(String.class) {
+                @Override
+                public void onSuccess(String str) {
+                    inGuidance = -1;
+                    getFamilyContent(false);
+                }
+
+                @Override
+                public void onError(String msg) {
+
+                }
+            });
+            return;
+        }
         if (TextUtils.isEmpty(currentHealthId)) {
             return;
         }
-        String healthId = healthAdapter.getItemIdByPosition(position);
         mHttpUtils.doGet(Urls.FAMILY_EDIT_HEALTH
                 + "username/" + mUser.getUsername() + "/password/" + mUser.getPassword()
                 + "/id/" + currentHealthId + "/field/health/val/" + healthId + "/act/save", new HttpResponse<String>(String.class) {
             @Override
-            public void onSuccess (String str) {
-                if (inGuidance == 1){
+            public void onSuccess(String str) {
+                if (inGuidance == 1) {
                     inGuidance = 2;//健康状况设置完成
                 }
                 getFamilyContent(false);
             }
 
             @Override
-            public void onError (String msg) {
+            public void onError(String msg) {
 
             }
         });
     }
 
     @Override
-    protected void handleMsg0 (Message msg) {
+    protected void handleMsg0(Message msg) {
         healthData = (List<RecipeCategory.ChildrenEntity>) msg.obj;
     }
 
     @Override
-    protected void handleMsg1 (Message msg) {
+    protected void handleMsg1(Message msg) {
         List<RecipeCategory.ChildrenEntity> list = (List<RecipeCategory.ChildrenEntity>) msg.obj;
         healthData.addAll(list);
         healthAdapter = new FamilyHealthAdapter(healthData);
@@ -319,76 +409,78 @@ public class FamilySettingActivity extends BaseActivity implements AdapterView.O
     }
 
     @Override
-    protected void handleMsg2 (Message msg) {
-        LogUtils.v("abc","inGuidance = " + inGuidance);
+    protected void handleMsg2(Message msg) {
+        LogUtils.v("abc", "inGuidance = " + inGuidance);
         List<FamilyContent> datas = (List<FamilyContent>) msg.obj;
         if (inGuidance == 0) {
             currentPeopleId = contentAdapter.showPeopleByNewData(datas);
             frame_people.setVisibility(View.VISIBLE);
             startAlpha(frame_people);
             tv_tip.setText("请点击设置该人群人数");
-            tv_tip.setVisibility(View.VISIBLE);
-            YoYo.with(Techniques.ZoomIn)
-                    .duration(700)
-                    .playOn(tv_tip);
-        }else if(inGuidance == 1){
+//            tv_tip.setVisibility(View.VISIBLE);
+//            YoYo.with(Techniques.ZoomIn)
+//                    .duration(700)
+//                    .playOn(tv_tip);
+        } else if (inGuidance == 1) {
             contentAdapter.refreshData(datas);
             currentHealthId = contentAdapter.showHealthByNewData();
             frame_health.setVisibility(View.VISIBLE);
             startAlpha(frame_health);
             tv_tip.setText("请点击设置该人群健康状况");
-        }else{
+        } else {
+            tv_tip.setText("请点击年龄栏添加家庭成员");
             inGuidance = -1;
             contentAdapter = new FamilyContentAdapter(datas, this);
             lv_content.setAdapter(contentAdapter);
         }
     }
 
-    private void getFunctionFromNet () {
+    private void getFunctionFromNet() {
         mHttpUtils.doGet(Urls.FUNCTION_G, new HttpResponse<RecipeCategory>(RecipeCategory.class) {
             @Override
-            public void onSuccess (RecipeCategory cBean) {
+            public void onSuccess(RecipeCategory cBean) {
                 List<RecipeCategory.ChildrenEntity> children = cBean.getChildren();
                 myHandler.obtainMessage(0, children).sendToTarget();
                 getSicknessFromNet();
             }
 
             @Override
-            public void onError (String msg) {
+            public void onError(String msg) {
 
             }
         });
     }
 
-    private void getSicknessFromNet () {
+    private void getSicknessFromNet() {
         mHttpUtils.doGet(Urls.SICKNESS_G, new HttpResponse<RecipeCategory>(RecipeCategory.class) {
             @Override
-            public void onSuccess (RecipeCategory cBean) {
+            public void onSuccess(RecipeCategory cBean) {
                 List<RecipeCategory.ChildrenEntity> children = cBean.getChildren();
                 myHandler.obtainMessage(1, children).sendToTarget();
             }
 
             @Override
-            public void onError (String msg) {
+            public void onError(String msg) {
 
             }
         });
     }
 
-    private void getFamilyContent (final boolean isFirst) {
+    private void getFamilyContent(final boolean isFirst) {
         mHttpUtils.doGet(Urls.FAMILY_LIST + "username/" + mUser.getUsername() + "/password/" + mUser.getPassword(), new HttpResponse<String>(String.class) {
             @Override
-            public void onSuccess (String str) {
-                if (!isFirst){
+            public void onSuccess(String str) {
+                if (!isFirst) {
                     changed = true;
                 }
                 Gson gson = new Gson();
-                List<FamilyContent> datas = gson.fromJson(str, new TypeToken<List<FamilyContent>>() {}.getType());
+                List<FamilyContent> datas = gson.fromJson(str, new TypeToken<List<FamilyContent>>() {
+                }.getType());
                 myHandler.obtainMessage(2, datas).sendToTarget();
             }
 
             @Override
-            public void onError (String msg) {
+            public void onError(String msg) {
 
             }
         });
@@ -398,36 +490,36 @@ public class FamilySettingActivity extends BaseActivity implements AdapterView.O
 
         private View view;
 
-        public SetGoneWithAnimation (View view) {
+        public SetGoneWithAnimation(View view) {
             this.view = view;
         }
 
         @Override
-        public void onAnimationStart (Animator animation) {
+        public void onAnimationStart(Animator animation) {
 
         }
 
         @Override
-        public void onAnimationEnd (Animator animation) {
+        public void onAnimationEnd(Animator animation) {
             view.clearAnimation();
             view.setVisibility(View.GONE);
         }
 
         @Override
-        public void onAnimationCancel (Animator animation) {
+        public void onAnimationCancel(Animator animation) {
 
         }
 
         @Override
-        public void onAnimationRepeat (Animator animation) {
+        public void onAnimationRepeat(Animator animation) {
 
         }
     }
 
     @Override
-    protected void onDestroy () {
+    protected void onDestroy() {
         super.onDestroy();
-        if (isJump && changed){
+        if (isJump && changed) {
             sendChangeBroadcast();
         }
     }

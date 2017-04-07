@@ -74,6 +74,12 @@ public class RecipeCategory {
     }
 
     public static class ChildrenEntity {
+
+        public ChildrenEntity(String id, String title) {
+            this.id = id;
+            this.title = title;
+        }
+
         /**
          * image :
          * pid : 6

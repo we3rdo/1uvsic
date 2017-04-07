@@ -8,6 +8,7 @@ import com.iflytek.cloud.SpeechConstant;
 import com.iflytek.cloud.SpeechUtility;
 import com.kgv.cookbook.bean.User;
 import com.kgv.cookbook.db.dao.PhoneCodeDAO;
+import com.liulishuo.filedownloader.FileDownloader;
 
 import java.util.ArrayList;
 
@@ -31,6 +32,8 @@ public class CookbookApplication extends Application {
         refreshGetCodeNumber();
         //初始化 fresco
         Fresco.initialize(context);
+        //初始化 downloader
+        FileDownloader.init(context);
     }
 
     public static Context getContext() {

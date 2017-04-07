@@ -51,4 +51,10 @@ dependencies {
     compile 'com.bm.photoview:library:1.4.1'
     //progress button
     compile 'com.github.dmytrodanylyk.android-process-button:library:1.0.4'
+    //downloader
+    compile 'com.liulishuo.filedownloader:library:1.4.2'
+    //number progressbar
+    compile 'com.daimajia.numberprogressbar:library:1.4@aar'
+    //loading
+    compile 'com.wang.avi:library:2.1.3'
 }

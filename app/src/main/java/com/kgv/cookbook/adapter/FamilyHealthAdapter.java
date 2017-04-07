@@ -28,4 +28,9 @@ public class FamilyHealthAdapter extends FinalBaseAdapter<RecipeCategory.Childre
     public String getItemIdByPosition(int position){
         return mDatas.get(position).getId();
     }
+
+    public void replaceData(List<RecipeCategory.ChildrenEntity> datas){
+        mDatas = datas;
+        notifyDataSetChanged();
+    }
 }

@@ -111,7 +111,6 @@ public class AllMaterialActivity extends BaseActivity implements View.OnClickLis
     @Override
     protected void initialization (Bundle savedInstanceState) {
         isJump = getIntent().getBooleanExtra(IntentKeys.JUMP_ALL_MATE, false);
-        LogUtils.v("isJump = " + isJump);
         flag = 0;
         materialOrRecipe = 0;
         ids = new ArrayList<>();
@@ -241,6 +240,7 @@ public class AllMaterialActivity extends BaseActivity implements View.OnClickLis
         switch (type) {
             case 0:
                 //早餐
+                LogUtils.v("uuuu","url = " + Urls.MENU_MORNING_LIST + "username/" + mUser.getUsername() + "/password/" + mUser.getPassword() + "/db_name/morning_menu/create_time/");
                 mHttpUtils.doGet(Urls.MENU_MORNING_LIST + "username/" + mUser.getUsername() + "/password/" + mUser.getPassword() + "/db_name/morning_menu/create_time/", new HttpResponse<String>(String.class) {
                     @Override
                     public void onSuccess (String str) {
@@ -908,6 +908,7 @@ public class AllMaterialActivity extends BaseActivity implements View.OnClickLis
             recommendFragment.refreshData4GroupMaterial(recipes, groupUrl);
         } else {
             tip("暂无" + name + "相关食谱");
+            groupNames.clear();
         }
         List<GroupBean.TabooEntity> taboos = bean.getTaboo();
         if (taboos != null && taboos.size() > 0) {
@@ -920,6 +921,7 @@ public class AllMaterialActivity extends BaseActivity implements View.OnClickLis
         String name = getGroupNames();
         String tip = TextUtils.isEmpty(name) ? groupNames.get(0) : name;
         tip("暂无“" + tip + "”相关食谱");
+        groupNames.clear();
     }
 
     @Override

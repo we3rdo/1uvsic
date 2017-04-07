@@ -12,7 +12,6 @@ import android.widget.LinearLayout;
 
 import com.kgv.cookbook.R;
 import com.kgv.cookbook.base.BaseActivity;
-import com.kgv.cookbook.util.LogUtils;
 
 import java.util.List;
 
@@ -98,7 +97,6 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
         findViewById(R.id.fl_voice).setOnClickListener(this);
         findViewById(R.id.fl_interest).setOnClickListener(this);
         findViewById(R.id.fl_password).setOnClickListener(this);
-        findViewById(R.id.bottom_home).setClickable(false);
         findViewById(R.id.bottom_back).setClickable(false);
     }
 
@@ -293,12 +291,8 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
 
     @Override
     protected void home() {
-        int tHeight = getStatusHeight(this);
-        int bHeight = findViewById(R.id.bottom).getMeasuredHeight();
-        int bHeight2 = findViewById(R.id.bottom).getHeight();
-        LogUtils.v("height","顶部 = " + tHeight);
-        LogUtils.v("height","底部 = " + bHeight);
-        LogUtils.v("height","底部2= " + bHeight2);
+        show(0);
+        background.setImageResource(R.drawable.main_bg_recipe_0);
     }
 
     @Override

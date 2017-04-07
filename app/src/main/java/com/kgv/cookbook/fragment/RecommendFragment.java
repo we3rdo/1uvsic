@@ -47,6 +47,7 @@ import com.kgv.cookbook.util.HttpResponse;
 import com.kgv.cookbook.util.LogUtils;
 import com.kgv.cookbook.util.SpUtils;
 import com.nineoldandroids.animation.Animator;
+import com.wang.avi.AVLoadingIndicatorView;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -62,6 +63,7 @@ public class RecommendFragment extends BaseFragment implements View.OnClickListe
     private RecommendAdapter recommendAdapter;
     private TextAndSoftLineAdapter functionAdapter;
     private TextAndSoftLineAdapter sicknessAdapter;
+    private AVLoadingIndicatorView loading;
     //功能调理
     private RelativeLayout fl_function;
     private GridView gv_function;
@@ -117,6 +119,7 @@ public class RecommendFragment extends BaseFragment implements View.OnClickListe
     }
 
     private void initUI (View contentView) {
+        loading = (AVLoadingIndicatorView) contentView.findViewById(R.id.loading);
         ll_loadMore = (LinearLayout) contentView.findViewById(R.id.ll_loadMore);
         gv_content = (GridView) contentView.findViewById(R.id.gv_content);
         IAutoLoadListener listener = new IAutoLoadListener(new IAutoLoadListener.AutoLoadCallBack() {
@@ -207,6 +210,8 @@ public class RecommendFragment extends BaseFragment implements View.OnClickListe
 
     //重置数据
     public void resetContentData () {
+
+
         //开启加载更多推荐数据
         normalLoadMore = true;
         normalPage = 1;
@@ -250,6 +255,8 @@ public class RecommendFragment extends BaseFragment implements View.OnClickListe
 
     //美食天下 请求食谱分类
     public void getCategory (String cid, String name) {
+
+
         title = name;
         cateId = cid;//每次点击保存分类id
         recipeCatePage = 1;//每次点击重置分类页数
@@ -304,6 +311,8 @@ public class RecommendFragment extends BaseFragment implements View.OnClickListe
     private void getRecommendFromNet (final int page, final boolean append) {
         if (append) {
             ll_loadMore.setVisibility(View.VISIBLE);
+        }else{
+            loading.show();
         }
         LogUtils.v("recommend", "推荐数据 : " + Urls.RECOMMEND_RECIPE + page);
         httpUtils.doGet(Urls.RECOMMEND_RECIPE + page, new HttpResponse<String>(String.class) {
@@ -433,11 +442,13 @@ public class RecommendFragment extends BaseFragment implements View.OnClickListe
         gv_sickness.setAdapter(sicknessAdapter);
     }
 
-    /**
-     * 处理推荐食谱
-     */
+
+
     @Override   //初次加载推荐数据
     protected void handleMsg2 (Message msg) {
+
+        loading.hide();
+
         List<ShiPu> datas = (List<ShiPu>) msg.obj;
         recommendAdapter = new RecommendAdapter(datas, this);
         gv_content.setAdapter(recommendAdapter);

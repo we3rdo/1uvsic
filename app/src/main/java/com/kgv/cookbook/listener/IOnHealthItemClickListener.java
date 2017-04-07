@@ -7,9 +7,13 @@ package com.kgv.cookbook.listener;
  */
 public interface IOnHealthItemClickListener {
 
-    void onHealthItemDelete(String id);
+    void onItemDelete(String id);
 
     void onPeopleClick(String id,int position);
 
     void onHealthClick(String id,int position);
+
+    void onPeopleDeleteClick(String id);
+
+    void onHealthDeleteClick(String id);
 }

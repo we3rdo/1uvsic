@@ -23,17 +23,16 @@
                 android:orientation="vertical">
 
                 <RelativeLayout
-                    android:background="#BCA281"
                     android:layout_width="match_parent"
-                    android:layout_height="45dp">
+                    android:layout_height="45dp"
+                    android:background="#BCA281">
 
                     <TextView
                         android:id="@+id/tv_unit"
                         android:layout_width="wrap_content"
                         android:layout_height="45dp"
-                        android:gravity="center"
                         android:layout_marginLeft="25dp"
-                        android:text="钙（毫克）"
+                        android:gravity="center"
                         android:textColor="#fff"
                         android:textSize="23sp"/>
 
@@ -181,6 +180,7 @@
                     android:orientation="horizontal">
 
                     <LinearLayout
+                        android:id="@+id/ll_real"
                         android:layout_width="0dp"
                         android:layout_height="match_parent"
                         android:layout_weight="1"
@@ -199,8 +199,8 @@
                         <TextView
                             android:id="@+id/tv_real_sum"
                             android:layout_width="0dp"
-                            android:layout_weight="1"
                             android:layout_height="match_parent"
+                            android:layout_weight="1"
                             android:gravity="center_vertical"
                             android:text="12381293(大卡)"
                             android:textColor="@color/text_color_brown"
@@ -210,7 +210,14 @@
                             android:id="@+id/iv_status_real"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_marginRight="12dp"/>
+                            android:layout_marginRight="10dp"/>
+
+                        <ImageView
+                            android:id="@+id/ivMsg1"
+                            android:layout_width="wrap_content"
+                            android:src="@drawable/i"
+                            android:layout_marginRight="12dp"
+                            android:layout_height="wrap_content"/>
                     </LinearLayout>
 
                     <View
@@ -400,6 +407,7 @@
                     android:orientation="horizontal">
 
                     <LinearLayout
+                        android:id="@+id/ll_suggest"
                         android:layout_width="0dp"
                         android:layout_height="match_parent"
                         android:layout_weight="1"
@@ -418,8 +426,8 @@
                         <TextView
                             android:id="@+id/tv_suggest_sum"
                             android:layout_width="0dp"
-                            android:layout_weight="1"
                             android:layout_height="match_parent"
+                            android:layout_weight="1"
                             android:gravity="center_vertical"
                             android:text="12381293(大卡)"
                             android:textColor="@color/text_color_brown"
@@ -429,7 +437,14 @@
                             android:id="@+id/iv_status_suggest"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_marginRight="12dp"/>
+                            android:layout_marginRight="10dp"/>
+
+                        <ImageView
+                            android:id="@+id/ivMsg2"
+                            android:layout_width="wrap_content"
+                            android:src="@drawable/i"
+                            android:layout_marginRight="12dp"
+                            android:layout_height="wrap_content"/>
                     </LinearLayout>
 
                     <View
@@ -553,4 +568,61 @@
                 android:textSize="22sp"/>
         </LinearLayout>
     </FrameLayout>
+
+
+    <LinearLayout
+        android:id="@+id/llPop1"
+        android:gravity="center_vertical"
+        android:layout_marginTop="219dp"
+        android:layout_marginLeft="120dp"
+        android:background="@drawable/pop_shape_bg"
+        android:orientation="horizontal"
+        android:padding="5dp"
+        android:visibility="gone"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+        <TextView
+            android:textSize="20sp"
+            android:textColor="@color/a"
+            android:text="提示：牛奶、谷物是系统默认按\n照常人一天的米饭牛奶摄入量。"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+        <ImageView
+            android:id="@+id/ivPop1"
+            android:src="@drawable/family_item_delete"
+            android:layout_marginRight="8dp"
+            android:layout_marginLeft="8dp"
+            android:layout_width="20dp"
+            android:layout_height="20dp"/>
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:id="@+id/llPop2"
+        android:gravity="center_vertical"
+        android:visibility="gone"
+        android:layout_marginTop="550dp"
+        android:layout_marginLeft="120dp"
+        android:background="@drawable/pop_shape_bg"
+        android:orientation="horizontal"
+        android:padding="5dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+        <TextView
+            android:textSize="20sp"
+            android:textColor="@color/a"
+            android:text="提示：牛奶、谷物是系统默认按\n照常人一天的米饭牛奶摄入量。"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+        <ImageView
+            android:id="@+id/ivPop2"
+            android:src="@drawable/family_item_delete"
+            android:layout_width="20dp"
+            android:layout_marginRight="8dp"
+            android:layout_marginLeft="8dp"
+            android:layout_height="20dp"/>
+    </LinearLayout>
+
 </RelativeLayout>

@@ -149,6 +149,7 @@ public abstract class BaseMFragment extends BaseFragment {
                         } else {
                             //普通点击
                             if (parentPage == ALL_MATERIALS) {
+                                /*  食材大全  */
                                 AllMaterialActivity activity = (AllMaterialActivity) getActivity();
                                 if (activity.leftAdapter.isEditing()) {
                                     materialActivity.addShiCaiToMade(scid);
@@ -160,6 +161,7 @@ public abstract class BaseMFragment extends BaseFragment {
                                     interestSettingActivity.showLoginDialog();
                                     return;
                                 }
+                                /*  喜好设置  */
                                 String data = splitParams(scid);
                                 httpUtils.doGet(Urls.INTEREST_DISLIKE_MATERIALS_SET
                                         + "username/" + mUser.getUsername() + "/password/" + mUser.getPassword()
@@ -176,6 +178,7 @@ public abstract class BaseMFragment extends BaseFragment {
                                     }
                                 });
                             } else {
+                                /*  一周食谱  */
                                 aWeekBranchActivity.onCheck(scid, name);
                                 if (aWeekIds.contains(scid)) {
                                     aWeekIds.remove(scid);
@@ -190,6 +193,7 @@ public abstract class BaseMFragment extends BaseFragment {
                     } else {
                         //普通点击
                         if (parentPage == ALL_MATERIALS) {
+                            /*  食材大全  */
                             AllMaterialActivity activity = (AllMaterialActivity) getActivity();
                             if (activity.leftAdapter.isEditing()) {
                                 materialActivity.addShiCaiToMade(scid);
@@ -201,6 +205,7 @@ public abstract class BaseMFragment extends BaseFragment {
                                 interestSettingActivity.showLoginDialog();
                                 return;
                             }
+                            /*  喜好设置  */
                             String data = splitParams(scid);
                             httpUtils.doGet(Urls.INTEREST_DISLIKE_MATERIALS_SET
                                     + "username/" + mUser.getUsername() + "/password/" + mUser.getPassword()
@@ -217,6 +222,7 @@ public abstract class BaseMFragment extends BaseFragment {
                                 }
                             });
                         } else {
+                            /*  一周食谱  */
                             aWeekBranchActivity.onCheck(scid, name);
                             if (aWeekIds.contains(scid)) {
                                 aWeekIds.remove(scid);
@@ -322,6 +328,5 @@ public abstract class BaseMFragment extends BaseFragment {
     public void onDestroy() {
         super.onDestroy();
         materialActivity = null;
-
     }
 }

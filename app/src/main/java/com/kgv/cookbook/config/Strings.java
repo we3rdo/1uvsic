@@ -1,6 +1,7 @@
 package com.kgv.cookbook.config;
 
 import com.kgv.cookbook.bean.NameAndId;
+import com.kgv.cookbook.bean.RecipeCategory;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -11,7 +12,6 @@ import java.util.List;
  * Description :
  */
 public class Strings {
-
 
     public static List<NameAndId> getMaterials(){
         List<NameAndId> materials = new ArrayList<>();
@@ -49,7 +49,9 @@ public class Strings {
         age.add(new NameAndId("5","成年人 19岁-40岁"));
         age.add(new NameAndId("6","中年人 41岁-60岁"));
         age.add(new NameAndId("7","老年人 60岁以上"));
+        age.add(new NameAndId("9","备孕  "));
         age.add(new NameAndId("8","孕妇  "));
+        age.add(new NameAndId("10","产妇  "));
         return age;
     }
 
@@ -101,5 +103,151 @@ public class Strings {
             unit = "";
         }
         return unit;
+    }
+
+
+    public static ArrayList<RecipeCategory.ChildrenEntity> getHealthByAge(int ageID){
+        ArrayList<RecipeCategory.ChildrenEntity> list = new ArrayList<>();
+        switch (ageID){
+            case 1://婴儿
+                list.add(new RecipeCategory.ChildrenEntity("116","发烧"));
+                list.add(new RecipeCategory.ChildrenEntity("118","感冒"));
+                list.add(new RecipeCategory.ChildrenEntity("122","便秘"));
+                break;
+            case 2://幼儿
+                list.add(new RecipeCategory.ChildrenEntity("116","发烧"));
+                list.add(new RecipeCategory.ChildrenEntity("118","感冒"));
+                list.add(new RecipeCategory.ChildrenEntity("122","便秘"));
+                list.add(new RecipeCategory.ChildrenEntity("39","清热去火"));
+                list.add(new RecipeCategory.ChildrenEntity("230","补钙"));
+                list.add(new RecipeCategory.ChildrenEntity("233","提高免疫力"));
+                list.add(new RecipeCategory.ChildrenEntity("226","健脾开胃"));
+                break;
+            case 3://儿童
+                list.add(new RecipeCategory.ChildrenEntity("116","发烧"));
+                list.add(new RecipeCategory.ChildrenEntity("118","感冒"));
+                list.add(new RecipeCategory.ChildrenEntity("122","便秘"));
+                list.add(new RecipeCategory.ChildrenEntity("39","清热去火"));
+                list.add(new RecipeCategory.ChildrenEntity("230","补钙"));
+                list.add(new RecipeCategory.ChildrenEntity("233","提高免疫力"));
+                list.add(new RecipeCategory.ChildrenEntity("226","健脾开胃"));
+                list.add(new RecipeCategory.ChildrenEntity("43","贫血"));
+                break;
+            case 4://青少年
+                list.add(new RecipeCategory.ChildrenEntity("95","痛经"));
+                list.add(new RecipeCategory.ChildrenEntity("103","胃病"));
+                list.add(new RecipeCategory.ChildrenEntity("105","月经不调"));
+                list.add(new RecipeCategory.ChildrenEntity("116","发烧"));
+                list.add(new RecipeCategory.ChildrenEntity("118","感冒"));
+                list.add(new RecipeCategory.ChildrenEntity("122","便秘"));
+                list.add(new RecipeCategory.ChildrenEntity("39","清热去火"));
+                list.add(new RecipeCategory.ChildrenEntity("42","排毒养颜"));
+                list.add(new RecipeCategory.ChildrenEntity("226","健脾开胃"));
+                list.add(new RecipeCategory.ChildrenEntity("230","补钙"));
+                list.add(new RecipeCategory.ChildrenEntity("233","提高免疫力"));
+                list.add(new RecipeCategory.ChildrenEntity("242","调经"));
+                list.add(new RecipeCategory.ChildrenEntity("43","贫血"));
+                list.add(new RecipeCategory.ChildrenEntity("38","减肥瘦身"));
+                break;
+            case 5://成年人
+                list.add(new RecipeCategory.ChildrenEntity("45","糖尿病"));
+                list.add(new RecipeCategory.ChildrenEntity("46","高血压"));
+                list.add(new RecipeCategory.ChildrenEntity("47","冠心病"));
+                list.add(new RecipeCategory.ChildrenEntity("92","高血脂"));
+                list.add(new RecipeCategory.ChildrenEntity("93","中风"));
+                list.add(new RecipeCategory.ChildrenEntity("95","痛经"));
+                list.add(new RecipeCategory.ChildrenEntity("103","胃病"));
+                list.add(new RecipeCategory.ChildrenEntity("105","月经不调"));
+                list.add(new RecipeCategory.ChildrenEntity("107","咽喉炎"));
+                list.add(new RecipeCategory.ChildrenEntity("116","发烧"));
+                list.add(new RecipeCategory.ChildrenEntity("118","感冒"));
+                list.add(new RecipeCategory.ChildrenEntity("122","便秘"));
+                list.add(new RecipeCategory.ChildrenEntity("39","清热去火"));
+                list.add(new RecipeCategory.ChildrenEntity("42","排毒养颜"));
+                list.add(new RecipeCategory.ChildrenEntity("226","健脾开胃"));
+                list.add(new RecipeCategory.ChildrenEntity("230","补钙"));
+                list.add(new RecipeCategory.ChildrenEntity("233","提高免疫力"));
+                list.add(new RecipeCategory.ChildrenEntity("242","调经"));
+                list.add(new RecipeCategory.ChildrenEntity("43","贫血"));
+                list.add(new RecipeCategory.ChildrenEntity("38","减肥瘦身"));
+                break;
+            case 6://中年人
+                list.add(new RecipeCategory.ChildrenEntity("45","糖尿病"));
+                list.add(new RecipeCategory.ChildrenEntity("46","高血压"));
+                list.add(new RecipeCategory.ChildrenEntity("92","高血脂"));
+                list.add(new RecipeCategory.ChildrenEntity("47","冠心病"));
+                list.add(new RecipeCategory.ChildrenEntity("93","中风"));
+                list.add(new RecipeCategory.ChildrenEntity("103","胃病"));
+                list.add(new RecipeCategory.ChildrenEntity("105","月经不调"));
+                list.add(new RecipeCategory.ChildrenEntity("107","咽喉炎"));
+                list.add(new RecipeCategory.ChildrenEntity("116","发烧"));
+                list.add(new RecipeCategory.ChildrenEntity("118","感冒"));
+                list.add(new RecipeCategory.ChildrenEntity("122","便秘"));
+                list.add(new RecipeCategory.ChildrenEntity("39","清热去火"));
+                list.add(new RecipeCategory.ChildrenEntity("42","排毒养颜"));
+                list.add(new RecipeCategory.ChildrenEntity("226","健脾开胃"));
+                list.add(new RecipeCategory.ChildrenEntity("230","补钙"));
+                list.add(new RecipeCategory.ChildrenEntity("233","提高免疫力"));
+                list.add(new RecipeCategory.ChildrenEntity("242","调经"));
+                list.add(new RecipeCategory.ChildrenEntity("38","减肥瘦身"));
+                break;
+            case 7://老年人
+                list.add(new RecipeCategory.ChildrenEntity("45","糖尿病"));
+                list.add(new RecipeCategory.ChildrenEntity("46","高血压"));
+                list.add(new RecipeCategory.ChildrenEntity("47","冠心病"));
+                list.add(new RecipeCategory.ChildrenEntity("92","高血脂"));
+                list.add(new RecipeCategory.ChildrenEntity("93","中风"));
+                list.add(new RecipeCategory.ChildrenEntity("103","胃病"));
+                list.add(new RecipeCategory.ChildrenEntity("107","咽喉炎"));
+                list.add(new RecipeCategory.ChildrenEntity("116","发烧"));
+                list.add(new RecipeCategory.ChildrenEntity("118","感冒"));
+                list.add(new RecipeCategory.ChildrenEntity("122","便秘"));
+                list.add(new RecipeCategory.ChildrenEntity("39","清热去火"));
+                list.add(new RecipeCategory.ChildrenEntity("226","健脾开胃"));
+                list.add(new RecipeCategory.ChildrenEntity("230","补钙"));
+                list.add(new RecipeCategory.ChildrenEntity("233","提高免疫力"));
+                break;
+            case 8://备孕
+                list.add(new RecipeCategory.ChildrenEntity("95","痛经"));
+                list.add(new RecipeCategory.ChildrenEntity("103","胃病"));
+                list.add(new RecipeCategory.ChildrenEntity("105","月经不调"));
+                list.add(new RecipeCategory.ChildrenEntity("107","咽喉炎"));
+                list.add(new RecipeCategory.ChildrenEntity("116","发烧"));
+                list.add(new RecipeCategory.ChildrenEntity("118","感冒"));
+                list.add(new RecipeCategory.ChildrenEntity("122","便秘"));
+                list.add(new RecipeCategory.ChildrenEntity("38","减肥瘦身"));
+                list.add(new RecipeCategory.ChildrenEntity("39","清热去火"));
+                list.add(new RecipeCategory.ChildrenEntity("42","排毒养颜"));
+                list.add(new RecipeCategory.ChildrenEntity("226","健脾开胃"));
+                list.add(new RecipeCategory.ChildrenEntity("230","补钙"));
+                list.add(new RecipeCategory.ChildrenEntity("233","提高免疫力"));
+                list.add(new RecipeCategory.ChildrenEntity("242","调经"));
+                break;
+            case 9://孕妇
+                list.add(new RecipeCategory.ChildrenEntity("92","高血脂"));
+                list.add(new RecipeCategory.ChildrenEntity("107","咽喉炎"));
+                list.add(new RecipeCategory.ChildrenEntity("116","发烧"));
+                list.add(new RecipeCategory.ChildrenEntity("118","感冒"));
+                list.add(new RecipeCategory.ChildrenEntity("122","便秘"));
+                list.add(new RecipeCategory.ChildrenEntity("39","清热去火"));
+                list.add(new RecipeCategory.ChildrenEntity("42","排毒养颜"));
+                list.add(new RecipeCategory.ChildrenEntity("226","健脾开胃"));
+                list.add(new RecipeCategory.ChildrenEntity("230","补钙"));
+                list.add(new RecipeCategory.ChildrenEntity("233","提高免疫力"));
+                break;
+            case 10://产妇
+                list.add(new RecipeCategory.ChildrenEntity("107","咽喉炎"));
+                list.add(new RecipeCategory.ChildrenEntity("116","发烧"));
+                list.add(new RecipeCategory.ChildrenEntity("118","感冒"));
+                list.add(new RecipeCategory.ChildrenEntity("122","便秘"));
+                list.add(new RecipeCategory.ChildrenEntity("39","清热去火"));
+                list.add(new RecipeCategory.ChildrenEntity("42","排毒养颜"));
+                list.add(new RecipeCategory.ChildrenEntity("226","健脾开胃"));
+                list.add(new RecipeCategory.ChildrenEntity("230","补钙"));
+                list.add(new RecipeCategory.ChildrenEntity("233","提高免疫力"));
+                list.add(new RecipeCategory.ChildrenEntity("38","减肥瘦身"));
+                break;
+        }
+        return list;
     }
 }

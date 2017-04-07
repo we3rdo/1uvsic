@@ -30,6 +30,7 @@
     <!---->
     <color name="coffee">#BCA281</color>
     <color name="red">#dbff0d00</color>
+    <color name="tip">#dbf7281d</color>
     <color name="bg_color_white">#F5F7F6</color>
     <color name="bg_color_black">#313332</color>
     <color name="black_trans">#aa313332</color>

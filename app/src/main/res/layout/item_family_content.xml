@@ -16,18 +16,33 @@
         android:textColor="@color/text_color_black_2_brown_s"
         android:textSize="20sp"/>
 
-    <FrameLayout
-        android:layout_width="70dp"
+    <RelativeLayout
+        android:layout_width="100dp"
         android:layout_height="40dp">
 
-        <TextView
-            android:id="@+id/tv_people"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_marginRight="5dp"
+        <LinearLayout
+            android:layout_centerInParent="true"
+            android:orientation="horizontal"
             android:gravity="center"
-            android:textColor="@color/text_color_black_2_brown_s"
-            android:textSize="20sp"/>
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+            <TextView
+                android:id="@+id/tv_people"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="5dp"
+                android:gravity="center"
+                android:textColor="@color/text_color_black_2_brown_s"
+                android:textSize="20sp"/>
+
+            <ImageView
+                android:id="@+id/iv_people_del"
+                android:visibility="gone"
+                android:src="@drawable/xxx"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+        </LinearLayout>
 
         <View
             android:id="@+id/f_people"
@@ -36,20 +51,35 @@
             android:alpha="0"
             android:background="@drawable/family_content_frame"
             android:visibility="gone"/>
-    </FrameLayout>
+    </RelativeLayout>
 
-    <FrameLayout
+    <RelativeLayout
         android:layout_width="130dp"
         android:layout_height="40dp">
 
-        <TextView
-            android:id="@+id/tv_health"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_marginRight="5dp"
+        <LinearLayout
             android:gravity="center"
-            android:textColor="@color/text_color_black_2_brown_s"
-            android:textSize="20sp"/>
+            android:layout_centerInParent="true"
+            android:orientation="horizontal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/tv_health"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="5dp"
+                android:gravity="center"
+                android:textColor="@color/text_color_black_2_brown_s"
+                android:textSize="20sp"/>
+            <ImageView
+                android:id="@+id/iv_health_del"
+                android:visibility="gone"
+                android:src="@drawable/xxx"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+        </LinearLayout>
+
 
         <View
             android:id="@+id/f_health"
@@ -58,13 +88,13 @@
             android:alpha="0"
             android:background="@drawable/family_content_frame"
             android:visibility="gone"/>
-    </FrameLayout>
+    </RelativeLayout>
 
     <ImageView
         android:id="@+id/iv_delete"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center_vertical"
-        android:layout_marginLeft="5dp"
+        android:layout_marginLeft="15dp"
         android:src="@drawable/family_item_delete"/>
 </LinearLayout>

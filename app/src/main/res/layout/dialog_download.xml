@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:app="http://schemas.android.com/apk/res-auto"
+              android:orientation="vertical"
+              android:background="@drawable/white_shape"
+              android:padding="8dp"
+              android:gravity="center_horizontal"
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content">
+
+    <com.daimajia.numberprogressbar.NumberProgressBar
+        android:id="@+id/progressBar"
+        android:layout_width="400dp"
+        android:layout_height="60dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        app:progress_text_size="16sp"
+        app:progress_unreached_bar_height="4dp"
+        app:progress_reached_bar_height="5dp"
+        app:progress_max="100"
+        app:progress_unreached_color="#CCCCCC"
+        app:progress_reached_color="#A17948"
+        app:progress_text_color="#A17948"
+        style="@style/NumberProgressBar_Funny_Orange"
+    />
+
+    <TextView
+        android:id="@+id/tvSuccess"
+        android:visibility="gone"
+        android:gravity="center"
+        android:textColor="@color/bg_color_black"
+        android:layout_width="400dp"
+        android:text="下载成功。"
+        android:textSize="20sp"
+        android:layout_height="60dp"/>
+
+    <LinearLayout
+        android:layout_marginBottom="10dp"
+        android:gravity="center"
+        android:layout_width="match_parent"
+        android:orientation="horizontal"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/tvInstall"
+            android:visibility="gone"
+            android:textColor="@color/text_color_green_s"
+            android:layout_width="wrap_content"
+            android:text="立即安装"
+            android:textSize="18sp"
+            android:layout_marginRight="20dp"
+            android:layout_height="wrap_content"/>
+
+        <TextView
+            android:id="@+id/tvCancel"
+            android:textColor="@color/text_color_index_brown_s"
+            android:layout_width="wrap_content"
+            android:text="取消"
+            android:textSize="18sp"
+            android:layout_height="wrap_content"/>
+    </LinearLayout>
+</LinearLayout>

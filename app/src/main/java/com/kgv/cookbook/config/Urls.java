@@ -13,6 +13,12 @@ public class Urls {
     //食谱机主机名
     public static final String BASE_URL = "http://pimi.kgv.cn/RecipeMachine";
 
+    //更新
+    public static final String UPDATE_URL = BASE_URL + "/update";
+
+    //新apk
+    public static final String APK_URL = "http://pimi.kgv.cn/recipe.apk";
+
     //检查用户名是否存在 username 返回0表示已存在,返回1表示可用
     public static final String CHECK_USERNAME = BASE_URL + "/usernameCheck";
 

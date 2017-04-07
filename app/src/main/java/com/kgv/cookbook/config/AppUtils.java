@@ -1,6 +1,8 @@
 package com.kgv.cookbook.config;
 
 import android.content.Context;
+import android.content.pm.PackageInfo;
+import android.content.pm.PackageManager;
 import android.content.res.Resources;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
@@ -20,7 +22,6 @@ import java.io.IOException;
  */
 public class AppUtils {
 
-
     public static final boolean DEBUG = true;
 
     /**
@@ -36,7 +37,6 @@ public class AppUtils {
     public static Resources getResources(){
         return getContext().getResources();
     }
-
 
     /**
      *  获取String.xml中的String
@@ -82,6 +82,19 @@ public class AppUtils {
     }
 
     /**
+     *  获取屏幕高度(px)
+     */
+    public static int getScreenHeight(Context context) {
+        return context.getResources().getDisplayMetrics().heightPixels;
+    }
+    /**
+     *  获取屏幕宽度(px)
+     */
+    public static int getScreenWidth(Context context) {
+        return context.getResources().getDisplayMetrics().widthPixels;
+    }
+
+    /**
      * 根据手机的分辨率从 px 的单位 转成为 dp
      */
     public static int px2Dip(float dpValue) {
@@ -95,6 +108,34 @@ public class AppUtils {
     public static int dip2px(float pxValue) {
         final float scale = getContext().getResources().getDisplayMetrics().density;
         return (int) (pxValue / scale + 0.5f);
+    }
+
+    /**
+     *  获取版本名称
+     */
+    public static String getVersionName(Context context){
+
+        try {
+            PackageInfo info = context.getPackageManager().getPackageInfo(context.getPackageName(),0);
+            return info.versionName;
+        } catch (PackageManager.NameNotFoundException e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+
+    /**
+     *  获取版本号
+     */
+    public static int getVersionCode(Context context){
+
+        try {
+            PackageInfo info = context.getPackageManager().getPackageInfo(context.getPackageName(),0);
+            return info.versionCode;
+        } catch (PackageManager.NameNotFoundException e) {
+            e.printStackTrace();
+        }
+        return 0;
     }
 
     /**

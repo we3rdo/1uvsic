@@ -1,11 +1,6 @@
 package com.kgv.cookbook.util;
 
-import java.io.BufferedReader;
 import java.io.IOException;
-import java.io.InputStream;
-import java.io.InputStreamReader;
-import java.net.HttpURLConnection;
-import java.net.URL;
 import java.util.HashMap;
 import java.util.concurrent.TimeUnit;
 
@@ -17,9 +12,9 @@ import okhttp3.Request;
 import okhttp3.Response;
 
 /**
- * @author KEXUAN CHEN
- * @time 2016/8/14  12:45
- * @desc OkHttp http请求
+ *  @author KEXUAN CHEN
+ *  @time 2016/8/14  12:45
+ *  @desc OkHttp http请求
  */
 public class HttpUtils {
 
@@ -105,40 +100,40 @@ public class HttpUtils {
         });
     }
 
-    public String doGet(String urlPath){
-
-        String resultJsonStr = "";
-        HttpURLConnection conn = null;
-        BufferedReader reader = null;
-        try {
-            URL url = new URL(urlPath);
-            conn = (HttpURLConnection) url.openConnection();
-            conn.setRequestMethod("GET");
-            if (conn.getResponseCode() == 200){
-                InputStream in = conn.getInputStream();
-                reader = new BufferedReader(new InputStreamReader(in));
-                String line;
-                while ((line = reader.readLine()) != null){
-                    resultJsonStr += line;
-                }
-            }
-        } catch (Exception e) {
-            e.printStackTrace();
-        } finally {
-            if (conn != null){
-                conn.disconnect();
-            }
-            if (reader != null){
-                try {
-                    reader.close();
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
-            }
-        }
-
-        return resultJsonStr;
-    }
+//    public String doGet(String urlPath){
+//
+//        String resultJsonStr = "";
+//        HttpURLConnection conn = null;
+//        BufferedReader reader = null;
+//        try {
+//            URL url = new URL(urlPath);
+//            conn = (HttpURLConnection) url.openConnection();
+//            conn.setRequestMethod("GET");
+//            if (conn.getResponseCode() == 200){
+//                InputStream in = conn.getInputStream();
+//                reader = new BufferedReader(new InputStreamReader(in));
+//                String line;
+//                while ((line = reader.readLine()) != null){
+//                    resultJsonStr += line;
+//                }
+//            }
+//        } catch (Exception e) {
+//            e.printStackTrace();
+//        } finally {
+//            if (conn != null){
+//                conn.disconnect();
+//            }
+//            if (reader != null){
+//                try {
+//                    reader.close();
+//                } catch (IOException e) {
+//                    e.printStackTrace();
+//                }
+//            }
+//        }
+//
+//        return resultJsonStr;
+//    }
 
     //多线程单例
     public static HttpUtils getInstance() {

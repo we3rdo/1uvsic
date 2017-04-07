@@ -1,6 +1,10 @@
 package com.kgv.cookbook.activity;
 
+import android.app.Service;
+import android.media.AudioManager;
 import android.os.Bundle;
+import android.view.MotionEvent;
+import android.view.View;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
@@ -18,6 +22,8 @@ public class MusicActivity extends BaseActivity {
 
     private WebView webView;
     private DragFrameLayout parent;
+    private float downY;
+    private float downX;
 
     @Override
     protected boolean hasBottomMenu() {
@@ -31,23 +37,24 @@ public class MusicActivity extends BaseActivity {
 
     @Override
     protected void initialization(Bundle savedInstanceState) {
+        mAudioManager = (AudioManager) getSystemService(Service.AUDIO_SERVICE);
         initUI();
         startLoadUrl();
     }
 
     private void initUI() {
         webView = (WebView) findViewById(R.id.webView);
-        parent = (DragFrameLayout)findViewById(R.id.parent);
+        parent = (DragFrameLayout) findViewById(R.id.parent);
         parent.setDragImageListener(new DragFrameLayout.DragImageClickListener() {
             @Override
-            public void onClick () {
+            public void onClick() {
                 exit();
             }
         });
 
     }
 
-    private void startLoadUrl(){
+    private void startLoadUrl() {
         webView.loadUrl("http://web.kugou.com/");
         webView.getSettings().setDomStorageEnabled(true);
         webView.getSettings().setJavaScriptEnabled(true);
@@ -55,7 +62,39 @@ public class MusicActivity extends BaseActivity {
         webView.getSettings().setUseWideViewPort(true);  //扩大比例的缩放
         webView.getSettings().setLayoutAlgorithm(WebSettings.LayoutAlgorithm.NARROW_COLUMNS);    //自适应屏幕
         webView.getSettings().setLoadWithOverviewMode(true);
-        webView.setWebViewClient(new WebViewClient(){
+        webView.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+                switch (event.getAction()) {
+                    case MotionEvent.ACTION_DOWN:
+                        downY = event.getRawY();
+                        downX = event.getRawX();
+                        break;
+                    case MotionEvent.ACTION_MOVE:
+                        if (downX < 250) {
+                            float nowY = event.getRawY();
+                            if (nowY > downY) {
+                                if (nowY - downY > 50){
+                                    downY += 50;
+                                    volumeReduce();
+                                    return true;
+                                }
+                            } else if (nowY < downY){
+                                if (downY - nowY > 50){
+                                    downY -= 50;
+                                    volumeAdd();
+                                    return true;
+                                }
+                            }
+                        }
+                        break;
+                    case MotionEvent.ACTION_UP:
+                        break;
+                }
+                return false;
+            }
+        });
+        webView.setWebViewClient(new WebViewClient() {
             //当加载的url地址发生跳转后调用
             //防止启动系统自带的浏览器
             public boolean shouldOverrideUrlLoading(WebView view, String url) {
@@ -65,10 +104,10 @@ public class MusicActivity extends BaseActivity {
         });
     }
 
-    private void exit(){
-        if (webView.canGoBack()){
+    private void exit() {
+        if (webView.canGoBack()) {
             webView.goBack();
-        }else{
+        } else {
             finish();
             overridePendingTransition(R.anim.activity_in_right_2_left, R.anim.activity_out_right_2_left);
         }
