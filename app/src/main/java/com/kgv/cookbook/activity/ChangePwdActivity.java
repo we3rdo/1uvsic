@@ -10,9 +10,11 @@ import android.widget.RelativeLayout;
 
 import com.kgv.cookbook.R;
 import com.kgv.cookbook.base.BaseActivity;
+import com.kgv.cookbook.config.SpKeys;
 import com.kgv.cookbook.config.Urls;
 import com.kgv.cookbook.util.HttpResponse;
 import com.kgv.cookbook.util.LogUtils;
+import com.kgv.cookbook.util.SpUtils;
 
 import java.util.HashMap;
 
@@ -168,9 +170,15 @@ public class ChangePwdActivity extends BaseActivity implements View.OnClickListe
         String response = (String) msg.obj;
         if("1".equals(response)){
             tip("修改成功!");
+            changeLocalUser();
             back();
         }else{
             tip("修改失败：" + response);
         }
+    }
+
+    private void changeLocalUser() {
+        SpUtils.saveString(this, SpKeys.LOGIN_USERNAME, mUser.getUsername());
+        SpUtils.saveString(this, SpKeys.LOGIN_PASSWORD, newPwd);
     }
 }

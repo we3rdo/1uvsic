@@ -29,7 +29,7 @@ public class PhoneCodeDbHelper extends SQLiteOpenHelper {
 
     @Override
     public void onCreate(SQLiteDatabase db) {
-        db.execSQL("create table "+TABLE_NAME+"(_id integer primary key autoincrement,phone varchar(15),how_much integer,time integer)");
+        db.execSQL("create table " + TABLE_NAME + "(_id integer primary key autoincrement,phone varchar(15),how_much integer,time integer)");
     }
 
     @Override

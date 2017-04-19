@@ -1,6 +1,8 @@
 package com.kgv.cookbook.activity;
 
 import android.os.Bundle;
+import android.view.MotionEvent;
+import android.view.View;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
@@ -18,6 +20,8 @@ public class MovieActivity extends BaseActivity {
 
     private WebView webView;
     private DragFrameLayout parent;
+    private float downY;
+    private float downX;
 
     @Override
     protected boolean hasBottomMenu() {
@@ -60,6 +64,38 @@ public class MovieActivity extends BaseActivity {
             public boolean shouldOverrideUrlLoading(WebView view, String url) {
                 view.loadUrl(url);
                 return true;
+            }
+        });
+        webView.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+                switch (event.getAction()) {
+                    case MotionEvent.ACTION_DOWN:
+                        downY = event.getRawY();
+                        downX = event.getRawX();
+                        break;
+                    case MotionEvent.ACTION_MOVE:
+                        if (downX < 250) {
+                            float nowY = event.getRawY();
+                            if (nowY > downY) {
+                                if (nowY - downY > 50){
+                                    downY += 50;
+                                    volumeReduce();
+                                    return true;
+                                }
+                            } else if (nowY < downY){
+                                if (downY - nowY > 50){
+                                    downY -= 50;
+                                    volumeAdd();
+                                    return true;
+                                }
+                            }
+                        }
+                        break;
+                    case MotionEvent.ACTION_UP:
+                        break;
+                }
+                return false;
             }
         });
     }

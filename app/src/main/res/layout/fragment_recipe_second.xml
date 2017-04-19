@@ -23,44 +23,38 @@
                 android:textColor="@color/bg_color_black"
                 android:textSize="20sp"/>
 
-            <TextView
-                android:id="@+id/tv_zl"
+            <GridView
+                android:id="@+id/gv_zl"
+                android:layout_marginTop="10dp"
+                android:numColumns="2"
+                android:listSelector="@android:color/transparent"
+                android:horizontalSpacing="15dp"
+                android:verticalSpacing="-1dp"
+                android:scrollbars="none"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="5dp"
-                android:textColor="@color/bg_color_black"
-                android:textSize="20sp"/>
+                android:layout_height="wrap_content" />
 
-            <View
+            <TextView
                 android:layout_marginTop="20dp"
-                android:layout_marginBottom="20dp"
-                android:layout_width="match_parent"
-                android:layout_height="1dp"
-                android:background="@color/gray_line"/>
-
-            <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="辅料"
                 android:textColor="@color/bg_color_black"
                 android:textSize="20sp"/>
 
-            <TextView
-                android:id="@+id/tv_fl"
+            <GridView
+                android:id="@+id/gv_fl"
+                android:layout_marginTop="10dp"
+                android:numColumns="2"
+                android:listSelector="@android:color/transparent"
+                android:horizontalSpacing="15dp"
+                android:verticalSpacing="-1dp"
+                android:scrollbars="none"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="5dp"
-                android:textColor="@color/bg_color_black"
-                android:textSize="20sp"/>
+                android:layout_height="wrap_content" />
 
-            <View
+            <TextView
                 android:layout_marginTop="20dp"
-                android:layout_marginBottom="20dp"
-                android:layout_width="match_parent"
-                android:layout_height="1dp"
-                android:background="@color/gray_line"/>
-
-            <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="厨具"

@@ -61,6 +61,8 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener 
     private TextView tvCancel;
     private AlertDialog alertDialog;
     private File file;
+//    private TextView msg;
+//    private String stringMsg = "";
 
     @Override
     protected boolean hasBottomMenu () {
@@ -297,14 +299,14 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener 
         }
     }
 
-    private void showUpdateDiaLog (VersionBean bean) {
+    private void showUpdateDiaLog (final VersionBean bean) {
         AlertDialog.Builder dialog = new AlertDialog.Builder(this);
         dialog.setTitle("更新提示")
                 .setMessage("检测到最新版本，是否进行升级？\nv" + bean.getVersion() + "\n" + bean.getDescribe())
                 .setPositiveButton("确定", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick (DialogInterface dialog, int which) {
-                        downloadApk();
+                        downloadApk(bean.getLink());
                         dialog.dismiss();
                     }
                 })
@@ -316,23 +318,30 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener 
                 }).show();
     }
 
-    private void downloadApk () {
+    private void downloadApk (String url) {
+        url = "http://" + url;
+
+        LogUtils.v("abc","下载地址 = " + url);
+
         file = new File(Environment.getExternalStorageDirectory(), "NewApp.apk");
         showDownLoadDiaLog();
         FileDownloader
                 .getImpl()
-                .create(Urls.APK_URL)
+                .create(url)
                 .setPath(file.getAbsolutePath())
                 .setListener(new FileDownloadListener() {
                     @Override
                     protected void pending (BaseDownloadTask task, int soFarBytes, int totalBytes) {
-
+//                        stringMsg = "pending";
+//                        msg.setText(stringMsg);
                     }
 
                     @Override
                     protected void progress (BaseDownloadTask task, int soFarBytes, int totalBytes) {
                         int d = (int) (((double) soFarBytes / (double) totalBytes) * 100);
                         progressBar.setProgress(d);
+//                        stringMsg += " " + d;
+//                        msg.setText(stringMsg);
                     }
 
                     @Override
@@ -341,21 +350,29 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener 
                         tvSuccess.setVisibility(View.VISIBLE);
                         tvInstall.setVisibility(View.VISIBLE);
                         tvCancel.setText("下次再说");
+//                        stringMsg += " completed";
+//                        msg.setText(stringMsg);
                     }
 
                     @Override
                     protected void paused (BaseDownloadTask task, int soFarBytes, int totalBytes) {
                         LogUtils.v("paused", "paused");
+//                        stringMsg += " paused";
+//                        msg.setText(stringMsg);
                     }
 
                     @Override
                     protected void error (BaseDownloadTask task, Throwable e) {
                         LogUtils.v("error", "error");
+//                        stringMsg += " error="+e.getLocalizedMessage();
+//                        msg.setText(stringMsg);
                     }
 
                     @Override
                     protected void warn (BaseDownloadTask task) {
                         LogUtils.v("warn", "warn");
+//                        stringMsg += " warn";
+//                        msg.setText(stringMsg);
                     }
                 }).start();
 
@@ -367,6 +384,7 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener 
         progressBar = (NumberProgressBar) contentView.findViewById(R.id.progressBar);
         tvSuccess = (TextView) contentView.findViewById(R.id.tvSuccess);
         tvInstall = (TextView) contentView.findViewById(R.id.tvInstall);
+//        msg = (TextView) contentView.findViewById(R.id.msg);
         tvCancel = (TextView) contentView.findViewById(R.id.tvCancel);
         tvInstall.setOnClickListener(clickListener);
         tvCancel.setOnClickListener(clickListener);

@@ -10,6 +10,9 @@
     <color name="l">#b28850</color>
     <color name="white">#fff</color>
 
+    <color name="main">#232323</color>
+    <color name="main_s">#a07a4a</color>
+
     <color name="gray">#5A5A5A</color>
     <color name="gray_translate">#615a5a5a</color>
     <color name="white_translate">#8dffffff</color>

@@ -31,6 +31,7 @@ public class VoiceSettingActivity extends BaseActivity {
     }
 
     private void initUI() {
+                                                                                                                                                  int a = 1;
 
     }
 }

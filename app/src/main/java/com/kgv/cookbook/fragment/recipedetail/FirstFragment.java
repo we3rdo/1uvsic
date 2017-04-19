@@ -72,11 +72,11 @@ public class FirstFragment extends BaseFragment implements View.OnClickListener 
         switch (v.getId()) {
             case R.id.iv_first:
                 Intent intent = new Intent(activity, ImageActivity.class);
-                intent.putExtra(IntentKeys.IMAGES,activity.imageUrls);
-                intent.putExtra(IntentKeys.DESCRIPTIONS,activity.descriptions);
-                intent.putExtra(IntentKeys.IMAGE_POSITION,0);
+                intent.putExtra(IntentKeys.IMAGES, activity.imageUrls);
+                intent.putExtra(IntentKeys.DESCRIPTIONS, activity.descriptions);
+                intent.putExtra(IntentKeys.IMAGE_POSITION, 0);
                 activity.startActivity(intent);
-                activity.overridePendingTransition(R.anim.activity_in_alpha,R.anim.activity_out_alpha);
+                activity.overridePendingTransition(R.anim.activity_in_alpha, R.anim.activity_out_alpha);
 //
 //                int out = (Integer.MAX_VALUE / 2) % (activity.imageUrls.size());
 //                int position = Integer.MAX_VALUE / 2 - out;
@@ -102,48 +102,48 @@ public class FirstFragment extends BaseFragment implements View.OnClickListener 
         tv_description.setText("    " + des);
         //营养功效
         List<ShiPuDetail.IdAndNameEntity> effects = bean.getEffect_label_detail();
-        if (effects != null && !effects.isEmpty()){
-            String efffect = "。";
+        if (effects != null && !effects.isEmpty()) {
+            String effect = "。";
             if (!TextUtils.isEmpty(bean.getEffect_txt())) {
-                efffect = bean.getEffect_txt();
+                effect = bean.getEffect_txt().replace("<br>", "");
+                tv_effect.setText("营养功效：" + splitText(effects) + "。\n" + effect);
+            }else{
+                tv_effect.setText("营养功效：" + splitText(effects) + effect);
             }
-            tv_effect.setText("营养功效：" + splitText(effects) + efffect);
-        }else{
+        } else {
             tv_effect.setVisibility(View.GONE);
             line_effect.setVisibility(View.GONE);
         }
         //适宜
         List<ShiPuDetail.IdAndNameEntity> propers = bean.getProper_label_detail();
-        if (propers != null && !propers.isEmpty()){
+        if (propers != null && !propers.isEmpty()) {
             String proper = "。";
             if (!TextUtils.isEmpty(bean.getProper_txt())) {
                 proper = bean.getProper_txt();
             }
             String p = "适宜：" + splitText(propers) + proper;
             tv_proper.setText(p.replace("<br>", ""));
-        }else{
+        } else {
             tv_proper.setVisibility(View.GONE);
             line_proper.setVisibility(View.GONE);
         }
         //禁忌
         List<ShiPuDetail.IdAndNameEntity> taboos = bean.getTaboo_label_detail();
-        if (taboos != null && !taboos.isEmpty()){
+        if (taboos != null && !taboos.isEmpty()) {
             String taboo = "。";
             if (!TextUtils.isEmpty(bean.getTaboo_txt())) {
-                taboo = bean.getTaboo_txt();
+                taboo = bean.getTaboo_txt().replace("<br>","");
             }
             tv_taboo.setText("禁忌：" + splitText(taboos) + taboo);
-        }else{
+        } else {
             tv_taboo.setVisibility(View.GONE);
             line_taboo.setVisibility(View.GONE);
         }
         //小贴士
-        if (!TextUtils.isEmpty(bean.getTips())){
+        if (!TextUtils.isEmpty(bean.getTips())) {
             String tips = bean.getTips().replace("<br>", "");
             tv_tip.setText("小贴士：\n" + tips);
         }
-
-
     }
 
     private String splitText(List<ShiPuDetail.IdAndNameEntity> list) {

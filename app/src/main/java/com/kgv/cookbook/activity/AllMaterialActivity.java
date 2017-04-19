@@ -110,11 +110,7 @@ public class AllMaterialActivity extends BaseActivity implements View.OnClickLis
 
     @Override
     protected void initialization (Bundle savedInstanceState) {
-        isJump = getIntent().getBooleanExtra(IntentKeys.JUMP_ALL_MATE, false);
-        flag = 0;
-        materialOrRecipe = 0;
-        ids = new ArrayList<>();
-        fragmentManager = getSupportFragmentManager();
+        initObject();
         initUI();
         initListener();
         initReceiver();
@@ -126,6 +122,14 @@ public class AllMaterialActivity extends BaseActivity implements View.OnClickLis
                 myHandler.post(loadRunnable);
             }
         });
+    }
+
+    private void initObject() {
+        isJump = getIntent().getBooleanExtra(IntentKeys.JUMP_ALL_MATE, false);
+        flag = 0;
+        materialOrRecipe = 0;
+        ids = new ArrayList<>();
+        fragmentManager = getSupportFragmentManager();
     }
 
     private void initUI () {

@@ -485,7 +485,7 @@ public class SetMealActivity extends BaseActivity implements View.OnClickListene
 
     @Override
     protected void handleMsg1 (Message msg) {
-        tip("未找到合适的套餐");
+        tip("暂无相关套餐");
     }
 
     @Override

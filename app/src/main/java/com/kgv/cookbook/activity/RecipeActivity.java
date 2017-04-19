@@ -11,6 +11,7 @@ import android.view.View;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
 import android.widget.AdapterView;
+import android.widget.FrameLayout;
 import android.widget.ListView;
 import android.widget.TextView;
 
@@ -52,12 +53,14 @@ public class RecipeActivity extends BaseActivity {
     private VerticalViewPager viewPager;
     private ListView lv_step;
     private RecipeStepAdapter stepAdapter;
+    private FrameLayout webViewParent;
     private WebView wv_video;
     private boolean isFirstPlay = true;
     private boolean isShowVideo = false;
     public ImageOverlayView overlayView;
     public ArrayList<String> imageUrls = new ArrayList<>();
     public ArrayList<String> descriptions = new ArrayList<>();
+
 
     @Override
     protected int getContentViewId() {
@@ -80,6 +83,7 @@ public class RecipeActivity extends BaseActivity {
     }
 
     private void initUI() {
+        webViewParent = (FrameLayout) findViewById(R.id.webViewParent);
         overlayView = new ImageOverlayView(this);
         wv_video = (WebView) findViewById(R.id.wv_video);
         wv_video.getSettings().setJavaScriptEnabled(true);
@@ -344,6 +348,8 @@ public class RecipeActivity extends BaseActivity {
     }
 
     private void destroyWebView() {
+        webViewParent.removeView(wv_video);
+        wv_video.removeAllViews();
         wv_video.destroy();
     }
 }

@@ -24,7 +24,7 @@
         android:layout_marginTop="8dp"
         android:textSize="18sp"
         android:singleLine="true"
-        android:textColor="@color/bg_color_black"
+        android:textColor="@color/text_color_black_s"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"/>
 

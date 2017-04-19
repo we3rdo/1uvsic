@@ -40,10 +40,12 @@ public class VoiceHelper {
         speechRecognizer.setParameter(SpeechConstant.LANGUAGE, "zh_cn");
         speechRecognizer.setParameter(SpeechConstant.ASR_PTT, "0");
         speechRecognizer.setParameter(SpeechConstant.ACCENT, "mandarin");
+
     }
 
     public void startRecording() {
         speechRecognizer.startListening(listener);
+
     }
 
     public void start4DiaLog(){
@@ -53,7 +55,6 @@ public class VoiceHelper {
     public void setCantonese() {
         speechRecognizer.setParameter(SpeechConstant.ACCENT, "cantonese");
         dialog.setParameter(SpeechConstant.ACCENT, "cantonese");
-
     }
 
     public void setMandarin() {

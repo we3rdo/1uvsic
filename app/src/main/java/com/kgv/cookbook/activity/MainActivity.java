@@ -9,9 +9,11 @@ import android.support.v4.content.LocalBroadcastManager;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.TextView;
 
 import com.kgv.cookbook.R;
 import com.kgv.cookbook.base.BaseActivity;
+import com.kgv.cookbook.config.AppUtils;
 
 import java.util.List;
 
@@ -28,6 +30,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
     private LinearLayout ll_set_up;
     private LocalBroadcastManager localBroadcastManager;
     private LoginBroadcastReceiver receiver;
+    private TextView tvA1,tvA2,tvB1,tvB2,tvC1,tvC2,tvD1,tvD2;
 
     @Override
     protected boolean hasBottomMenu() {
@@ -41,8 +44,11 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
 
     @Override
     protected void initialization(Bundle savedInstanceState) {
+
         initUI();
         initReceiver();
+
+        show(0);
 //        mHelper.init(this, new BaseVoiceListener(), new BaseDialogListener());
 //        myHandler.sendEmptyMessage(88);
 //        findViewById(R.id.tv_speech).setOnClickListener(new View.OnClickListener() {
@@ -98,6 +104,14 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
         findViewById(R.id.fl_interest).setOnClickListener(this);
         findViewById(R.id.fl_password).setOnClickListener(this);
         findViewById(R.id.bottom_back).setClickable(false);
+        tvA1 = (TextView) findViewById(R.id.tvA1);
+        tvA2 = (TextView) findViewById(R.id.tvA2);
+        tvB1 = (TextView) findViewById(R.id.tvB1);
+        tvB2 = (TextView) findViewById(R.id.tvB2);
+        tvC1 = (TextView) findViewById(R.id.tvC1);
+        tvC2 = (TextView) findViewById(R.id.tvC2);
+        tvD1 = (TextView) findViewById(R.id.tvD1);
+        tvD2 = (TextView) findViewById(R.id.tvD2);
     }
 
     @Override
@@ -106,7 +120,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
             show(0);
             background.setImageResource(R.drawable.main_bg_recipe_0);
         } else if (result.contains("应用") || "应用".equals(words)) {
-            show(1);
+            show(2);
             background.setImageResource(R.drawable.main_bg_app_0);
         } else if (result.contains("娱乐") || result.contains("视频") || "娱乐视频".equals(words)) {
             jumpActivity(MovieActivity.class, false);
@@ -143,7 +157,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
             jumpActivity(SetMealActivity.class, false);
             background.setImageResource(R.drawable.main_bg_recipe_3);
         } else if (result.contains("设置") || "设置".equals(words)) {
-            show(2);
+            show(3);
             background.setImageResource(R.drawable.main_bg_set_0);
         } else if (result.contains("系统") || "系统".equals(words) || "系统设置".equals(words)) {
             Intent intent = new Intent(Settings.ACTION_SETTINGS);
@@ -184,6 +198,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
                 background.setImageResource(R.drawable.main_bg_recipe_0);
                 break;
             case R.id.fl_manager:
+                show(1);
                 if (! mUser.isExist()) {
                     showLoginDialog();
                     return;
@@ -192,11 +207,11 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
                 jumpActivity(HealthActivity.class, false);
                 break;
             case R.id.fl_application:
-                show(1);
+                show(2);
                 background.setImageResource(R.drawable.main_bg_app_0);
                 break;
             case R.id.fl_setup:
-                show(2);
+                show(3);
                 background.setImageResource(R.drawable.main_bg_set_0);
                 break;
             case R.id.fl_all_mate:
@@ -271,14 +286,32 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
         ll_recipe.setVisibility(View.GONE);
         ll_application.setVisibility(View.GONE);
         ll_set_up.setVisibility(View.GONE);
+        tvA1.setTextColor(AppUtils.getColor(R.color.main));
+        tvA2.setTextColor(AppUtils.getColor(R.color.main));
+        tvB1.setTextColor(AppUtils.getColor(R.color.main));
+        tvB2.setTextColor(AppUtils.getColor(R.color.main));
+        tvC1.setTextColor(AppUtils.getColor(R.color.main));
+        tvC2.setTextColor(AppUtils.getColor(R.color.main));
+        tvD1.setTextColor(AppUtils.getColor(R.color.main));
+        tvD2.setTextColor(AppUtils.getColor(R.color.main));
         switch (i) {
             case 0:
+                tvA1.setTextColor(AppUtils.getColor(R.color.main_s));
+                tvA2.setTextColor(AppUtils.getColor(R.color.main_s));
                 ll_recipe.setVisibility(View.VISIBLE);
                 break;
             case 1:
-                ll_application.setVisibility(View.VISIBLE);
+                tvB1.setTextColor(AppUtils.getColor(R.color.main_s));
+                tvB2.setTextColor(AppUtils.getColor(R.color.main_s));
                 break;
             case 2:
+                tvC1.setTextColor(AppUtils.getColor(R.color.main_s));
+                tvC2.setTextColor(AppUtils.getColor(R.color.main_s));
+                ll_application.setVisibility(View.VISIBLE);
+                break;
+            case 3:
+                tvD1.setTextColor(AppUtils.getColor(R.color.main_s));
+                tvD2.setTextColor(AppUtils.getColor(R.color.main_s));
                 ll_set_up.setVisibility(View.VISIBLE);
                 break;
         }

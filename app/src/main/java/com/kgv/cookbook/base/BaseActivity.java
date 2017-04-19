@@ -97,6 +97,7 @@ public abstract class BaseActivity extends FragmentActivity {
      */
     protected abstract boolean hasBottomMenu();
 
+
     private void initBottomMenu() {
         mClickListener = new BaseClickListener();
         findViewById(R.id.bottom_search).setOnClickListener(mClickListener);
@@ -163,19 +164,28 @@ public abstract class BaseActivity extends FragmentActivity {
 
     private void search() {
         if (inSearch) {
-            inSearch = false;
-            ObjectAnimator animator = ObjectAnimator.ofFloat(content, "translationY",
-                    -5, 0, 10, 20, 30, 40, 50, 60, 70, 80, 90, 95);
-            animator.setDuration(400);
-            animator.start();
+            hideSearchView();
         } else {
-            inSearch = true;
-            content.setVisibility(View.VISIBLE);
-            ObjectAnimator animator = ObjectAnimator.ofFloat(content, "translationY",
-                    95, 90, 80, 70, 60, 50, 40, 30, 20, 10, 0, -5);
-            animator.setDuration(400);
-            animator.start();
+            showSearchView();
         }
+    }
+
+    private void showSearchView() {
+        inSearch = true;
+        content.setVisibility(View.VISIBLE);
+        ObjectAnimator animator = ObjectAnimator.ofFloat(content, "translationY",
+                95, 90, 80, 70, 60, 50, 40, 30, 20, 10, 0, -5);
+        animator.setDuration(400);
+        animator.start();
+    }
+
+    private void hideSearchView() {
+        inSearch = false;
+        ObjectAnimator animator = ObjectAnimator.ofFloat(content, "translationY",
+                -5, 0, 10, 20, 30, 40, 50, 60, 70, 80, 90, 95);
+        animator.setDuration(400);
+        animator.start();
+
     }
 
     protected void showSetFamilyDialog(){
@@ -360,6 +370,7 @@ public abstract class BaseActivity extends FragmentActivity {
                         return true;
                     }
                     AppUtils.hideKeyboard(et);
+                    hideSearchView();
                     jumpActivity(new Intent(AppUtils.getContext(), SearchActivity.class)
                             .putExtra(IntentKeys.SEARCH_KEYWORD, keyword), false);
                     break;
