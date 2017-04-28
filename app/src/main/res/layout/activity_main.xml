@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:background="#fff"
-                android:orientation="vertical">
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#fff"
+    android:orientation="vertical">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -19,7 +19,7 @@
                 android:id="@+id/background"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:src="@drawable/main_bg_recipe_0"/>
+                android:src="@drawable/main_bg_recipe_0" />
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -27,25 +27,25 @@
                 android:orientation="vertical">
 
                 <LinearLayout
-                    android:layout_marginLeft="62dp"
-                    android:layout_marginRight="62dp"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_marginLeft="62dp"
+                    android:layout_marginRight="62dp"
                     android:layout_marginTop="80dp"
                     android:orientation="horizontal">
 
                     <LinearLayout
-                        android:layout_marginTop="10dp"
-                        android:layout_marginBottom="10dp"
-                        android:orientation="vertical"
                         android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_marginBottom="10dp"
+                        android:layout_marginTop="10dp"
                         android:layout_weight="1"
-                        android:layout_height="match_parent">
+                        android:orientation="vertical">
 
                         <View
                             android:layout_width="match_parent"
                             android:layout_height="1dp"
-                            android:background="@color/main"/>
+                            android:background="@color/main" />
 
                         <RelativeLayout
                             android:layout_width="match_parent"
@@ -54,55 +54,57 @@
 
                             <LinearLayout
                                 android:id="@+id/fl_recipe"
-                                android:layout_marginLeft="50dp"
-                                android:layout_centerVertical="true"
-                                android:gravity="center"
-                                android:orientation="vertical"
                                 android:layout_width="wrap_content"
-                                android:layout_height="wrap_content">
+                                android:layout_height="wrap_content"
+                                android:layout_centerVertical="true"
+                                android:layout_marginLeft="50dp"
+                                android:gravity="center"
+                                android:orientation="vertical">
 
                                 <com.kgv.cookbook.ui.Ch2TextView
                                     android:id="@+id/tvA1"
-                                    android:text="食谱"
-                                    android:textSize="@dimen/main_text_ch"
-                                    android:textColor="@color/main_s"
                                     android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content" />
+                                    android:layout_height="wrap_content"
+                                    android:text="食谱"
+                                    android:textColor="@color/main_s"
+                                    android:textSize="@dimen/main_text_ch" />
+
                                 <com.kgv.cookbook.ui.EnTextView
                                     android:id="@+id/tvA2"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
                                     android:layout_marginTop="5dp"
                                     android:text="RECIPES"
-                                    android:textSize="@dimen/main_text_en"
                                     android:textColor="@color/main_s"
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content" />
+                                    android:textSize="@dimen/main_text_en" />
                             </LinearLayout>
 
                             <LinearLayout
                                 android:id="@+id/fl_manager"
-                                android:layout_alignParentRight="true"
-                                android:layout_marginRight="50dp"
-                                android:layout_centerVertical="true"
-                                android:gravity="center"
-                                android:orientation="vertical"
                                 android:layout_width="wrap_content"
-                                android:layout_height="wrap_content">
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentRight="true"
+                                android:layout_centerVertical="true"
+                                android:layout_marginRight="50dp"
+                                android:gravity="center"
+                                android:orientation="vertical">
 
                                 <com.kgv.cookbook.ui.Ch2TextView
                                     android:id="@+id/tvB1"
-                                    android:text="健康管理"
-                                    android:textSize="@dimen/main_text_ch"
-                                    android:textColor="#323232"
                                     android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content" />
+                                    android:layout_height="wrap_content"
+                                    android:text="健康管理"
+                                    android:textColor="#323232"
+                                    android:textSize="@dimen/main_text_ch" />
+
                                 <com.kgv.cookbook.ui.EnTextView
                                     android:id="@+id/tvB2"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
                                     android:layout_marginTop="5dp"
                                     android:text="HEALTH MANAGEMENT"
-                                    android:textSize="@dimen/main_text_en"
                                     android:textColor="#323232"
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content" />
+                                    android:textSize="@dimen/main_text_en" />
                             </LinearLayout>
 
                         </RelativeLayout>
@@ -110,28 +112,28 @@
                         <View
                             android:layout_width="match_parent"
                             android:layout_height="1dp"
-                            android:background="@color/main"/>
+                            android:background="@color/main" />
                     </LinearLayout>
 
                     <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
                         android:layout_marginLeft="8dp"
                         android:layout_marginRight="8dp"
-                        android:src="@drawable/main_logo"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content" />
+                        android:src="@drawable/main_logo" />
 
                     <LinearLayout
-                        android:layout_marginTop="10dp"
-                        android:layout_marginBottom="10dp"
-                        android:orientation="vertical"
                         android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_marginBottom="10dp"
+                        android:layout_marginTop="10dp"
                         android:layout_weight="1"
-                        android:layout_height="match_parent">
+                        android:orientation="vertical">
 
                         <View
                             android:layout_width="match_parent"
                             android:layout_height="1dp"
-                            android:background="@color/main"/>
+                            android:background="@color/main" />
 
                         <RelativeLayout
                             android:layout_width="match_parent"
@@ -140,55 +142,57 @@
 
                             <LinearLayout
                                 android:id="@+id/fl_application"
-                                android:layout_marginLeft="80dp"
-                                android:layout_centerVertical="true"
-                                android:gravity="center"
-                                android:orientation="vertical"
                                 android:layout_width="wrap_content"
-                                android:layout_height="wrap_content">
+                                android:layout_height="wrap_content"
+                                android:layout_centerVertical="true"
+                                android:layout_marginLeft="80dp"
+                                android:gravity="center"
+                                android:orientation="vertical">
 
                                 <com.kgv.cookbook.ui.Ch2TextView
                                     android:id="@+id/tvC1"
-                                    android:text="应用"
-                                    android:textSize="@dimen/main_text_ch"
-                                    android:textColor="#323232"
                                     android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content" />
+                                    android:layout_height="wrap_content"
+                                    android:text="应用"
+                                    android:textColor="#323232"
+                                    android:textSize="@dimen/main_text_ch" />
+
                                 <com.kgv.cookbook.ui.EnTextView
                                     android:id="@+id/tvC2"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
                                     android:layout_marginTop="5dp"
                                     android:text="APPLICATION"
-                                    android:textSize="@dimen/main_text_en"
                                     android:textColor="#323232"
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content" />
+                                    android:textSize="@dimen/main_text_en" />
                             </LinearLayout>
 
                             <LinearLayout
                                 android:id="@+id/fl_setup"
-                                android:layout_alignParentRight="true"
-                                android:layout_marginRight="50dp"
-                                android:layout_centerVertical="true"
-                                android:gravity="center"
-                                android:orientation="vertical"
                                 android:layout_width="wrap_content"
-                                android:layout_height="wrap_content">
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentRight="true"
+                                android:layout_centerVertical="true"
+                                android:layout_marginRight="50dp"
+                                android:gravity="center"
+                                android:orientation="vertical">
 
                                 <com.kgv.cookbook.ui.Ch2TextView
                                     android:id="@+id/tvD1"
-                                    android:text="设置"
-                                    android:textSize="@dimen/main_text_ch"
-                                    android:textColor="#323232"
                                     android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content" />
+                                    android:layout_height="wrap_content"
+                                    android:text="设置"
+                                    android:textColor="#323232"
+                                    android:textSize="@dimen/main_text_ch" />
+
                                 <com.kgv.cookbook.ui.EnTextView
                                     android:id="@+id/tvD2"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
                                     android:layout_marginTop="5dp"
                                     android:text="SET UP"
-                                    android:textSize="@dimen/main_text_en"
                                     android:textColor="#323232"
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content" />
+                                    android:textSize="@dimen/main_text_en" />
                             </LinearLayout>
 
                         </RelativeLayout>
@@ -196,97 +200,186 @@
                         <View
                             android:layout_width="match_parent"
                             android:layout_height="1dp"
-                            android:background="@color/main"/>
+                            android:background="@color/main" />
                     </LinearLayout>
 
                     <!--<FrameLayout-->
-                        <!--android:id="@+id/fl_recipe"-->
-                        <!--android:layout_width="160dp"-->
-                        <!--android:layout_height="match_parent"/>-->
+                    <!--android:id="@+id/fl_recipe"-->
+                    <!--android:layout_width="160dp"-->
+                    <!--android:layout_height="match_parent"/>-->
 
                     <!--<FrameLayout-->
-                        <!--android:id="@+id/fl_manager"-->
-                        <!--android:layout_marginLeft="20dp"-->
-                        <!--android:layout_width="200dp"-->
-                        <!--android:layout_height="match_parent"/>-->
+                    <!--android:id="@+id/fl_manager"-->
+                    <!--android:layout_marginLeft="20dp"-->
+                    <!--android:layout_width="200dp"-->
+                    <!--android:layout_height="match_parent"/>-->
 
                     <!--<FrameLayout-->
-                        <!--android:id="@+id/fl_application"-->
-                        <!--android:layout_width="160dp"-->
-                        <!--android:layout_marginLeft="290dp"-->
-                        <!--android:layout_height="match_parent"/>-->
+                    <!--android:id="@+id/fl_application"-->
+                    <!--android:layout_width="160dp"-->
+                    <!--android:layout_marginLeft="290dp"-->
+                    <!--android:layout_height="match_parent"/>-->
 
                     <!--<FrameLayout-->
-                        <!--android:id="@+id/fl_setup"-->
-                        <!--android:layout_marginLeft="50dp"-->
-                        <!--android:layout_width="160dp"-->
-                        <!--android:layout_height="match_parent"/>-->
+                    <!--android:id="@+id/fl_setup"-->
+                    <!--android:layout_marginLeft="50dp"-->
+                    <!--android:layout_width="160dp"-->
+                    <!--android:layout_height="match_parent"/>-->
                 </LinearLayout>
 
 
                 <FrameLayout
-                    android:layout_marginLeft="120dp"
-                    android:layout_marginRight="120dp"
-                    android:layout_marginTop="120dp"
-                    android:layout_marginBottom="110dp"
                     android:layout_width="match_parent"
                     android:layout_height="0dp"
+                    android:layout_marginBottom="110dp"
+                    android:layout_marginLeft="100dp"
+                    android:layout_marginRight="100dp"
+                    android:layout_marginTop="120dp"
                     android:layout_weight="1">
 
                     <LinearLayout
                         android:id="@+id/ll_recipe"
+                        android:visibility="visible"
+                        android:layout_marginLeft="20dp"
+                        android:layout_marginRight="20dp"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:orientation="horizontal">
 
-                        <FrameLayout
+                        <RelativeLayout
                             android:id="@+id/fl_all_mate"
                             android:layout_width="230dp"
-                            android:layout_height="match_parent"/>
+                            android:layout_height="match_parent"
+                            android:layout_marginRight="40dp">
 
-                        <FrameLayout
+                            <com.kgv.cookbook.ui.Ch2TextView
+                                android:id="@+id/tvRecipe1"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentBottom="true"
+                                android:layout_marginBottom="30dp"
+                                android:layout_marginLeft="7dp"
+                                android:text="食材大全"
+                                android:textColor="@color/main"
+                                android:textSize="@dimen/main_text_s" />
+                        </RelativeLayout>
+
+                        <RelativeLayout
                             android:id="@+id/fl_food_world"
                             android:layout_width="230dp"
-                            android:layout_marginRight="40dp"
-                            android:layout_height="match_parent"/>
+                            android:layout_height="match_parent"
+                            android:layout_marginRight="40dp">
 
-                        <FrameLayout
+                            <com.kgv.cookbook.ui.Ch2TextView
+                                android:id="@+id/tvRecipe2"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentBottom="true"
+                                android:layout_marginBottom="30dp"
+                                android:layout_marginLeft="43dp"
+                                android:text="美食天下"
+                                android:textColor="@color/main"
+                                android:textSize="@dimen/main_text_s" />
+                        </RelativeLayout>
+
+                        <RelativeLayout
                             android:id="@+id/fl_week"
                             android:layout_width="230dp"
-                            android:layout_marginRight="40dp"
-                            android:layout_height="match_parent"/>
+                            android:layout_height="match_parent"
+                            android:layout_marginRight="60dp">
 
-                        <FrameLayout
+                            <com.kgv.cookbook.ui.Ch2TextView
+                                android:id="@+id/tvRecipe3"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentBottom="true"
+                                android:layout_marginBottom="30dp"
+                                android:layout_marginLeft="80dp"
+                                android:text="一周菜谱"
+                                android:textColor="@color/main"
+                                android:textSize="@dimen/main_text_s" />
+
+                        </RelativeLayout>
+
+                        <RelativeLayout
                             android:id="@+id/fl_set_meal"
                             android:layout_width="230dp"
-                            android:layout_height="match_parent"/>
+                            android:layout_height="match_parent">
+                            <com.kgv.cookbook.ui.Ch2TextView
+                                android:id="@+id/tvRecipe4"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentBottom="true"
+                                android:layout_marginBottom="30dp"
+                                android:layout_marginLeft="90dp"
+                                android:text="美味套餐"
+                                android:textColor="@color/main"
+                                android:textSize="@dimen/main_text_s" />
+                        </RelativeLayout>
                     </LinearLayout>
 
 
                     <LinearLayout
                         android:id="@+id/ll_application"
+                        android:layout_marginLeft="20dp"
+                        android:layout_marginRight="20dp"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:orientation="horizontal"
                         android:visibility="gone">
 
-                        <FrameLayout
+                        <RelativeLayout
                             android:id="@+id/fl_video"
                             android:layout_width="230dp"
+                            android:layout_height="match_parent"
                             android:layout_marginLeft="135dp"
-                            android:layout_marginRight="40dp"
-                            android:layout_height="match_parent"/>
+                            android:layout_marginRight="40dp" >
 
-                        <FrameLayout
+                            <com.kgv.cookbook.ui.Ch2TextView
+                                android:id="@+id/tvApp1"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentBottom="true"
+                                android:layout_marginBottom="30dp"
+                                android:layout_marginLeft="23dp"
+                                android:text="娱乐视频"
+                                android:textColor="@color/main"
+                                android:textSize="@dimen/main_text_s" />
+
+                        </RelativeLayout>
+
+                        <RelativeLayout
                             android:id="@+id/fl_music"
                             android:layout_width="230dp"
-                            android:layout_marginRight="40dp"
-                            android:layout_height="match_parent"/>
+                            android:layout_height="match_parent"
+                            android:layout_marginRight="40dp" >
+                            <com.kgv.cookbook.ui.Ch2TextView
+                                android:id="@+id/tvApp2"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentBottom="true"
+                                android:layout_marginBottom="30dp"
+                                android:layout_marginLeft="85dp"
+                                android:text="音乐"
+                                android:textColor="@color/main"
+                                android:textSize="@dimen/main_text_s" />
+                            </RelativeLayout>
 
-                        <FrameLayout
+                        <RelativeLayout
                             android:id="@+id/fl_app"
                             android:layout_width="230dp"
-                            android:layout_height="match_parent"/>
+                            android:layout_height="match_parent" >
+                            <com.kgv.cookbook.ui.Ch2TextView
+                                android:id="@+id/tvApp3"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentBottom="true"
+                                android:layout_marginBottom="30dp"
+                                android:layout_marginLeft="120dp"
+                                android:text="商城"
+                                android:textColor="@color/main"
+                                android:textSize="@dimen/main_text_s" />
+                        </RelativeLayout>
                     </LinearLayout>
 
                     <LinearLayout
@@ -296,35 +389,98 @@
                         android:orientation="horizontal"
                         android:visibility="gone">
 
-                        <FrameLayout
+                        <RelativeLayout
                             android:id="@+id/fl_system"
                             android:layout_width="192dp"
-                            android:layout_marginRight="20dp"
-                            android:layout_height="match_parent"/>
+                            android:layout_height="match_parent"
+                            android:layout_marginRight="30dp" >
 
-                        <FrameLayout
+                            <com.kgv.cookbook.ui.Ch2TextView
+                                android:id="@+id/tvSet1"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentBottom="true"
+                                android:layout_marginBottom="30dp"
+                                android:layout_marginLeft="15dp"
+                                android:text="系统设置"
+                                android:textColor="@color/main"
+                                android:textSize="@dimen/main_text_s" />
+
+                        </RelativeLayout>
+
+                        <RelativeLayout
                             android:id="@+id/fl_family"
                             android:layout_width="192dp"
-                            android:layout_marginRight="20dp"
-                            android:layout_height="match_parent"/>
+                            android:layout_height="match_parent"
+                            android:layout_marginRight="30dp" >
+                            <com.kgv.cookbook.ui.Ch2TextView
+                                android:id="@+id/tvSet2"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentBottom="true"
+                                android:layout_marginBottom="30dp"
+                                android:layout_marginLeft="27dp"
+                                android:text="家庭设置"
+                                android:textColor="@color/main"
+                                android:textSize="@dimen/main_text_s" />
 
-                        <FrameLayout
+                        </RelativeLayout>
+
+                        <RelativeLayout
                             android:id="@+id/fl_voice"
                             android:layout_width="192dp"
-                            android:layout_marginRight="20dp"
-                            android:layout_height="match_parent"/>
+                            android:layout_height="match_parent"
+                            android:layout_marginRight="30dp" >
 
-                        <FrameLayout
+                            <com.kgv.cookbook.ui.Ch2TextView
+                                android:id="@+id/tvSet3"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentBottom="true"
+                                android:layout_marginBottom="30dp"
+                                android:layout_marginLeft="47dp"
+                                android:text="语音设置"
+                                android:textColor="@color/main"
+                                android:textSize="@dimen/main_text_s" />
+                        </RelativeLayout>
+
+                        <RelativeLayout
                             android:id="@+id/fl_interest"
-                            android:layout_marginRight="20dp"
                             android:layout_width="192dp"
-                            android:layout_height="match_parent"/>
+                            android:layout_height="match_parent"
+                            android:layout_marginRight="30dp" >
 
-                        <FrameLayout
+                            <com.kgv.cookbook.ui.Ch2TextView
+                                android:id="@+id/tvSet4"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentBottom="true"
+                                android:layout_marginBottom="30dp"
+                                android:layout_marginLeft="58dp"
+                                android:text="喜好设置"
+                                android:textColor="@color/main"
+                                android:textSize="@dimen/main_text_s" />
+
+                        </RelativeLayout>
+
+                        <RelativeLayout
                             android:id="@+id/fl_password"
-                            android:layout_marginRight="20dp"
                             android:layout_width="192dp"
-                            android:layout_height="match_parent"/>
+                            android:layout_height="match_parent"
+                            android:layout_marginRight="20dp" >
+
+                            <com.kgv.cookbook.ui.Ch2TextView
+                                android:id="@+id/tvSet5"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentBottom="true"
+                                android:layout_marginBottom="30dp"
+                                android:layout_marginLeft="70dp"
+                                android:text="密码设置"
+                                android:textColor="@color/main"
+                                android:textSize="@dimen/main_text_s" />
+
+                        </RelativeLayout>
                     </LinearLayout>
 
                 </FrameLayout>
@@ -334,7 +490,7 @@
 
     </LinearLayout>
 
-    <include layout="@layout/include_bottom"/>
+    <include layout="@layout/include_bottom" />
 
     <FrameLayout
         android:id="@+id/fl_search_content"
@@ -348,13 +504,13 @@
         <ImageView
             android:layout_width="240dp"
             android:layout_height="70dp"
-            android:src="@drawable/main_search"/>
+            android:src="@drawable/main_search" />
 
         <LinearLayout
-            android:focusable="true"
-            android:focusableInTouchMode="true"
             android:layout_width="match_parent"
             android:layout_height="47dp"
+            android:focusable="true"
+            android:focusableInTouchMode="true"
             android:orientation="horizontal">
 
             <EditText
@@ -367,7 +523,7 @@
                 android:paddingLeft="4dp"
                 android:textColor="#b28750"
                 android:textCursorDrawable="@null"
-                android:textSize="22sp"/>
+                android:textSize="22sp" />
 
             <TextView
                 android:id="@+id/base_tv_go"
@@ -377,7 +533,7 @@
                 android:gravity="center"
                 android:text="GO"
                 android:textColor="#fff"
-                android:textSize="22sp"/>
+                android:textSize="22sp" />
         </LinearLayout>
     </FrameLayout>
 

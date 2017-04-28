@@ -185,7 +185,6 @@ public abstract class BaseActivity extends FragmentActivity {
                 -5, 0, 10, 20, 30, 40, 50, 60, 70, 80, 90, 95);
         animator.setDuration(400);
         animator.start();
-
     }
 
     protected void showSetFamilyDialog(){
@@ -281,7 +280,7 @@ public abstract class BaseActivity extends FragmentActivity {
 
         @Override
         public void onError(SpeechError speechError) {
-            LogUtils.v("voice", "onError = " + speechError.getErrorDescription());
+            subClassVoiceError(speechError);
         }
 
         @Override
@@ -324,8 +323,11 @@ public abstract class BaseActivity extends FragmentActivity {
 
         @Override
         public void onError(SpeechError speechError) {
-            LogUtils.v("voice", "onError = " + speechError.getErrorDescription());
+            subClassVoiceError(speechError);
         }
+    }
+
+    protected void subClassVoiceError(SpeechError speechError) {
     }
 
     protected void subClassVoiceBusiness(List<String> result,String words) {

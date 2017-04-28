@@ -59,8 +59,6 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
 //        });
     }
 
-
-
     private int getStatusHeight(Context context) {
         int statusHeight = -1;
         try {

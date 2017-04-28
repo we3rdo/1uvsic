@@ -40,7 +40,6 @@ public class VoiceHelper {
         speechRecognizer.setParameter(SpeechConstant.LANGUAGE, "zh_cn");
         speechRecognizer.setParameter(SpeechConstant.ASR_PTT, "0");
         speechRecognizer.setParameter(SpeechConstant.ACCENT, "mandarin");
-
     }
 
     public void startRecording() {

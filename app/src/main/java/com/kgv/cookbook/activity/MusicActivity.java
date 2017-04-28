@@ -44,6 +44,7 @@ public class MusicActivity extends BaseActivity {
 
     private void initUI() {
         webView = (WebView) findViewById(R.id.webView);
+
         parent = (DragFrameLayout) findViewById(R.id.parent);
         parent.setDragImageListener(new DragFrameLayout.DragImageClickListener() {
             @Override
@@ -51,7 +52,6 @@ public class MusicActivity extends BaseActivity {
                 exit();
             }
         });
-
     }
 
     private void startLoadUrl() {

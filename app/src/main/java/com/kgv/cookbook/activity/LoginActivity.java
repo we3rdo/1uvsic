@@ -422,6 +422,7 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener 
         intent.setDataAndType(Uri.fromFile(file), "application/vnd.android.package-archive");
         startActivity(intent);
         finish();
+
     }
 
 }

@@ -46,9 +46,11 @@ public class AdActivity extends BaseActivity {
         });
     }
 
-
     private void startLoadUrl(){
-        webView.loadUrl("https://mall.midea.com/");
+        //webView.loadUrl("https://mall.midea.com/");
+        //webView.loadUrl("http://haierlzhe.tmall.com/");
+        webView.loadUrl("http://meloburg.com/index.php?m=content&c=index&a=lists&catid=6");
+
         webView.getSettings().setDomStorageEnabled(true);
         webView.getSettings().setJavaScriptEnabled(true);
         webView.getSettings().setSupportZoom(true);  // 设置可以支持缩放
@@ -87,3 +89,4 @@ public class AdActivity extends BaseActivity {
     }
 
 }
+

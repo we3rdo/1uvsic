@@ -130,19 +130,22 @@ public class FamilyContentAdapter extends FinalBaseAdapter<FamilyContent> {
         比对集合 根据id显示新添加item
      */
     public String showPeopleByNewData(List<FamilyContent> datas) {
-        ArrayList<String> old = new ArrayList<>();
-        for (int i = 0; i < mDatas.size(); i++) {
-            old.add(mDatas.get(i).getId());
-        }
-        old.add("empty");
-        for (int i = 0; i < datas.size(); i++) {
-            String newId = datas.get(i).getId();
-            if (!old.contains(newId)) {
-                newIdByPeople = newId;
-                LogUtils.v("family", "for : i=" + i + ",id=" + newIdByPeople);
+
+        if(mDatas == null || mDatas.isEmpty() || mDatas.size() == 0){
+            newIdByPeople = datas.get(0).getId();
+        }else{
+            ArrayList<String> old = new ArrayList<>();
+            for (int i = 0; i < mDatas.size(); i++) {
+                old.add(mDatas.get(i).getId());
+            }
+            old.add("empty");
+            for (int i = 0; i < datas.size(); i++) {
+                String newId = datas.get(i).getId();
+                if (!old.contains(newId)) {
+                    newIdByPeople = newId;
+                }
             }
         }
-        LogUtils.v("family", "newIdByPeople = " + newIdByPeople);
         mDatas = datas;
         currentPeople = -1;
         currentHealth = -1;

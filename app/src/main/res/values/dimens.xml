@@ -7,4 +7,5 @@
 
     <dimen name="main_text_ch">38sp</dimen>
     <dimen name="main_text_en">20sp</dimen>
+    <dimen name="main_text_s">27sp</dimen>
 </resources>

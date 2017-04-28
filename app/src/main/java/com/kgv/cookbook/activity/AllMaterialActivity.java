@@ -90,7 +90,7 @@ public class AllMaterialActivity extends BaseActivity implements View.OnClickLis
     private AllLeftAdapter searchAdapter;
     private Runnable loadRunnable = new Runnable() {
         @Override
-        public void run () {
+        public void run() {
             showFragment(0);
         }
     };
@@ -99,17 +99,17 @@ public class AllMaterialActivity extends BaseActivity implements View.OnClickLis
     private boolean isJump;
 
     @Override
-    protected boolean hasBottomMenu () {
+    protected boolean hasBottomMenu() {
         return true;
     }
 
     @Override
-    protected int getContentViewId () {
+    protected int getContentViewId() {
         return R.layout.activity_all_material;
     }
 
     @Override
-    protected void initialization (Bundle savedInstanceState) {
+    protected void initialization(Bundle savedInstanceState) {
         initObject();
         initUI();
         initListener();
@@ -118,7 +118,7 @@ public class AllMaterialActivity extends BaseActivity implements View.OnClickLis
         getLeftDataFromNet(false);
         getWindow().getDecorView().post(new Runnable() {
             @Override
-            public void run () {
+            public void run() {
                 myHandler.post(loadRunnable);
             }
         });
@@ -132,7 +132,7 @@ public class AllMaterialActivity extends BaseActivity implements View.OnClickLis
         fragmentManager = getSupportFragmentManager();
     }
 
-    private void initUI () {
+    private void initUI() {
         rl_search_mate = (RelativeLayout) findViewById(R.id.rl_search_mate);
         gv_search_mate = (GridView) findViewById(R.id.gv_search_mate);
         iv_search_delete = (ImageView) findViewById(R.id.iv_search_delete);
@@ -154,7 +154,7 @@ public class AllMaterialActivity extends BaseActivity implements View.OnClickLis
         lv_dinner = (ListView) findViewById(R.id.lv_dinner);
     }
 
-    private void initListener () {
+    private void initListener() {
         //findViewById(R.id.ll_left).setOnTouchListener();
         tv_left.setOnClickListener(this);
         tv_right.setOnClickListener(this);
@@ -164,7 +164,7 @@ public class AllMaterialActivity extends BaseActivity implements View.OnClickLis
         tv_go_cooking.setOnTouchListener(this);
         gv_left.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
-            public void onItemClick (AdapterView<?> parent, View view, int position, long id) {
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 if (leftAdapter.isEditing()) {
                     //1.adapter删除数据 刷新UI
                     leftAdapter.deleteDataByPosition(position);
@@ -186,19 +186,19 @@ public class AllMaterialActivity extends BaseActivity implements View.OnClickLis
         });
         gv_search_mate.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
-            public void onItemClick (AdapterView<?> parent, View view, int position, long id) {
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 hideSearchResult();
-                if (! mUser.isExist()) {
+                if (!mUser.isExist()) {
                     showLoginDialog();
                     return;
                 }
                 String scid = searchAdapter.getItemIdByPosition(position);
-                requestMadeSC(- 1, scid, false);
+                requestMadeSC(-1, scid, false);
             }
         });
     }
 
-    private void initReceiver () {
+    private void initReceiver() {
         localBroadcastManager = LocalBroadcastManager.getInstance(this);
         IntentFilter intentFilter = new IntentFilter("com.kgv.cookbook.LOGIN");
         receiver = new LoginBroadcastReceiver();
@@ -206,7 +206,7 @@ public class AllMaterialActivity extends BaseActivity implements View.OnClickLis
     }
 
     @Override
-    protected void onLoginReceiver () {
+    protected void onLoginReceiver() {
         LogUtils.v("test", "all mate 收到登录广播");
         fillMenuData();
         getLeftDataFromNet(false);
@@ -214,25 +214,27 @@ public class AllMaterialActivity extends BaseActivity implements View.OnClickLis
         recommendFragment.resetContentData();
     }
 
-    public void clearGroupData () {
+    public void clearGroupData() {
         groupNames.clear();
         groupIds.clear();
         leftAdapter.clearSelectIds();
     }
 
-    public void startListen () {
+    /*      Voice   Start    */
+    public void startListen() {
         mHelper.init(this, new BaseVoiceListener(), new BaseDialogListener());
         myHandler.sendEmptyMessage(88);
     }
 
     @Override
-    protected void subClassVoiceBusiness (List<String> result, String words) {
+    protected void subClassVoiceBusiness(List<String> result, String words) {
         if ("搜索食材".equals(words)) {
             searchMaterial();
         }
     }
+    /*      Voice End      */
 
-    private void fillMenuData () {
+    private void fillMenuData() {
         if (mUser.isExist()) {
             getMenuData(0);
             getMenuData(1);
@@ -240,19 +242,19 @@ public class AllMaterialActivity extends BaseActivity implements View.OnClickLis
         }
     }
 
-    private void getMenuData (int type) {
+    private void getMenuData(int type) {
         switch (type) {
             case 0:
                 //早餐
-                LogUtils.v("uuuu","url = " + Urls.MENU_MORNING_LIST + "username/" + mUser.getUsername() + "/password/" + mUser.getPassword() + "/db_name/morning_menu/create_time/");
+                LogUtils.v("uuuu", "url = " + Urls.MENU_MORNING_LIST + "username/" + mUser.getUsername() + "/password/" + mUser.getPassword() + "/db_name/morning_menu/create_time/");
                 mHttpUtils.doGet(Urls.MENU_MORNING_LIST + "username/" + mUser.getUsername() + "/password/" + mUser.getPassword() + "/db_name/morning_menu/create_time/", new HttpResponse<String>(String.class) {
                     @Override
-                    public void onSuccess (String str) {
+                    public void onSuccess(String str) {
                         myHandler.obtainMessage(3, str).sendToTarget();
                     }
 
                     @Override
-                    public void onError (String msg) {
+                    public void onError(String msg) {
 
                     }
                 });
@@ -261,12 +263,12 @@ public class AllMaterialActivity extends BaseActivity implements View.OnClickLis
                 //午餐
                 mHttpUtils.doGet(Urls.MENU_NOONING_LIST + "username/" + mUser.getUsername() + "/password/" + mUser.getPassword() + "/db_name/nooning_menu/create_time/", new HttpResponse<String>(String.class) {
                     @Override
-                    public void onSuccess (String str) {
+                    public void onSuccess(String str) {
                         myHandler.obtainMessage(4, str).sendToTarget();
                     }
 
                     @Override
-                    public void onError (String msg) {
+                    public void onError(String msg) {
                     }
                 });
                 break;
@@ -274,12 +276,12 @@ public class AllMaterialActivity extends BaseActivity implements View.OnClickLis
                 //晚餐
                 mHttpUtils.doGet(Urls.MENU_EVENING_LIST + "username/" + mUser.getUsername() + "/password/" + mUser.getPassword() + "/db_name/evening_menu/create_time/", new HttpResponse<String>(String.class) {
                     @Override
-                    public void onSuccess (String str) {
+                    public void onSuccess(String str) {
                         myHandler.obtainMessage(5, str).sendToTarget();
                     }
 
                     @Override
-                    public void onError (String msg) {
+                    public void onError(String msg) {
                     }
                 });
                 break;
@@ -287,7 +289,7 @@ public class AllMaterialActivity extends BaseActivity implements View.OnClickLis
     }
 
 
-    public void getGroupMateData (String scId, String name) {
+    public void getGroupMateData(String scId, String name) {
         if (groupIds.contains(scId)) {
             if (groupIds.size() > 1)
                 groupIds.remove(scId);
@@ -309,12 +311,12 @@ public class AllMaterialActivity extends BaseActivity implements View.OnClickLis
         LogUtils.v("hahaha", "组合食材url : " + groupUrl + 1);
         mHttpUtils.doGet(groupUrl + 1, new HttpResponse<GroupBean>(GroupBean.class) {
             @Override
-            public void onSuccess (GroupBean bean) {
+            public void onSuccess(GroupBean bean) {
                 myHandler.obtainMessage(7, bean).sendToTarget();
             }
 
             @Override
-            public void onError (String msg) {
+            public void onError(String msg) {
                 myHandler.obtainMessage(11).sendToTarget();
             }
         });
@@ -326,9 +328,9 @@ public class AllMaterialActivity extends BaseActivity implements View.OnClickLis
      * 如果addId为null则delPosition有值
      */
 
-    private void requestMadeSC (int delPosition, String addId, final boolean keepEdit) {
+    private void requestMadeSC(int delPosition, String addId, final boolean keepEdit) {
         String data = "";
-        if (delPosition != - 1) {
+        if (delPosition != -1) {
             ids.remove(delPosition);
         } else {
             ids.add(addId);
@@ -342,31 +344,31 @@ public class AllMaterialActivity extends BaseActivity implements View.OnClickLis
         }
         mHttpUtils.doGet(Urls.MADE_SHICAI + "username/" + mUser.getUsername() + "/password/" + mUser.getPassword() + "/data/" + data, new HttpResponse<String>(String.class) {
             @Override
-            public void onSuccess (String str) {
+            public void onSuccess(String str) {
                 //2.重新请求 刷新UI 保持定制状态
                 getLeftDataFromNet(keepEdit);
             }
 
             @Override
-            public void onError (String msg) {
+            public void onError(String msg) {
             }
         });
     }
 
-    public void addShiCaiToMade (String shicaiID) {
+    public void addShiCaiToMade(String shicaiID) {
         if (ids.contains(shicaiID)) {
             tip("您已经定制了该食材");
             return;
         }
         //1.发送定制请求
-        requestMadeSC(- 1, shicaiID, true);
+        requestMadeSC(-1, shicaiID, true);
     }
 
-    private void getLeftDataFromNet (final boolean keepEdit) {
+    private void getLeftDataFromNet(final boolean keepEdit) {
         String url = mUser.isExist() ? Urls.HOT_SHICAI + "username/" + mUser.getUsername() + "/password/" + mUser.getPassword() : Urls.HOT_SHICAI;
         mHttpUtils.doGet(url, new HttpResponse<String>(String.class) {
             @Override
-            public void onSuccess (String str) {
+            public void onSuccess(String str) {
                 Gson gson = new Gson();
                 List<ShiCai> datas = gson.fromJson(
                         str,
@@ -380,17 +382,17 @@ public class AllMaterialActivity extends BaseActivity implements View.OnClickLis
             }
 
             @Override
-            public void onError (String msg) {
+            public void onError(String msg) {
 
             }
         });
     }
 
     @Override
-    public void onClick (View v) {
+    public void onClick(View v) {
         switch (v.getId()) {
             case R.id.tv_left://定制食材
-                if (! mUser.isExist()) {
+                if (!mUser.isExist()) {
                     showLoginDialog();
                     return;
                 }
@@ -409,7 +411,7 @@ public class AllMaterialActivity extends BaseActivity implements View.OnClickLis
                     hideRight();
                     tv_right.setText("恢复默认");
                 }
-                leftAdapter.edit(! leftAdapter.isEditing());
+                leftAdapter.edit(!leftAdapter.isEditing());
                 break;
             case R.id.tv_right://查看全部
                 if (currentFragment != 1) {
@@ -434,48 +436,48 @@ public class AllMaterialActivity extends BaseActivity implements View.OnClickLis
         }
     }
 
-    private void lightLeft () {
+    private void lightLeft() {
         v_line_left_1.setSelected(true);
         v_line_left_2.setSelected(true);
         tv_left.setSelected(true);
     }
 
-    private void hideLeft () {
+    private void hideLeft() {
         v_line_left_1.setSelected(false);
         v_line_left_2.setSelected(false);
         tv_left.setSelected(false);
     }
 
-    private void lightRight () {
+    private void lightRight() {
         v_line_right_1.setSelected(true);
         v_line_right_2.setSelected(true);
         tv_right.setSelected(true);
     }
 
-    private void hideRight () {
+    private void hideRight() {
         v_line_right_1.setSelected(false);
         v_line_right_2.setSelected(false);
         tv_right.setSelected(false);
     }
 
-    private void resetSC () {
+    private void resetSC() {
         //1.发送请求恢复默认
         mHttpUtils.doGet(Urls.RESET_SHICAI + "username/" + mUser.getUsername() + "/password/" + mUser.getPassword(), new HttpResponse<String>(String.class) {
             @Override
-            public void onSuccess (String str) {
+            public void onSuccess(String str) {
                 //2.重新请求,刷新UI
                 getLeftDataFromNet(false);
             }
 
             @Override
-            public void onError (String msg) {
+            public void onError(String msg) {
 
             }
         });
     }
 
     @Override
-    public boolean onTouch (View v, MotionEvent event) {
+    public boolean onTouch(View v, MotionEvent event) {
         switch (event.getAction()) {
             case MotionEvent.ACTION_DOWN:
                 v.setAlpha(0.4f);
@@ -498,7 +500,7 @@ public class AllMaterialActivity extends BaseActivity implements View.OnClickLis
         return true;
     }
 
-    private void searchMaterial () {
+    private void searchMaterial() {
         AppUtils.hideKeyboard(et_search);
         if (isShowSearchResult) {
             searchAgain();
@@ -507,21 +509,21 @@ public class AllMaterialActivity extends BaseActivity implements View.OnClickLis
         }
     }
 
-    private void submitMenu2Blog () {
+    private void submitMenu2Blog() {
         mHttpUtils.doGet(Urls.MENU_SUBMIT_2_BLOG + "username/" + mUser.getUsername() + "/password/" + mUser.getPassword(), new HttpResponse<String>(String.class) {
             @Override
-            public void onSuccess (String o) {
+            public void onSuccess(String o) {
                 myHandler.obtainMessage(6).sendToTarget();
             }
 
             @Override
-            public void onError (String msg) {
+            public void onError(String msg) {
                 myHandler.obtainMessage(6).sendToTarget();
             }
         });
     }
 
-    private void goSearch () {
+    private void goSearch() {
         keyword = et_search.getText().toString().trim();
         if (TextUtils.isEmpty(keyword)) {
             tip("请输入食材");
@@ -529,8 +531,8 @@ public class AllMaterialActivity extends BaseActivity implements View.OnClickLis
         }
         mHttpUtils.doGet(Urls.SEARCH_SHICAI + keyword, new HttpResponse<String>(String.class) {
             @Override
-            public void onSuccess (String str) {
-                if (! TextUtils.isEmpty(str) && ! "null".equals(str)) {
+            public void onSuccess(String str) {
+                if (!TextUtils.isEmpty(str) && !"null".equals(str)) {
                     Gson gson = new Gson();
                     List<ShiCai> datas = gson.fromJson(str, new TypeToken<List<ShiCai>>() {
                     }.getType());
@@ -541,24 +543,24 @@ public class AllMaterialActivity extends BaseActivity implements View.OnClickLis
             }
 
             @Override
-            public void onError (String msg) {
+            public void onError(String msg) {
 
             }
         });
     }
 
-    private void searchAgain () {
+    private void searchAgain() {
         String again = et_search.getText().toString().trim();
         if (TextUtils.isEmpty(again)) {
             tip("请输入食材");
             return;
         }
-        if (! again.equals(keyword)) {
+        if (!again.equals(keyword)) {
             keyword = again;
             mHttpUtils.doGet(Urls.SEARCH_SHICAI + keyword, new HttpResponse<String>(String.class) {
                 @Override
-                public void onSuccess (String str) {
-                    if (! TextUtils.isEmpty(str) && ! "null".equals(str)) {
+                public void onSuccess(String str) {
+                    if (!TextUtils.isEmpty(str) && !"null".equals(str)) {
                         Gson gson = new Gson();
                         List<ShiCai> datas = gson.fromJson(str, new TypeToken<List<ShiCai>>() {
                         }.getType());
@@ -570,19 +572,20 @@ public class AllMaterialActivity extends BaseActivity implements View.OnClickLis
                 }
 
                 @Override
-                public void onError (String msg) {
+                public void onError(String msg) {
 
                 }
             });
         }
     }
 
-    private void goCooking () {
-        if (! mUser.isExist()) {
+    private void goCooking() {
+        if (!mUser.isExist()) {
             showLoginDialog();
             return;
         }
-        if (mAdapter.mDatas.size() == 0 && aAdapter.mDatas.size() == 0
+        if (mAdapter.mDatas.size() == 0
+                && aAdapter.mDatas.size() == 0
                 && nAdapter.mDatas.size() == 0) {
             tip("请至少选择一道食谱");
         } else {
@@ -591,7 +594,7 @@ public class AllMaterialActivity extends BaseActivity implements View.OnClickLis
         }
     }
 
-    private void showMenu () {
+    private void showMenu() {
         isMenuShowing = true;
         iv_menu_switch.setImageResource(R.drawable.menu_opened);
         ll_menu_content.setVisibility(View.VISIBLE);
@@ -602,7 +605,7 @@ public class AllMaterialActivity extends BaseActivity implements View.OnClickLis
         animator.start();
     }
 
-    private void hideMenu () {
+    private void hideMenu() {
         isMenuShowing = false;
         iv_menu_switch.setImageResource(R.drawable.menu_closed);
         ObjectAnimator animator = ObjectAnimator.ofFloat(
@@ -612,7 +615,7 @@ public class AllMaterialActivity extends BaseActivity implements View.OnClickLis
         animator.start();
     }
 
-    private void showFragment (int index) {
+    private void showFragment(int index) {
         FragmentTransaction transaction = fragmentManager.beginTransaction();
 
         hideFragments(transaction);
@@ -653,7 +656,7 @@ public class AllMaterialActivity extends BaseActivity implements View.OnClickLis
         transaction.commit();
     }
 
-    private void hideFragments (FragmentTransaction transaction) {
+    private void hideFragments(FragmentTransaction transaction) {
         if (recommendFragment != null) {
             transaction.hide(recommendFragment);
         }
@@ -669,12 +672,12 @@ public class AllMaterialActivity extends BaseActivity implements View.OnClickLis
      * 添加食谱到菜单 type:0早 1中 2晚
      */
     @Override
-    public void addToMenu (ShiPu data, int type) {
-        if (! mUser.isExist()) {
+    public void addToMenu(ShiPu data, int type) {
+        if (!mUser.isExist()) {
             showLoginDialog();
             return;
         }
-        if (! isMenuShowing) {
+        if (!isMenuShowing) {
             showMenu();
         }
         AddToMenuShipu shiPu = new AddToMenuShipu(data.getId(), data.getImage(),
@@ -696,12 +699,12 @@ public class AllMaterialActivity extends BaseActivity implements View.OnClickLis
                 mHttpUtils.doGet(Urls.MENU_MORNING_ADD + "username/" + mUser.getUsername() + "/password/" + mUser.getPassword()
                         + "/db_name/morning_menu/cookbook_id/" + shiPu.getId() + "/act/add", new HttpResponse<String>(String.class) {
                     @Override
-                    public void onSuccess (String str) {
+                    public void onSuccess(String str) {
                         getMenuData(0);
                     }
 
                     @Override
-                    public void onError (String msg) {
+                    public void onError(String msg) {
 
                     }
                 });
@@ -710,12 +713,12 @@ public class AllMaterialActivity extends BaseActivity implements View.OnClickLis
                 mHttpUtils.doGet(Urls.MENU_NOONING_ADD + "username/" + mUser.getUsername() + "/password/" + mUser.getPassword()
                         + "/db_name/nooning_menu/cookbook_id/" + shiPu.getId() + "/act/add", new HttpResponse<String>(String.class) {
                     @Override
-                    public void onSuccess (String str) {
+                    public void onSuccess(String str) {
                         getMenuData(1);
                     }
 
                     @Override
-                    public void onError (String msg) {
+                    public void onError(String msg) {
 
                     }
                 });
@@ -725,12 +728,12 @@ public class AllMaterialActivity extends BaseActivity implements View.OnClickLis
                 mHttpUtils.doGet(Urls.MENU_EVENING_ADD + "username/" + mUser.getUsername() + "/password/" + mUser.getPassword()
                         + "/db_name/evening_menu/cookbook_id/" + shiPu.getId() + "/act/add", new HttpResponse<String>(String.class) {
                     @Override
-                    public void onSuccess (String str) {
+                    public void onSuccess(String str) {
                         getMenuData(2);
                     }
 
                     @Override
-                    public void onError (String msg) {
+                    public void onError(String msg) {
 
                     }
                 });
@@ -739,7 +742,7 @@ public class AllMaterialActivity extends BaseActivity implements View.OnClickLis
     }
 
     @Override
-    public void onMenuDelete (AddToMenuShipu shiPu, int type) {
+    public void onMenuDelete(AddToMenuShipu shiPu, int type) {
         NeedRefresh needRefresh = new NeedRefresh(String.class);
         switch (type) {
             case 0:
@@ -772,24 +775,24 @@ public class AllMaterialActivity extends BaseActivity implements View.OnClickLis
         }
     }
 
-    private void showSearchResult () {
+    private void showSearchResult() {
         isShowSearchResult = true;
         ObjectAnimator animator = ObjectAnimator.ofFloat(rl_search_mate, "translationY",
-                - 600, - 500, - 400, - 300, - 200, - 100, 0);
+                -600, -500, -400, -300, -200, -100, 0);
         animator.setDuration(500);
         animator.start();
     }
 
-    private void hideSearchResult () {
+    private void hideSearchResult() {
         isShowSearchResult = false;
         ObjectAnimator animator = ObjectAnimator.ofFloat(rl_search_mate, "translationY",
-                0, - 100, - 200, - 300, - 400, - 500, - 600);
+                0, -100, -200, -300, -400, -500, -600);
         animator.setDuration(500);
         animator.start();
     }
 
     @Override
-    protected void handleMsg0 (Message msg) {
+    protected void handleMsg0(Message msg) {
         List<ShiCai> datas = (List<ShiCai>) msg.obj;
         searchAdapter = new AllLeftAdapter(datas);
         gv_search_mate.setAdapter(searchAdapter);
@@ -798,7 +801,7 @@ public class AllMaterialActivity extends BaseActivity implements View.OnClickLis
     }
 
     @Override
-    protected void handleMsg1 (Message msg) {
+    protected void handleMsg1(Message msg) {
         //填充左边数据,不保持定制状态
         List<ShiCai> datas = (List<ShiCai>) msg.obj;
         ids = new ArrayList<>();
@@ -810,7 +813,7 @@ public class AllMaterialActivity extends BaseActivity implements View.OnClickLis
     }
 
     @Override
-    protected void handleMsg2 (Message msg) {
+    protected void handleMsg2(Message msg) {
         //填充左边数据,保持定制状态
         List<ShiCai> datas = (List<ShiCai>) msg.obj;
         ids = new ArrayList<>();
@@ -824,11 +827,11 @@ public class AllMaterialActivity extends BaseActivity implements View.OnClickLis
     }
 
     @Override
-    protected void handleMsg3 (Message msg) {
+    protected void handleMsg3(Message msg) {
         //早餐菜单
         String json = (String) msg.obj;
         ArrayList<AddToMenuShipu> datas = new ArrayList<>();
-        if (! "null".equals(json)) {
+        if (!"null".equals(json)) {
             Gson gson = new Gson();
             List<MenuAndBlogShiPu> menuShiPus = gson.fromJson(json, new TypeToken<List<MenuAndBlogShiPu>>() {
             }.getType());
@@ -842,11 +845,11 @@ public class AllMaterialActivity extends BaseActivity implements View.OnClickLis
     }
 
     @Override
-    protected void handleMsg4 (Message msg) {
+    protected void handleMsg4(Message msg) {
         //午餐菜单
         String json = (String) msg.obj;
         ArrayList<AddToMenuShipu> datas = new ArrayList<>();
-        if (! "null".equals(json)) {
+        if (!"null".equals(json)) {
             Gson gson = new Gson();
             List<MenuAndBlogShiPu> menuShiPus = gson.fromJson(json, new TypeToken<List<MenuAndBlogShiPu>>() {
             }.getType());
@@ -860,11 +863,11 @@ public class AllMaterialActivity extends BaseActivity implements View.OnClickLis
     }
 
     @Override
-    protected void handleMsg5 (Message msg) {
+    protected void handleMsg5(Message msg) {
         //晚餐菜单
         String json = (String) msg.obj;
         ArrayList<AddToMenuShipu> datas = new ArrayList<>();
-        if (! "null".equals(json)) {
+        if (!"null".equals(json)) {
             Gson gson = new Gson();
             List<MenuAndBlogShiPu> menuShiPus = gson.fromJson(json, new TypeToken<List<MenuAndBlogShiPu>>() {
             }.getType());
@@ -878,7 +881,7 @@ public class AllMaterialActivity extends BaseActivity implements View.OnClickLis
     }
 
     @Override
-    protected void handleMsg6 (Message msg) {
+    protected void handleMsg6(Message msg) {
         if (isJump) {
             sendSubmit2BlogBroadcast();
         }
@@ -889,7 +892,7 @@ public class AllMaterialActivity extends BaseActivity implements View.OnClickLis
     }
 
     @Override
-    protected void handleMsg7 (Message msg) {
+    protected void handleMsg7(Message msg) {
         String name = getGroupNames();
         GroupBean bean = (GroupBean) msg.obj;
         if (currentFragment != 0) {
@@ -921,7 +924,7 @@ public class AllMaterialActivity extends BaseActivity implements View.OnClickLis
     }
 
     @Override
-    protected void handleMsg11 (Message msg) {
+    protected void handleMsg11(Message msg) {
         String name = getGroupNames();
         String tip = TextUtils.isEmpty(name) ? groupNames.get(0) : name;
         tip("暂无“" + tip + "”相关食谱");
@@ -929,31 +932,31 @@ public class AllMaterialActivity extends BaseActivity implements View.OnClickLis
     }
 
     @Override
-    protected void handleMsg8 (Message msg) {
+    protected void handleMsg8(Message msg) {
         List<ShiCai> datas = (List<ShiCai>) msg.obj;
         searchAdapter = new AllLeftAdapter(datas);
         gv_search_mate.setAdapter(searchAdapter);
     }
 
     @Override
-    protected void handleMsg9 (Message msg) {
+    protected void handleMsg9(Message msg) {
         String keyword = (String) msg.obj;
         tip("暂无“" + keyword + "”相关食材");
     }
 
     @Override
-    protected void handleMsg10 (Message msg) {
+    protected void handleMsg10(Message msg) {
         if (gocookingFragment != null) {
             gocookingFragment.refreshData();
         }
     }
 
-    private void sendSubmit2BlogBroadcast () {
+    private void sendSubmit2BlogBroadcast() {
         Intent intent = new Intent("com.kgv.cookbook.SUBMIT_TO_BLOG");
         localBroadcastManager.sendBroadcast(intent);
     }
 
-    private String getGroupNames () {
+    private String getGroupNames() {
         String str = "";
         if (groupNames.size() == 1) {
             return str;
@@ -969,7 +972,7 @@ public class AllMaterialActivity extends BaseActivity implements View.OnClickLis
     }
 
     @Override
-    protected void back () {
+    protected void back() {
         if (currentFragment == 0) {
             exit();
         } else {
@@ -983,35 +986,35 @@ public class AllMaterialActivity extends BaseActivity implements View.OnClickLis
     }
 
     @Override
-    public void onBackPressed () {
+    public void onBackPressed() {
         super.onBackPressed();
         back();
     }
 
     @Override
-    protected void onDestroy () {
+    protected void onDestroy() {
         super.onDestroy();
         localBroadcastManager.unregisterReceiver(receiver);
     }
 
-    private void exit () {
+    private void exit() {
         this.finish();
         overridePendingTransition(R.anim.activity_in_left_2_right, R.anim.activity_out_left_2_right);
     }
 
     private class NeedRefresh extends HttpResponse<String> {
 
-        public NeedRefresh (Class<String> stringClass) {
+        public NeedRefresh(Class<String> stringClass) {
             super(stringClass);
         }
 
         @Override
-        public void onSuccess (String str) {
+        public void onSuccess(String str) {
             myHandler.obtainMessage(10).sendToTarget();
         }
 
         @Override
-        public void onError (String msg) {
+        public void onError(String msg) {
             myHandler.obtainMessage(10).sendToTarget();
         }
     }

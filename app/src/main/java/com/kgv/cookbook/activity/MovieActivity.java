@@ -1,5 +1,7 @@
 package com.kgv.cookbook.activity;
 
+import android.app.Service;
+import android.media.AudioManager;
 import android.os.Bundle;
 import android.view.MotionEvent;
 import android.view.View;
@@ -35,6 +37,7 @@ public class MovieActivity extends BaseActivity {
 
     @Override
     protected void initialization(Bundle savedInstanceState) {
+        mAudioManager = (AudioManager) getSystemService(Service.AUDIO_SERVICE);
         initUI();
         startLoadUrl();
     }
